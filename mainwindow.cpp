@@ -53,3 +53,34 @@ void MainWindow::on_pushButton_16_clicked()
 {
      ui->stackedWidget->setCurrentIndex(4);
 }
+
+void MainWindow::on_pushButton_8_clicked()
+{
+   ui->stackedWidget->setCurrentIndex(5);
+}
+
+
+
+void MainWindow::on_pushButton_21_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(6);
+}
+
+
+void MainWindow::on_pushButton_22_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(7);
+}
+
+
+void MainWindow::on_pushButton_24_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
+
+void MainWindow::on_pushButton_25_clicked()
+{
+   ui->stackedWidget->setCurrentIndex(1);
+}
+
