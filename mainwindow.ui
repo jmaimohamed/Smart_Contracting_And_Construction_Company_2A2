@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>0</y>
+      <y>-10</y>
       <width>1181</width>
       <height>571</height>
      </rect>
@@ -27,7 +27,7 @@
      <string notr="true">background: #111827;</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QGroupBox" name="groupBox_3">
@@ -141,21 +141,27 @@ font-weight: medium;</string>
            </item>
           </layout>
          </widget>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox_2">
-         <property name="styleSheet">
-          <string notr="true">#groupBox_2{
-background-image:url(&quot;C:/Users/moham/Downloads/Smart_Contracting_And_Construction_Company_2A2-master/Smart_Contracting_And_Construction_Company_2A2-master/logo.png&quot;);
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="geometry">
+           <rect>
+            <x>550</x>
+            <y>-50</y>
+            <width>627</width>
+            <height>651</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#groupBox_2{
+background-image:url(&quot;C:/Users/medam/OneDrive/Bureau/les interfaces/Smart_Contracting_And_Construction_Company_2A2-master/logo.png&quot;);
 background-position: center no-repeat;
 background-size: 50%;
 border: none;
 }</string>
-         </property>
-         <property name="title">
-          <string/>
-         </property>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -231,7 +237,7 @@ font-size: 16px;
 font-weight: bold;</string>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Gerer les chantiers</string>
           </property>
          </widget>
         </item>
@@ -583,6 +589,342 @@ font-weight: bold;
         <string>Return</string>
        </property>
       </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_4">
+     <widget class="QTableWidget" name="tableWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>961</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Nom du chantier</string>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="background">
+        <color>
+         <red>94</red>
+         <green>117</green>
+         <blue>153</blue>
+        </color>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Emplacement</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Manager</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Date de début</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Description</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="pushButton_16">
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>130</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Ajouter chantier</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_17">
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>180</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Modifier chantier</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_18">
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>230</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Supprimer chantier</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_15">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: red;
+border-radius:10px;
+
+font-size: 16px;
+font-weight: bold;
+</string>
+      </property>
+      <property name="text">
+       <string>Return</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>290</y>
+        <width>961</width>
+        <height>271</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-color: rgb(13, 148, 136);
+padding: 5px;
+color: teal;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="title">
+       <string>Statistique</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_6">
+      <property name="geometry">
+       <rect>
+        <x>990</x>
+        <y>20</y>
+        <width>161</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #FFFFFF</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>910</x>
+        <y>20</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #0d9488;
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Recherche</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_5">
+     <widget class="QWidget" name="formLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>30</y>
+        <width>401</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="styleSheet">
+          <string notr="true">color: #0d9488;</string>
+         </property>
+         <property name="text">
+          <string>Nom du chantier</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="styleSheet">
+          <string notr="true">color: #0d9488;</string>
+         </property>
+         <property name="text">
+          <string>Emplacement</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="styleSheet">
+          <string notr="true">color: #0d9488;</string>
+         </property>
+         <property name="text">
+          <string>Manager</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="styleSheet">
+          <string notr="true">color: #0d9488;</string>
+         </property>
+         <property name="text">
+          <string>Date de début </string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_11">
+         <property name="styleSheet">
+          <string notr="true">color: #0d9488;</string>
+         </property>
+         <property name="text">
+          <string>Description</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEdit_7">
+         <property name="styleSheet">
+          <string notr="true">color: #FFFFFF</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit_8">
+         <property name="styleSheet">
+          <string notr="true">color: #FFFFFF
+</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="lineEdit_9">
+         <property name="styleSheet">
+          <string notr="true">color: #FFFFFF</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QDateEdit" name="dateEdit">
+         <property name="styleSheet">
+          <string notr="true">color: #FFFFFF</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QTextEdit" name="textEdit">
+         <property name="styleSheet">
+          <string notr="true">color: #FFFFFF</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="pushButton_19">
+      <property name="geometry">
+       <rect>
+        <x>762</x>
+        <y>467</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: red;
+border-radius:10px;
+
+font-size: 16px;
+font-weight: bold;
+</string>
+      </property>
+      <property name="text">
+       <string>Annuler</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_20">
+      <property name="geometry">
+       <rect>
+        <x>760</x>
+        <y>430</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: #0d9488;
+border-radius:10px;
+
+font-size: 16px;
+font-weight: bold;
+</string>
+      </property>
+      <property name="text">
+       <string>Valider</string>
+      </property>
      </widget>
     </widget>
    </widget>

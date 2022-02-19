@@ -28,3 +28,28 @@ void MainWindow::on_pushButton_3_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
 }
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_pushButton_15_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_pushButton_19_clicked()
+{
+   ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_pushButton_20_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_pushButton_16_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(4);
+}
