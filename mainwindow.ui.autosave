@@ -1143,9 +1143,6 @@ border-radius: 25px;</string>
       </layout>
      </widget>
      <zorder>line_13</zorder>
-     <zorder>pushButton_25</zorder>
-     <zorder>pushButton_21</zorder>
-     <zorder>pushButton_22</zorder>
      <zorder>line_11</zorder>
      <zorder>line_12</zorder>
      <zorder>widget_2</zorder>
@@ -1372,7 +1369,7 @@ background: transparent;</string>
       </property>
       <property name="font">
        <font>
-        <family>Ebrima</family>
+        <family>Segoe UI</family>
         <pointsize>12</pointsize>
         <italic>false</italic>
         <bold>true</bold>
@@ -1540,39 +1537,9 @@ letter-spacing: 0.1px;</string>
        </item>
       </layout>
      </widget>
-     <zorder>tableWidget_3</zorder>
-     <zorder>gridLayoutWidget</zorder>
-     <zorder>pushButton_23</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_18</zorder>
-     <zorder>pushButton_23</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_18</zorder>
-     <zorder>pushButton_23</zorder>
-     <zorder>label_14</zorder>
-     <zorder>pushButton_23</zorder>
-     <zorder>pushButton_30</zorder>
-     <zorder>pushButton_31</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_18</zorder>
-     <zorder>layoutWidget_2</zorder>
-     <zorder>layoutWidget_3</zorder>
      <zorder>line_5</zorder>
      <zorder>line_6</zorder>
      <zorder>pushButton_23</zorder>
-     <zorder>pushButton_24</zorder>
-     <zorder>pushButton_26</zorder>
-     <zorder>pushButton_30</zorder>
-     <zorder>widget</zorder>
-     <zorder>label_13</zorder>
-     <zorder>pushButton_24</zorder>
-     <zorder>pushButton_26</zorder>
-     <zorder>pushButton_30</zorder>
-     <zorder>label_12</zorder>
-     <zorder>label_13</zorder>
-     <zorder>tableWidget_3</zorder>
      <zorder>label_12</zorder>
      <zorder>pushButton_31</zorder>
      <zorder>pushButton_32</zorder>
