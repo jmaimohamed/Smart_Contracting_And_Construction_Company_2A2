@@ -31,7 +31,7 @@ border: none;</string>
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>7</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QGroupBox" name="groupBox_3">
@@ -477,6 +477,7 @@ color: teal;
        <property name="font">
         <font>
          <pointsize>10</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
          <underline>true</underline>
          <strikeout>false</strikeout>
@@ -490,6 +491,7 @@ color: teal;
        <property name="font">
         <font>
          <pointsize>10</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
          <underline>true</underline>
         </font>
@@ -502,6 +504,7 @@ color: teal;
        <property name="font">
         <font>
          <pointsize>10</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
          <underline>true</underline>
         </font>
@@ -636,6 +639,7 @@ font-weight: bold;
        </property>
        <property name="font">
         <font>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -1091,6 +1095,7 @@ background: transparent;</string>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
+             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -1120,6 +1125,7 @@ border-radius: 25px;</string>
            <property name="font">
             <font>
              <pointsize>12</pointsize>
+             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -1143,9 +1149,6 @@ border-radius: 25px;</string>
       </layout>
      </widget>
      <zorder>line_13</zorder>
-     <zorder>pushButton_25</zorder>
-     <zorder>pushButton_21</zorder>
-     <zorder>pushButton_22</zorder>
      <zorder>line_11</zorder>
      <zorder>line_12</zorder>
      <zorder>widget_2</zorder>
@@ -1215,6 +1218,7 @@ border-top-left-radius: 20px;
       <property name="font">
        <font>
         <pointsize>16</pointsize>
+        <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
@@ -1239,6 +1243,7 @@ background: transparent;</string>
       <property name="font">
        <font>
         <pointsize>12</pointsize>
+        <weight>50</weight>
         <bold>false</bold>
         <underline>false</underline>
         <strikeout>false</strikeout>
@@ -1374,6 +1379,7 @@ background: transparent;</string>
        <font>
         <family>Ebrima</family>
         <pointsize>12</pointsize>
+        <weight>75</weight>
         <italic>false</italic>
         <bold>true</bold>
        </font>
@@ -1540,39 +1546,9 @@ letter-spacing: 0.1px;</string>
        </item>
       </layout>
      </widget>
-     <zorder>tableWidget_3</zorder>
-     <zorder>gridLayoutWidget</zorder>
-     <zorder>pushButton_23</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_18</zorder>
-     <zorder>pushButton_23</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_18</zorder>
-     <zorder>pushButton_23</zorder>
-     <zorder>label_14</zorder>
-     <zorder>pushButton_23</zorder>
-     <zorder>pushButton_30</zorder>
-     <zorder>pushButton_31</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_18</zorder>
-     <zorder>layoutWidget_2</zorder>
-     <zorder>layoutWidget_3</zorder>
      <zorder>line_5</zorder>
      <zorder>line_6</zorder>
      <zorder>pushButton_23</zorder>
-     <zorder>pushButton_24</zorder>
-     <zorder>pushButton_26</zorder>
-     <zorder>pushButton_30</zorder>
-     <zorder>widget</zorder>
-     <zorder>label_13</zorder>
-     <zorder>pushButton_24</zorder>
-     <zorder>pushButton_26</zorder>
-     <zorder>pushButton_30</zorder>
-     <zorder>label_12</zorder>
-     <zorder>label_13</zorder>
-     <zorder>tableWidget_3</zorder>
      <zorder>label_12</zorder>
      <zorder>pushButton_31</zorder>
      <zorder>pushButton_32</zorder>
@@ -1585,7 +1561,208 @@ letter-spacing: 0.1px;</string>
      <zorder>line_3</zorder>
      <zorder>widget_3</zorder>
     </widget>
-    <widget class="QWidget" name="page_8"/>
+    <widget class="QWidget" name="page_8">
+     <widget class="QGroupBox" name="achatfournisseur">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>0</y>
+        <width>301</width>
+        <height>241</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>GroupBox</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QPushButton" name="pushButton_27">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Achter</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_28">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">pushButton_28{\nborder: 20px;\nborder-radius: 30px;\npadding: 0.8px;\nbackground: gray;\n}\nrgb(255, 255, 255)</string>
+         </property>
+         <property name="text">
+          <string>recue</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="gererfournisseur">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>731</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>GroupBox</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QPushButton" name="pushButton_36">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">pushButton{\nborder: 20px;\nborder-radius: 30px;\npadding: 0.8px;\nbackground: gray;\n}\nrgb(255, 255, 255)</string>
+         </property>
+         <property name="text">
+          <string>Ajouter</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_35">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton_35{
+border: 20px;
+border-radius: 30px;
+padding: 0.8px;
+background: gray;
+}
+rgb(255, 255, 255)</string>
+         </property>
+         <property name="text">
+          <string>Modifier</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_29">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">pushButton_29{\nborder: 20px;\nborder-radius: 30px;\npadding: 0.8px;\nbackground: gray;\n}\nrgb(255, 255, 255)
+rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+      <zorder>pushButton_35</zorder>
+      <zorder>pushButton_29</zorder>
+      <zorder>pushButton_36</zorder>
+     </widget>
+     <widget class="QTableWidget" name="tableau_fournisseur">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>250</y>
+        <width>441</width>
+        <height>361</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Nom</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Lieu</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Prix</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>matiere </string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QGroupBox" name="quitterfournisseur">
+      <property name="geometry">
+       <rect>
+        <x>750</x>
+        <y>250</y>
+        <width>291</width>
+        <height>371</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>GroupBox</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_7">
+       <item>
+        <widget class="QPushButton" name="pushButton_37">
+         <property name="font">
+          <font>
+           <family>Arial Black</family>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">pushButton_37{\nborder: 20px;\nborder-radius: 30px;\npadding: 0.8px;\nbackground: gray;\n}\nrgb(255, 255, 255)</string>
+         </property>
+         <property name="text">
+          <string>Exit</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="emplacementlogof">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>250</y>
+        <width>281</width>
+        <height>371</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image:url(&quot;C:/Users/medam/OneDrive/Bureau/les interfaces/Smart_Contracting_And_Construction_Company_2A2-master/logo.png&quot;);</string>
+      </property>
+      <property name="title">
+       <string>GroupBox</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
