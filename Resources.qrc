@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons8-add-45.png</file>
+        <file>icons8-add-38.png</file>
+        <file>icons8-add-64.png</file>
+        <file>logo.png</file>
+        <file>icons8-cancel-38.png</file>
+        <file>icons8-refresh-38.png</file>
+    </qresource>
+</RCC>
