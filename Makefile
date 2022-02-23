@@ -109,8 +109,6 @@ Makefile: Learning.pro C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++/qmake.co
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_concurrent_private.pri \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_core.pri \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_core_private.pri \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_datavisualization.pri \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_datavisualization_private.pri \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_dbus.pri \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_dbus_private.pri \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_designer.pri \
@@ -147,8 +145,6 @@ Makefile: Learning.pro C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++/qmake.co
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_positioning_private.pri \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_printsupport.pri \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_printsupport_private.pri \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_purchasing.pri \
-		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_purchasing_private.pri \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_qml.pri \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_qml_private.pri \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_qmldebug_private.pri \
@@ -275,8 +271,6 @@ C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_concurrent.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_concurrent_private.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_core.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_core_private.pri:
-C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_datavisualization.pri:
-C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_datavisualization_private.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_dbus.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_dbus_private.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_designer.pri:
@@ -313,8 +307,6 @@ C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_positioning.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_positioning_private.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_printsupport.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_printsupport_private.pri:
-C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_purchasing.pri:
-C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_purchasing_private.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_qml.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_qml_private.pri:
 C:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/modules/qt_lib_qmldebug_private.pri:

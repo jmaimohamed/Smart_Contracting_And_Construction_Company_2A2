@@ -418,9 +418,16 @@ public:
         sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(pushButton_4->sizePolicy().hasHeightForWidth());
         pushButton_4->setSizePolicy(sizePolicy2);
-        pushButton_4->setStyleSheet(QLatin1String("color: #0d9488;\n"
+        pushButton_4->setStyleSheet(QLatin1String("QPushButton:hover#quit_button\n"
+"{\n"
+"   background-color:white;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"color: #0d9488;\n"
 "font-size: 16px;\n"
-"font-weight: bold;"));
+"font-weight: bold;\n"
+"}"));
 
         gridLayout->addWidget(pushButton_4, 1, 1, 1, 1);
 
@@ -2078,7 +2085,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
         stackedWidget_2->setCurrentIndex(2);
 
 
@@ -2097,7 +2104,7 @@ public:
         groupBox_2->setTitle(QString());
         pushButton_5->setText(QApplication::translate("MainWindow", "PushButton", Q_NULLPTR));
         pushButton_3->setText(QApplication::translate("MainWindow", "gerer les Matieres Premieres", Q_NULLPTR));
-        pushButton_4->setText(QApplication::translate("MainWindow", "PushButton", Q_NULLPTR));
+        pushButton_4->setText(QApplication::translate("MainWindow", "Gerer les taches", Q_NULLPTR));
         pushButton_6->setText(QApplication::translate("MainWindow", "gerer les Employees", Q_NULLPTR));
         pushButton_7->setText(QApplication::translate("MainWindow", "Gerer les chantiers", Q_NULLPTR));
         pushButton_8->setText(QApplication::translate("MainWindow", "Gerer les partenaires", Q_NULLPTR));

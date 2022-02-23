@@ -31,7 +31,7 @@ border: none;</string>
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QGroupBox" name="groupBox_3">
@@ -230,12 +230,19 @@ font-weight: bold;</string>
            </sizepolicy>
           </property>
           <property name="styleSheet">
-           <string notr="true">color: #0d9488;
+           <string notr="true">QPushButton:hover#quit_button
+{
+   background-color:white;
+}
+
+QPushButton{
+color: #0d9488;
 font-size: 16px;
-font-weight: bold;</string>
+font-weight: bold;
+}</string>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Gerer les taches</string>
           </property>
          </widget>
         </item>
