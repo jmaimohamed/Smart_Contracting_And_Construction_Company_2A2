@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1068</width>
-    <height>699</height>
+    <width>1157</width>
+    <height>746</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>0</y>
-      <width>1091</width>
-      <height>681</height>
+      <width>1141</width>
+      <height>721</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -465,8 +465,8 @@ font-weight: bold;</string>
        <rect>
         <x>0</x>
         <y>30</y>
-        <width>401</width>
-        <height>261</height>
+        <width>351</width>
+        <height>271</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -518,7 +518,17 @@ font-weight: bold;
        </item>
        <item row="0" column="0">
         <layout class="QGridLayout" name="cle_box">
-         <item row="0" column="0">
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="le_quantite">
+           <property name="styleSheet">
+            <string notr="true">border: 2px solid teal;
+padding: 5px;
+color: teal;
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
           <widget class="QLabel" name="nom">
            <property name="styleSheet">
             <string notr="true">color: #0d9488;
@@ -530,17 +540,7 @@ font-weight: bold;</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="le_nom">
-           <property name="styleSheet">
-            <string notr="true">border: 2px solid teal;
-padding: 5px;
-color: red;
-</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
+         <item row="2" column="0">
           <widget class="QLabel" name="quantite">
            <property name="styleSheet">
             <string notr="true">color: #0d9488;
@@ -552,8 +552,8 @@ font-weight: bold;</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="le_quantite">
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="le_prix">
            <property name="styleSheet">
             <string notr="true">border: 2px solid teal;
 padding: 5px;
@@ -562,7 +562,7 @@ color: teal;
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
+         <item row="3" column="0">
           <widget class="QLabel" name="prix">
            <property name="styleSheet">
             <string notr="true">color: #0d9488;
@@ -574,12 +574,34 @@ font-weight: bold;</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="le_prix">
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="le_nom">
            <property name="styleSheet">
             <string notr="true">border: 2px solid teal;
 padding: 5px;
-color: teal;
+color: red;
+</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="le_idM">
+           <property name="styleSheet">
+            <string notr="true">color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+           </property>
+           <property name="text">
+            <string>Id</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="idM">
+           <property name="styleSheet">
+            <string notr="true">border: 2px solid teal;
+padding: 5px;
+color: yellow;
 </string>
            </property>
           </widget>
@@ -591,10 +613,10 @@ color: teal;
      <widget class="QGroupBox" name="Crud_box">
       <property name="geometry">
        <rect>
-        <x>890</x>
-        <y>10</y>
-        <width>171</width>
-        <height>251</height>
+        <x>920</x>
+        <y>30</y>
+        <width>221</width>
+        <height>421</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -608,9 +630,25 @@ color: teal;
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
-        <widget class="QLineEdit" name="chercherM">
+        <widget class="QLineEdit" name="le_chercherM">
          <property name="placeholderText">
           <string>Search...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="chercherM_2">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Chercher</string>
          </property>
         </widget>
        </item>
@@ -674,26 +712,27 @@ font-weight: bold;</string>
      <widget class="QTableView" name="tab_test">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>0</y>
-        <width>471</width>
+        <x>360</x>
+        <y>30</y>
+        <width>561</width>
         <height>271</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">border: transparent;
+border-color: rgb(107, 255, 251);
 padding: 5px;
 color: teal;
-</string>
+gridline-color: rgb(146, 255, 56);</string>
       </property>
      </widget>
      <widget class="QGroupBox" name="statistique">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>270</y>
-        <width>1051</width>
-        <height>371</height>
+        <y>310</y>
+        <width>901</width>
+        <height>381</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -728,6 +767,69 @@ font-weight: bold;</string>
       <property name="text">
        <string>Retour</string>
       </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>920</x>
+        <y>460</y>
+        <width>221</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>GroupBox</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QRadioButton" name="TriNM">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Tri par Nom </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="TriQM">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Tri par Quantite</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="TriPM">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Tri par Prix</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="chantiers">
@@ -1061,7 +1163,7 @@ font-weight: bold;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1068</width>
+     <width>1157</width>
      <height>26</height>
     </rect>
    </property>

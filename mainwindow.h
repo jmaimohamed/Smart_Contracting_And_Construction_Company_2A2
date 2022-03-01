@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "matierep.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -40,7 +40,33 @@ private slots:
 
     void on_Retour_employe_clicked();
 
+    void on_supprimer_mp_clicked();
+
+    void on_ajouter_mp_clicked();
+
+    void on_update_mp_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_le_chercherM_clicked();
+
+    void on_chercherM_2_clicked();
+
+    void on_TriN_clicked();
+
+    void on_TriQ_clicked();
+
+    void on_radioButton_clicked(bool checked);
+
+    void on_TriNM_clicked(bool checked);
+
+    void on_TriQM_clicked(bool checked);
+
+    void on_TriPM_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
+    MatiereP M;
+
 };
 #endif // MAINWINDOW_H
