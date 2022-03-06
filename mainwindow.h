@@ -45,6 +45,12 @@ private slots:
 
     void on_ajouter_clicked();
 
+    void on_supprimer_c_clicked();
+
+    void on_chan_clicked(const QModelIndex &index);
+
+    void on_modif_clicked();
+
 private:
     Ui::MainWindow *ui;
     chantiers a ;
