@@ -17,8 +17,8 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>-20</x>
+      <y>-10</y>
       <width>1091</width>
       <height>681</height>
      </rect>
@@ -27,7 +27,7 @@
      <string notr="true">background: #111827;</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="login_page">
      <widget class="QGroupBox" name="login_group">
@@ -820,7 +820,7 @@ font-weight: bold;</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="modif">
+           <widget class="QPushButton" name="modifi">
             <property name="styleSheet">
              <string notr="true">border: 2px solid grey;
 padding: 5px;
@@ -1093,6 +1093,178 @@ font-weight: bold;</string>
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="modifierch">
+     <widget class="QPushButton" name="modifier">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>600</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>modifier</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="formLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>30</y>
+        <width>421</width>
+        <height>601</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_3">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_13">
+         <property name="styleSheet">
+          <string notr="true">color: teal;
+font: 10pt &quot;MS Shell Dlg 2&quot;;
+</string>
+         </property>
+         <property name="text">
+          <string>idc</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="le_idc_3">
+         <property name="styleSheet">
+          <string notr="true">color:	#FFFFFF;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_14">
+         <property name="styleSheet">
+          <string notr="true">color: teal;
+font: 10pt &quot;MS Shell Dlg 2&quot;;
+</string>
+         </property>
+         <property name="text">
+          <string>Emplacement</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="emplacement_3">
+         <property name="styleSheet">
+          <string notr="true">color:	#FFFFFF;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_15">
+         <property name="styleSheet">
+          <string notr="true">color: teal;
+font: 10pt &quot;MS Shell Dlg 2&quot;;
+</string>
+         </property>
+         <property name="text">
+          <string>Surface</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="surface_3">
+         <property name="styleSheet">
+          <string notr="true">color:	#FFFFFF;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_16">
+         <property name="styleSheet">
+          <string notr="true">color: teal;
+font: 10pt &quot;MS Shell Dlg 2&quot;;
+</string>
+         </property>
+         <property name="text">
+          <string>Description</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="description_3">
+         <property name="styleSheet">
+          <string notr="true">color:	#FFFFFF;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_17">
+         <property name="styleSheet">
+          <string notr="true">color: teal;
+font: 10pt &quot;MS Shell Dlg 2&quot;;
+</string>
+         </property>
+         <property name="text">
+          <string>date debut</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="date_3">
+         <property name="styleSheet">
+          <string notr="true">color:	#FFFFFF;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_18">
+         <property name="styleSheet">
+          <string notr="true">color: teal;
+font: 10pt &quot;MS Shell Dlg 2&quot;;
+</string>
+         </property>
+         <property name="text">
+          <string>date fin</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="date2_3">
+         <property name="styleSheet">
+          <string notr="true">color:	#FFFFFF;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="retour_chantier_5">
+      <property name="geometry">
+       <rect>
+        <x>730</x>
+        <y>600</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #FF0000;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Retour</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="Taches">
      <widget class="QGroupBox" name="main_taches">
       <property name="geometry">
@@ -1263,7 +1435,7 @@ font-weight: bold;</string>
      <x>0</x>
      <y>0</y>
      <width>1068</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

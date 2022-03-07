@@ -47,9 +47,13 @@ private slots:
 
     void on_supprimer_c_clicked();
 
-    void on_chan_clicked(const QModelIndex &index);
 
-    void on_modif_clicked();
+
+    void on_modifi_clicked();
+
+    void on_retour_chantier_5_clicked();
+
+    void on_modifier_clicked();
 
 private:
     Ui::MainWindow *ui;

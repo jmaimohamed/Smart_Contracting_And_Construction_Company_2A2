@@ -23,9 +23,9 @@ void setdate_fin(QDate);
 bool ajouter() ;
 QSqlQueryModel* afficher();
 bool supprimer(int);
-bool modifier(int,QString,int,QString,QDate,QDate) ;
+bool modifier() ;
 private:
-    int id_c ,surface;
+    int id_c,surface;
     QString description,emplacement ;
     QDate date_debut,date_fin ;
 };

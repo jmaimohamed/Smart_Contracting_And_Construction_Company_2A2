@@ -97,17 +97,19 @@ bool chantiers::supprimer(int id_c){
     return  query.exec();
 }
 
-bool chantiers::modifier(int id_c , QString emplacement,int surface ,QString description ,QDate date_debut,QDate date_fin)
+bool chantiers::modifier()
 {
 
   QSqlQuery query;
-        query.prepare("UPDATE CHANTIERS set ID_C=:ID_C, EMPLACEMENT=:EMPLACEMENT,SURFACE=:SURFACE,DESCRIPTION=:DESCRIPTION,DATE_DEBUT=:DATE_DEBUT,DATE_FIN=:DATE_FIN) ");
+        query.prepare("UPDATE CHANTIERS SET ID_C=:ID_C, EMPLACEMENT=:EMPLACEMENT,SURFACE=:SURFACE,DESCRIPTION=:DESCRIPTION,DATE_DEBUT=:DATE_DEBUT,DATE_FIN=:DATE_FIN "
+                      "WHERE ID_C=:ID_C ");
         query.bindValue(":ID_C",id_c);
      query.bindValue(":EMPLACEMENT",emplacement);
      query.bindValue(":SURFACE", surface);
           query.bindValue(":DESCRIPTION", description);
      query.bindValue(":DATE_DEBUT", date_debut);
      query.bindValue(":DATE_FIN", date_fin);
-
-  return  query.exec();
+query.exec();
+ bool test=true ;
+  return  test ;
 }

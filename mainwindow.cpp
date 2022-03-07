@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->chan->setModel(a.afficher()) ;
+    ui->chan->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
 
 MainWindow::~MainWindow()
@@ -139,13 +140,36 @@ void MainWindow::on_supprimer_c_clicked()
          msgBox.exec() ;
 }
 
-void MainWindow::on_modif_clicked()
+
+
+void MainWindow::on_modifi_clicked()
 {
-        int id_c=ui->le_idc->text().toInt();
-        QString emplacement=ui->emplacement->text();
-        int surface=ui->surface->text().toInt();
-        QString description=ui->description->text();
-        chantiers C(id_c, emplacement , surface, description ,QDate::currentDate(), QDate::currentDate());
-        C.modifier(id_c, emplacement , surface, description ,QDate::currentDate(), QDate::currentDate());
-        ui->chan->setModel(C.afficher());
+    ui->stackedWidget->setCurrentIndex(6);
+     QItemSelectionModel *selected1 = ui->chan->selectionModel() ;
+     ui->le_idc_3->setText(selected1->selectedRows().value(0).data().toString());
+     ui->emplacement_3->setText(selected1->selectedRows(1).value(0).data().toString());
+       ui->surface_3->setText(selected1->selectedRows(2).value(0).data().toString());
+       ui->description_3->setText(selected1->selectedRows(3).value(0).data().toString());
+       ui->date_3->setText(selected1->selectedRows(4).value(0).data().toString());
+       ui->date2_3->setText(selected1->selectedRows(5).value(0).data().toString());
+}
+
+void MainWindow::on_retour_chantier_5_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(4);
+}
+
+void MainWindow::on_modifier_clicked()
+{
+   chantiers c(ui->le_idc_3->text().toInt(),ui->emplacement_3->text(), ui->surface_3->text().toInt(),ui->description_3->text() ,QDate::currentDate(), QDate::currentDate());
+    bool test=c.modifier();
+    QMessageBox msgBox ;
+    if(test)
+       {
+        msgBox.setText("modification avec succes");
+        ui->chan->setModel(c.afficher());
+    }
+        else
+         msgBox.setText("echec de modfication");
+         msgBox.exec() ;
 }
