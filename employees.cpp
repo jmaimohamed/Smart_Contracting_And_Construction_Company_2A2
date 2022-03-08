@@ -39,7 +39,7 @@ bool Employees::supprimer(int id)
 {
     QSqlQuery query;
     QString res=QString::number(id);
-    query.prepare("Delete from employees where ID= :id");
+    query.prepare("Delete from employees where ID_E= :id");
     query.bindValue(":id",res);
     return query.exec();
 }
@@ -56,4 +56,21 @@ QSqlQueryModel * Employees::afficher()
     model->setHeaderData(5,Qt::Horizontal,QObject::tr("LOGIN"));
     model->setHeaderData(6,Qt::Horizontal,QObject::tr("PASSWORD"));
     return model;
+}
+
+bool Employees::modifier(){
+    bool test=false;
+
+    QSqlQuery query;
+      query.prepare("UPDATE EMPLOYEES SET ID_E=:ID_E, NOM_E=:NOM_E, SALAIRE=:SALAIRE, ROLE=:ROLE, LOGIN=:LOGIN, PASSWORD=:PASSWORD "
+                    "WHERE ID_E=:ID_E");
+      query.bindValue(":ID_E",id);
+      query.bindValue(":NOM_E",nom);
+      query.bindValue(":SALAIRE", salaire);
+      query.bindValue(":ROLE", role);
+      query.bindValue(":LOGIN", login);
+      query.bindValue(":PASSWORD", password);
+      query.exec();
+      test =true;
+    return test ;
 }

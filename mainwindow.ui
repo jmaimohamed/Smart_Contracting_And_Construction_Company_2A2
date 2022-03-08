@@ -298,150 +298,165 @@ QPushButton:hover
      </widget>
     </widget>
     <widget class="QWidget" name="Employe">
-     <widget class="QGroupBox" name="main_employe">
+     <widget class="QTableView" name="tableView_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>40</y>
-        <width>741</width>
-        <height>451</height>
+        <x>10</x>
+        <y>50</y>
+        <width>1041</width>
+        <height>581</height>
        </rect>
       </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
       <property name="styleSheet">
-       <string notr="true">border: transparent;
-padding: 5px;
+       <string notr="true">QWidget {
+    background-color: #111827;
+  	color: white;
+}
+
+QHeaderView::section {
+    background-color: #111827;
+    padding: 2px;
+    border: 1px solid #ff5500;
+    font-size: 13pt;
 color: teal;
-</string>
+}
+
+QTableWidget {
+    gridline-color: teal;
+    font-size: 11pt;
+	color: white;
+}
+
+QTableWidget QTableCornerButton::section {
+    background-color: #646464;
+    border: 1px solid #ff5500;
+}</string>
       </property>
-      <property name="title">
-       <string/>
+     </widget>
+     <widget class="QComboBox" name="tri_emp">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>10</y>
+        <width>188</width>
+        <height>28</height>
+       </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <property name="text">
+        <string>Trier Par Nom</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Trier par date d'embauche</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Trier Par Id</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>0</y>
+        <width>340</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_9">
        <item>
-        <widget class="QTableView" name="tableView_2">
+        <widget class="QPushButton" name="ajouter_em">
+         <property name="minimumSize">
+          <size>
+           <width>41</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="styleSheet">
-          <string notr="true">border: transparent;
-padding: 5px;
-color: teal;
-</string>
+          <string notr="true">#ajouter_em {
+background-color: green;
+color:white;
+border: none;
+background-repeat: none;
+font-size:15px;
+padding:8px;
+border-radius: 10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Ajouter</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QGroupBox" name="Crud_box_4">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
+        <widget class="QPushButton" name="modifier_emp">
          <property name="styleSheet">
-          <string notr="true">border: transparent;
-padding: 5px;
-color: teal;
-</string>
+          <string notr="true">background-color: #00007f;
+color:white;
+border: none;
+background-repeat: none;
+font-size:15px;
+padding:8px;
+border-radius: 10px;</string>
          </property>
-         <property name="title">
-          <string/>
+         <property name="text">
+          <string>Modifier</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_5">
-          <item>
-           <widget class="QLineEdit" name="chercher_employe">
-            <property name="styleSheet">
-             <string notr="true">border: 2px solid grey;
-padding: 5px;
-color: teal;
-border-radius: 10px;
-color: #0d9488;
-font-size: 16px;
-font-weight: bold;</string>
-            </property>
-            <property name="placeholderText">
-             <string>chercher...</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="ajouter_employe">
-            <property name="styleSheet">
-             <string notr="true">border: 2px solid grey;
-padding: 5px;
-color: teal;
-border-radius: 10px;
-color: #0d9488;
-font-size: 16px;
-font-weight: bold;</string>
-            </property>
-            <property name="text">
-             <string>Ajouter</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="modifier_employe">
-            <property name="styleSheet">
-             <string notr="true">border: 2px solid grey;
-padding: 5px;
-color: teal;
-border-radius: 10px;
-color: #0d9488;
-font-size: 16px;
-font-weight: bold;</string>
-            </property>
-            <property name="text">
-             <string>Modifier</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="supprimer_employe">
-            <property name="styleSheet">
-             <string notr="true">border: 2px solid grey;
-padding: 5px;
-color: teal;
-border-radius: 10px;
-color: #0d9488;
-font-size: 16px;
-font-weight: bold;</string>
-            </property>
-            <property name="text">
-             <string>Supprimer</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="trier_employe">
-            <property name="styleSheet">
-             <string notr="true">border: 2px solid grey;
-padding: 5px;
-color: teal;
-border-radius: 10px;
-color: #0d9488;
-font-size: 16px;
-font-weight: bold;</string>
-            </property>
-            <property name="text">
-             <string>Trier</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="del_emp">
+         <property name="styleSheet">
+          <string notr="true">background-color: #b80000;
+color:white;
+border: none;
+background-repeat: none;
+font-size:15px;
+padding:8px;
+border-radius: 10px;</string>
+         </property>
+         <property name="text">
+          <string>Supprimer</string>
+         </property>
         </widget>
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="Retour_employe">
+     <widget class="QLineEdit" name="chercher_employe">
+      <property name="geometry">
+       <rect>
+        <x>870</x>
+        <y>0</y>
+        <width>188</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Rechercher</string>
+      </property>
+      <property name="placeholderText">
+       <string>chercher...</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Retour_employe_3">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>131</width>
+        <width>251</width>
         <height>41</height>
        </rect>
       </property>
@@ -458,18 +473,26 @@ font-weight: bold;</string>
        <string>Retour</string>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="ajouter_emp_p">
      <widget class="QWidget" name="formLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>780</x>
-        <y>40</y>
-        <width>281</width>
+        <x>360</x>
+        <y>30</y>
+        <width>391</width>
         <height>591</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout">
        <item row="0" column="0">
         <widget class="QLabel" name="id_emp">
+         <property name="styleSheet">
+          <string notr="true">
+font-size: 16px;
+font-weight: bold;
+color: rgb(255, 0, 0);</string>
+         </property>
          <property name="text">
           <string>ID</string>
          </property>
@@ -477,57 +500,416 @@ font-weight: bold;</string>
        </item>
        <item row="0" column="1">
         <widget class="QLineEdit" name="id_emp_i">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{ background-color:#111827;
+border: 2px solid teal;
+border-radius: 10px;
+padding: 0 8px;
+selection-background-color: darkgray;
+font-size: 25px;}
+QLineEdit:focus { background-color:rgb(192, 192, 255);}</string>
+         </property>
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="role_emp">
-         <property name="text">
-          <string>ROLE</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="role_emp_i"/>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="login_emp">
-         <property name="text">
-          <string>LOGIN</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLineEdit" name="login_emp_i"/>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="pass_emp">
-         <property name="text">
-          <string>PASSWORD</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QLineEdit" name="pass_emp_i"/>
-       </item>
-       <item row="5" column="1">
-        <widget class="QPushButton" name="ajouter_emp">
-         <property name="text">
-          <string>Ajouter Employe</string>
-         </property>
-        </widget>
-       </item>
        <item row="1" column="0">
         <widget class="QLabel" name="nom_emp">
+         <property name="styleSheet">
+          <string notr="true">
+font-size: 16px;
+font-weight: bold;
+color: rgb(255, 0, 0);</string>
+         </property>
          <property name="text">
           <string>NOM</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="nom_emp_i"/>
+        <widget class="QLineEdit" name="nom_emp_i">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{ background-color:#111827;
+border: 2px solid teal;
+border-radius: 10px;
+padding: 0 8px;
+selection-background-color: darkgray;
+font-size: 25px;}
+QLineEdit:focus { background-color:rgb(192, 192, 255);}</string>
+         </property>
+         <property name="inputMask">
+          <string>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="role_emp">
+         <property name="styleSheet">
+          <string notr="true">
+font-size: 16px;
+font-weight: bold;
+color: rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>ROLE</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="login_emp">
+         <property name="styleSheet">
+          <string notr="true">
+font-size: 16px;
+font-weight: bold;
+color: rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>LOGIN</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="login_emp_i">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{ background-color:#111827;
+border: 2px solid teal;
+border-radius: 10px;
+padding: 0 8px;
+selection-background-color: darkgray;
+font-size: 25px;}
+QLineEdit:focus { background-color:rgb(192, 192, 255);}</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="pass_emp">
+         <property name="styleSheet">
+          <string notr="true">
+font-size: 16px;
+font-weight: bold;
+color: rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>PASSWORD</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="pass_emp_i">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{ background-color:#111827;
+border: 2px solid teal;
+border-radius: 10px;
+padding: 0 8px;
+selection-background-color: darkgray;
+font-size: 25px;}
+QLineEdit:focus { background-color:rgb(192, 192, 255);}</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QPushButton" name="ajouter_emp">
+         <property name="styleSheet">
+          <string notr="true">background-color:#111827;
+color:red;
+border: none;
+background-repeat: none;
+font-size:20px;
+padding:8px;
+border-radius: 10px;
+border: 2px solid teal;</string>
+         </property>
+         <property name="text">
+          <string>Ajouter Employe</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="role_emp_i">
+         <property name="styleSheet">
+          <string notr="true">background-color:#111827;
+border: 2px solid teal;
+border-radius: 10px;
+padding: 0 8px;
+selection-background-color: darkgray;
+font-size: 25px;
+color:white;</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Chef</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Ingenieur</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Architecte</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Ouvrier</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="Retour_employe_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>311</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Retour</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="modifer_emp">
+     <widget class="QPushButton" name="Retour_employe_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>311</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Retour</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="formLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>20</y>
+        <width>391</width>
+        <height>591</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="id_emp_2">
+         <property name="styleSheet">
+          <string notr="true">
+font-size: 16px;
+font-weight: bold;
+color: rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="id_emp_i_2">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{ background-color:#111827;
+border: 2px solid teal;
+border-radius: 10px;
+padding: 0 8px;
+selection-background-color: darkgray;
+color:white;
+font-size: 25px;}
+QLineEdit:focus { background-color:rgb(192, 192, 255);}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="cursorMoveStyle">
+          <enum>Qt::VisualMoveStyle</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="nom_emp_2">
+         <property name="styleSheet">
+          <string notr="true">
+font-size: 16px;
+font-weight: bold;
+color: rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>NOM</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="nom_emp_i_2">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{ background-color:#111827;
+border: 2px solid teal;
+border-radius: 10px;
+color:white;
+padding: 0 8px;
+selection-background-color: darkgray;
+font-size: 25px;}
+QLineEdit:focus { background-color:rgb(192, 192, 255);}</string>
+         </property>
+         <property name="inputMask">
+          <string>AAAAAAAAAAAAAAAAAAAAAAA</string>
+         </property>
+         <property name="cursorPosition">
+          <number>0</number>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <property name="cursorMoveStyle">
+          <enum>Qt::LogicalMoveStyle</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="role_emp_2">
+         <property name="styleSheet">
+          <string notr="true">
+font-size: 16px;
+font-weight: bold;
+color: rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>ROLE</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="login_emp_2">
+         <property name="styleSheet">
+          <string notr="true">
+font-size: 16px;
+font-weight: bold;
+color: rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>LOGIN</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="login_emp_i_2">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{ background-color:#111827;
+border: 2px solid teal;
+color:white;
+border-radius: 10px;
+padding: 0 8px;
+selection-background-color: darkgray;
+font-size: 25px;}
+QLineEdit:focus { background-color:rgb(192, 192, 255);}</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="pass_emp_2">
+         <property name="styleSheet">
+          <string notr="true">
+font-size: 16px;
+font-weight: bold;
+color: rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>PASSWORD</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="pass_emp_i_2">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{ background-color:#111827;
+border: 2px solid teal;
+border-radius: 10px;
+color:white;
+padding: 0 8px;
+selection-background-color: darkgray;
+font-size: 25px;}
+QLineEdit:focus { background-color:rgb(192, 192, 255);}</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QPushButton" name="ajouter_emp_2">
+         <property name="styleSheet">
+          <string notr="true">background-color:#111827;
+color:red;
+border: none;
+background-repeat: none;
+font-size:23px;
+padding:8px;
+border-radius: 10px;
+border: 2px solid teal;</string>
+         </property>
+         <property name="text">
+          <string>Modifer Employe</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="role_emp_i_2">
+         <property name="styleSheet">
+          <string notr="true">background-color:#111827;
+border: 2px solid teal;
+border-radius: 10px;
+padding: 0 8px;
+selection-background-color: darkgray;
+font-size: 25px;
+color:white;</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Chef</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Ingenieur</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Architecte</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Ouvrier</string>
+          </property>
+         </item>
+        </widget>
        </item>
       </layout>
      </widget>

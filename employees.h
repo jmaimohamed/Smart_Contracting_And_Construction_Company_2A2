@@ -5,6 +5,8 @@
 #include <QSqlQueryModel>
 #include <QDate>
 #include <QMessageBox>
+#include <QIntValidator>
+#include <QDebug>
 class Employees
 {
 int id,salaire;
@@ -16,6 +18,7 @@ public:
     Employees(int id,QString nom,QDate date_emb ,int salaire,QString role,QString login,QString password);
     bool ajouter();
     bool supprimer(int id);
+    bool modifier();
     QSqlQueryModel* afficher();
 };
 

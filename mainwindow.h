@@ -44,6 +44,20 @@ private slots:
 
     void on_ajouter_emp_clicked();
 
+    void on_del_emp_clicked();
+
+    void on_Retour_employe_3_clicked();
+
+    void on_ajouter_em_clicked();
+
+    void on_Retour_employe_2_clicked();
+
+    void on_ajouter_emp_2_clicked();
+
+    void on_modifier_emp_clicked();
+
+    void on_Retour_employe_4_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employees Emp;
