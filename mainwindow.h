@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "tache.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -40,7 +40,14 @@ private slots:
 
     void on_Retour_employe_clicked();
 
+    void on_ajouter_tache_clicked();
+
+    void on_supprimer_tache_clicked();
+
+    void on_modifier_tache_clicked();
+
 private:
     Ui::MainWindow *ui;
+    Tache T;
 };
 #endif // MAINWINDOW_H
