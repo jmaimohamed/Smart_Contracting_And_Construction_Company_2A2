@@ -27,7 +27,7 @@
      <string notr="true">background: #111827;</string>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="login_page">
      <widget class="QGroupBox" name="login_group">
@@ -788,7 +788,7 @@ color: teal;
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QLineEdit" name="chercher_chantiers">
+           <widget class="QLineEdit" name="chercher_ch">
             <property name="styleSheet">
              <string notr="true">border: 2px solid grey;
 padding: 5px;
@@ -800,6 +800,22 @@ font-weight: bold;</string>
             </property>
             <property name="placeholderText">
              <string>chercher...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="chercher1">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+            </property>
+            <property name="text">
+             <string>chercher</string>
             </property>
            </widget>
           </item>
@@ -852,7 +868,7 @@ font-weight: bold;</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="trier_chantiers">
+           <widget class="QCheckBox" name="triem">
             <property name="styleSheet">
              <string notr="true">border: 2px solid grey;
 padding: 5px;
@@ -863,7 +879,39 @@ font-size: 16px;
 font-weight: bold;</string>
             </property>
             <property name="text">
-             <string>Trier</string>
+             <string>tri par emplacement</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="trida">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+            </property>
+            <property name="text">
+             <string>tri par date</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="trisur">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+            </property>
+            <property name="text">
+             <string>tri par surface</string>
             </property>
            </widget>
           </item>
@@ -949,6 +997,9 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;
          <property name="styleSheet">
           <string notr="true">color:	#FFFFFF;</string>
          </property>
+         <property name="inputMask">
+          <string>9999</string>
+         </property>
         </widget>
        </item>
        <item row="1" column="0">
@@ -987,6 +1038,9 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;
          <property name="styleSheet">
           <string notr="true">color:	#FFFFFF;</string>
          </property>
+         <property name="inputMask">
+          <string>99999</string>
+         </property>
         </widget>
        </item>
        <item row="3" column="0">
@@ -1020,13 +1074,6 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;
          </property>
         </widget>
        </item>
-       <item row="4" column="1">
-        <widget class="QLineEdit" name="date">
-         <property name="styleSheet">
-          <string notr="true">color:	#FFFFFF;</string>
-         </property>
-        </widget>
-       </item>
        <item row="5" column="0">
         <widget class="QLabel" name="label_7">
          <property name="styleSheet">
@@ -1039,8 +1086,16 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;
          </property>
         </widget>
        </item>
+       <item row="4" column="1">
+        <widget class="QDateEdit" name="dateEdit">
+         <property name="styleSheet">
+          <string notr="true">color:	#FFFFFF;
+</string>
+         </property>
+        </widget>
+       </item>
        <item row="5" column="1">
-        <widget class="QLineEdit" name="date2">
+        <widget class="QDateEdit" name="dateEdit_2">
          <property name="styleSheet">
           <string notr="true">color:	#FFFFFF;</string>
          </property>
@@ -1435,7 +1490,7 @@ font-weight: bold;</string>
      <x>0</x>
      <y>0</y>
      <width>1068</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

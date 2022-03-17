@@ -97,7 +97,9 @@ void MainWindow::on_ajouter_clicked()
   QString emplacement=ui->emplacement->text() ;
   int surface=ui->surface->text().toInt();
     QString description=ui->description->text() ;
-  chantiers C(id_c, emplacement , surface, description ,QDate::currentDate(), QDate::currentDate());
+    QDate date_debut = ui->dateEdit->date();
+QDate date_fin = ui->dateEdit_2->date();
+  chantiers C(id_c, emplacement , surface, description ,date_debut, date_fin);
   bool test=C.ajouter();
   QMessageBox msgBox ;
   if(test)
@@ -110,18 +112,7 @@ void MainWindow::on_ajouter_clicked()
 }
 
 
-QSqlQueryModel* chantiers::afficher()
-{
-QSqlQueryModel* model=new QSqlQueryModel();
-      model->setQuery("SELECT * FROM CHANTIERS");
-      model->setHeaderData(0, Qt::Horizontal,QObject::tr("ID_C"));
-      model->setHeaderData(1, Qt::Horizontal,QObject::tr("EMPLACEMENT"));
-       model->setHeaderData(2, Qt::Horizontal,QObject::tr("SURFACE"));
-       model->setHeaderData(3, Qt::Horizontal,QObject::tr("DESCRIPTION"));
-       model->setHeaderData(4, Qt::Horizontal,QObject::tr("DATE_DEBUT"));
-  model->setHeaderData(5, Qt::Horizontal,QObject::tr("DATE_FIN"));
-       return model ;
-}
+
 
 void MainWindow::on_supprimer_c_clicked()
 {
@@ -172,4 +163,34 @@ void MainWindow::on_modifier_clicked()
         else
          msgBox.setText("echec de modfication");
          msgBox.exec() ;
+}
+
+
+void MainWindow::on_chercher1_clicked()
+{
+    chantiers c ;
+    QString cher =ui->chercher_ch->text();
+    ui->chan->setModel(c.chercher(cher));
+}
+
+
+void MainWindow::on_triem_clicked()
+{
+  chantiers c ;
+c.tri_emplacement() ;
+ui->chan->setModel(c.tri_emplacement());
+}
+
+void MainWindow::on_trida_clicked()
+{
+    chantiers c ;
+  c.tri_date() ;
+  ui->chan->setModel(c.tri_date());
+}
+
+void MainWindow::on_trisur_clicked()
+{
+    chantiers c;
+    c.tri_surface() ;
+    ui->chan->setModel(c.tri_surface());
 }

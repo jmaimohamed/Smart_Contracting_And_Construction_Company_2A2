@@ -24,6 +24,10 @@ bool ajouter() ;
 QSqlQueryModel* afficher();
 bool supprimer(int);
 bool modifier() ;
+QSqlQueryModel* chercher(QString);
+QSqlQueryModel* tri_emplacement();
+QSqlQueryModel* tri_date();
+QSqlQueryModel* tri_surface();
 private:
     int id_c,surface;
     QString description,emplacement ;

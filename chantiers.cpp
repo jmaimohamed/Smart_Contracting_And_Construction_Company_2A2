@@ -4,18 +4,16 @@
 #include <QSqlQueryModel>
 #include <QObject>
 #include <QDate>
+
 chantiers::chantiers()
 {
     id_c=0;
     emplacement="";
     surface=0 ;
         description="";
-     date_debut=QDate::currentDate() ;
-      date_fin=QDate::currentDate() ;
 
 
 }
-
 
 chantiers::chantiers(int id_c , QString emplacement, int surface, QString description  ,QDate date_debut,QDate date_fin)
 {
@@ -96,7 +94,18 @@ bool chantiers::supprimer(int id_c){
 
     return  query.exec();
 }
-
+QSqlQueryModel* chantiers::afficher()
+{
+QSqlQueryModel* model=new QSqlQueryModel();
+      model->setQuery("SELECT * FROM CHANTIERS");
+      model->setHeaderData(0, Qt::Horizontal,QObject::tr("ID_C"));
+      model->setHeaderData(1, Qt::Horizontal,QObject::tr("EMPLACEMENT"));
+       model->setHeaderData(2, Qt::Horizontal,QObject::tr("SURFACE"));
+       model->setHeaderData(3, Qt::Horizontal,QObject::tr("DESCRIPTION"));
+       model->setHeaderData(4, Qt::Horizontal,QObject::tr("DATE_DEBUT"));
+       model->setHeaderData(5, Qt::Horizontal,QObject::tr("DATE_FIN"));
+       return model ;
+}
 bool chantiers::modifier()
 {
 
@@ -112,4 +121,29 @@ bool chantiers::modifier()
 query.exec();
  bool test=true ;
   return  test ;
+}
+QSqlQueryModel * chantiers::chercher(QString cher)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+ model->setQuery("select * from CHANTIERS where upper(EMPLACEMENT) LIKE upper('%"+cher+"%')");
+return model;
+}
+QSqlQueryModel * chantiers::tri_emplacement()
+{
+ QSqlQueryModel * model= new QSqlQueryModel();
+ model->setQuery("select * from CHANTIERS order by upper(EMPLACEMENT)");
+ return model;
+}
+QSqlQueryModel * chantiers::tri_date()
+{
+ QSqlQueryModel * model= new QSqlQueryModel();
+ model->setQuery("select * from CHANTIERS order by DATE_DEBUT");
+ return model;
+}
+QSqlQueryModel * chantiers::tri_surface()
+{
+ QSqlQueryModel * model= new QSqlQueryModel();
+ model->setQuery("select * from CHANTIERS order by SURFACE");
+ return model;
 }

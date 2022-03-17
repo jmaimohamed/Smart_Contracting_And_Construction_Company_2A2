@@ -55,6 +55,15 @@ private slots:
 
     void on_modifier_clicked();
 
+
+    void on_chercher1_clicked();
+
+    void on_triem_clicked();
+
+    void on_trida_clicked();
+
+    void on_trisur_clicked();
+
 private:
     Ui::MainWindow *ui;
     chantiers a ;
