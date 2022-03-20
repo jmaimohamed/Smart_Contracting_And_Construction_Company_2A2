@@ -44,10 +44,36 @@ bool Employees::supprimer(int id)
     return query.exec();
 }
 
-QSqlQueryModel * Employees::afficher()
+QSqlQueryModel * Employees::afficher(int index,bool direction,QString search)
 {
+    QString sort_categ;
+    switch (index)
+    {
+    case 0:
+        sort_categ="NOM_E";
+        break;
+    case 1:
+        sort_categ="DATE_EMB";
+        break;
+    case 2:
+        sort_categ="ID_E";
+        break;
+    }
+    QString dir;
+    if (direction)
+        dir="DESC";
+                else dir="ASC";
+
     QSqlQueryModel * model=new QSqlQueryModel();
-    model->setQuery("select * from employees");
+    QString query;
+    if(search=="")
+    {
+        query="select * from employees order by "+sort_categ+" "+dir;
+    }
+        else {
+     query="select * from employees where NOM_E like '"+search+"' order by "+sort_categ+" "+dir;
+    }
+    model->setQuery(query);
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_E"));
     model->setHeaderData(1,Qt::Horizontal,QObject::tr("NOM_E"));
     model->setHeaderData(2,Qt::Horizontal,QObject::tr("DATE_EMB"));
@@ -59,7 +85,6 @@ QSqlQueryModel * Employees::afficher()
 }
 
 bool Employees::modifier(){
-    bool test=false;
 
     QSqlQuery query;
       query.prepare("UPDATE EMPLOYEES SET ID_E=:ID_E, NOM_E=:NOM_E, SALAIRE=:SALAIRE, ROLE=:ROLE, LOGIN=:LOGIN, PASSWORD=:PASSWORD "
@@ -70,7 +95,5 @@ bool Employees::modifier(){
       query.bindValue(":ROLE", role);
       query.bindValue(":LOGIN", login);
       query.bindValue(":PASSWORD", password);
-      query.exec();
-      test =true;
-    return test ;
+    return query.exec() ;
 }

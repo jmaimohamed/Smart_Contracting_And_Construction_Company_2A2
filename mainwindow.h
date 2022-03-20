@@ -14,6 +14,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    int emp_tri_dir;
 
 private slots:
     void on_login_button_clicked();
@@ -57,6 +58,13 @@ private slots:
     void on_modifier_emp_clicked();
 
     void on_Retour_employe_4_clicked();
+
+    void on_tri_emp_currentIndexChanged(int index);
+
+    void on_direc_stateChanged(int arg1);
+
+    void on_chercher_employe_textEdited(const QString &arg1);
+
 
 private:
     Ui::MainWindow *ui;

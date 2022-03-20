@@ -19,7 +19,7 @@ public:
     bool ajouter();
     bool supprimer(int id);
     bool modifier();
-    QSqlQueryModel* afficher();
+    QSqlQueryModel* afficher(int index,bool direction,QString search);
 };
 
 #endif // EMPLOYEES_H

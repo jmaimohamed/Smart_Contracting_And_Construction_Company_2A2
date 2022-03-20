@@ -6,10 +6,11 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    this->emp_tri_dir=0;
     ui->setupUi(this);
-    ui->tableView_2->setModel(Emp.afficher());
-    ui->id_emp_i->setValidator(new QIntValidator(0,9999999,this));
-    ui->id_emp_i_2->setValidator(new QIntValidator(0,9999999,this));
+    ui->tableView_2->setModel(Emp.afficher(ui->tri_emp->currentIndex(),ui->direc->checkState(),ui->chercher_employe->text()));
+    ui->id_emp_i->setValidator(new QIntValidator(0,99999999,this));
+    ui->id_emp_i_2->setValidator(new QIntValidator(0,99999999,this));
     ui->tableView_2->setSelectionBehavior(QAbstractItemView::SelectRows);
 
 }
@@ -87,14 +88,20 @@ void MainWindow::on_ajouter_emp_clicked()
     QString role=ui->role_emp_i->currentText();
     QString login=ui->login_emp_i->text();
     QString password=ui->pass_emp_i->text();
-
-    Employees E(id,nom,QDate::currentDate(),500,role,login,password);
+    int salary;
+if (ui->role_emp_i->currentText()=="Chef")
+    salary=3500;
+else if (ui->role_emp_i->currentText()=="Ouvrier")
+    salary=1000;
+else salary=2500;
+    Employees E(id,nom,QDate::currentDate(),salary,role,login,password);
     bool test=E.ajouter();
     if (test)
     {
         QMessageBox::information(nullptr, QObject::tr("OK"),
                     QObject::tr("Ajout Effectue\n"
                                 "Click Cancel to exit."), QMessageBox::Cancel);
+        ui->tableView_2->setModel(Emp.afficher(ui->tri_emp->currentIndex(),ui->direc->checkState(),ui->chercher_employe->text()));
     }
     else
         QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
@@ -112,7 +119,7 @@ void MainWindow::on_del_emp_clicked()
         bool test=Emp.supprimer(id);
         if (test)
         {
-            ui->tableView_2->setModel(Emp.afficher());
+            ui->tableView_2->setModel(Emp.afficher(ui->tri_emp->currentIndex(),ui->direc->checkState(),ui->chercher_employe->text()));
             QMessageBox::information(nullptr, QObject::tr("OK"),
                         QObject::tr("Supression Effectue\n"
                                     "Click Cancel to exit."), QMessageBox::Cancel);
@@ -137,6 +144,11 @@ void MainWindow::on_ajouter_em_clicked()
 void MainWindow::on_Retour_employe_2_clicked()
 {
         ui->stackedWidget->setCurrentIndex(2);
+        ui->id_emp_i->text()="";
+        ui->nom_emp_i->text()="";
+        ui->login_emp_i->text()="";
+        ui->pass_emp_i->text()="";
+        ui->role_emp_i->setCurrentIndex(1);
 }
 
 void MainWindow::on_ajouter_emp_2_clicked()
@@ -144,7 +156,7 @@ void MainWindow::on_ajouter_emp_2_clicked()
     int salary;
 if (ui->role_emp_i_2->currentText()=="Chef")
     salary=3500;
-else if (ui->role_emp_i_2->currentText()=="ouvrier")
+else if (ui->role_emp_i_2->currentText()=="Ouvrier")
     salary=1000;
 else salary=2500;
 
@@ -165,7 +177,7 @@ else salary=2500;
            QMessageBox::information(nullptr, QObject::tr("ok"),
                                     QObject::tr("Modification effectuée.\n"
                                                 "Click on ok to exit."), QMessageBox::Ok);
-           ui->tableView_2->setModel(Emp.afficher());
+           ui->tableView_2->setModel(Emp.afficher(ui->tri_emp->currentIndex(),ui->direc->isTristate(),ui->chercher_employe->text()));
        }
        else
            QMessageBox::critical(nullptr, QObject::tr("not ok"),
@@ -196,4 +208,29 @@ void MainWindow::on_modifier_emp_clicked()
 void MainWindow::on_Retour_employe_4_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
+    ui->id_emp_i_2->text()="";
+    ui->nom_emp_i_2->text()="";
+    ui->login_emp_i_2->text()="";
+    ui->pass_emp_i_2->text()="";
+    ui->role_emp_i_2->setCurrentIndex(1);
 }
+
+
+void MainWindow::on_tri_emp_currentIndexChanged(int index)
+{
+   (void)index;
+ui->tableView_2->setModel(Emp.afficher(ui->tri_emp->currentIndex(),ui->direc->checkState(),ui->chercher_employe->text()));
+}
+
+void MainWindow::on_direc_stateChanged(int arg1)
+{
+    (void)arg1;
+    ui->tableView_2->setModel(Emp.afficher(ui->tri_emp->currentIndex(),ui->direc->checkState(),ui->chercher_employe->text()));
+}
+
+void MainWindow::on_chercher_employe_textEdited(const QString &arg1)
+{
+    (void)arg1;
+    ui->tableView_2->setModel(Emp.afficher(ui->tri_emp->currentIndex(),ui->direc->checkState(),ui->chercher_employe->text()));
+}
+

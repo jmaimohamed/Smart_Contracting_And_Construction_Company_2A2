@@ -336,11 +336,20 @@ QTableWidget QTableCornerButton::section {
      <widget class="QComboBox" name="tri_emp">
       <property name="geometry">
        <rect>
-        <x>670</x>
-        <y>10</y>
-        <width>188</width>
-        <height>28</height>
+        <x>547</x>
+        <y>0</y>
+        <width>181</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
       </property>
       <item>
        <property name="text">
@@ -361,9 +370,9 @@ QTableWidget QTableCornerButton::section {
      <widget class="QWidget" name="horizontalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>290</x>
+        <x>209</x>
         <y>0</y>
-        <width>340</width>
+        <width>331</width>
         <height>41</height>
        </rect>
       </property>
@@ -445,10 +454,10 @@ font-size: 16px;
 font-weight: bold;</string>
       </property>
       <property name="text">
-       <string>Rechercher</string>
+       <string/>
       </property>
       <property name="placeholderText">
-       <string>chercher...</string>
+       <string>Chercher..</string>
       </property>
      </widget>
      <widget class="QPushButton" name="Retour_employe_3">
@@ -456,7 +465,7 @@ font-weight: bold;</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>251</width>
+        <width>201</width>
         <height>41</height>
        </rect>
       </property>
@@ -471,6 +480,28 @@ font-weight: bold;</string>
       </property>
       <property name="text">
        <string>Retour</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="direc">
+      <property name="geometry">
+       <rect>
+        <x>740</x>
+        <y>0</y>
+        <width>121</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 0px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Descendant</string>
       </property>
      </widget>
     </widget>
@@ -508,6 +539,9 @@ padding: 0 8px;
 selection-background-color: darkgray;
 font-size: 25px;}
 QLineEdit:focus { background-color:rgb(192, 192, 255);}</string>
+         </property>
+         <property name="inputMask">
+          <string/>
          </property>
          <property name="text">
           <string/>
