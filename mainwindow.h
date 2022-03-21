@@ -68,6 +68,8 @@ private slots:
 
     void on_envoiMP_clicked();
 
+    void on_envoiM_clicked();
+
 private:
     Ui::MainWindow *ui;
     MatiereP M;

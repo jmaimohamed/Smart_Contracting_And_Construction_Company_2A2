@@ -1,5 +1,6 @@
 #include "matierep.h"
 #include <QSqlQuery>
+#include <QSystemTrayIcon>
 #include <QtDebug>
 
 MatiereP::MatiereP()
@@ -83,19 +84,54 @@ MatiereP::MatiereP(int ID_MP,QString NOM_MP,int Quantite, int Prix,int ID_F)
     QSqlQueryModel * MatiereP ::tri_NOM_MP()
     {
      QSqlQueryModel * model= new QSqlQueryModel();
-     model->setQuery("select * from MP order by NOM_MP");
+     model->setQuery("select * from MP order by NOM_MP ASC");
      return model;
     }
     QSqlQueryModel * MatiereP ::tri_Quantite()
     {
      QSqlQueryModel * model= new QSqlQueryModel();
-     model->setQuery("select * from MP order by Quantite");
+     model->setQuery("select * from MP order by Quantite ASC");
      return model;
     }
     QSqlQueryModel * MatiereP ::tri_Prix()
     {
      QSqlQueryModel * model= new QSqlQueryModel();
-     model->setQuery("select * from MP order by Prix");
+     model->setQuery("select * from MP order by Prix DESC");
      return model;
+    }
+    void MatiereP::notif_modif(QString noti)
+    {
+
+        QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+
+        notifyIcon->setIcon(QIcon("C:/Users/moham/OneDrive/Bureau/system tray tutorial/feather/alert-triangle.svg"));
+        QString s = noti;
+        notifyIcon->show();
+        notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été modifiée !",QSystemTrayIcon::Information,15000);
+    }
+
+    void MatiereP::notif_supp(QString noti)
+    {
+
+        QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+
+        notifyIcon->setIcon(QIcon("C:/Users/moham/OneDrive/Bureau/system tray tutorial/feather/alert-triangle.svg"));
+        QString s = noti;
+        notifyIcon->show();
+        notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été suprimée !",QSystemTrayIcon::Information,15000);
+
+    }
+
+
+    void MatiereP::notif_ajout(QString noti)
+    {
+
+        QSystemTrayIcon *notifyIcon = new QSystemTrayIcon;
+
+        notifyIcon->setIcon(QIcon("C:/Users/moham/OneDrive/Bureau/system tray tutorial/feather/alert-triangle.svg"));
+        QString s = noti;
+        notifyIcon->show();
+        notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été ajouter",QSystemTrayIcon::Information,15000);
+
     }
 

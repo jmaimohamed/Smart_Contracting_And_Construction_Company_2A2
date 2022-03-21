@@ -90,7 +90,7 @@ public:
     QPushButton *chercherM_2;
     QPushButton *ajouter_mp;
     QPushButton *update_mp;
-    QPushButton *pushButton_2;
+    QPushButton *envoiMP;
     QPushButton *supprimer_mp;
     QPushButton *pred_mp;
     QTableView *tab_test;
@@ -102,7 +102,6 @@ public:
     QRadioButton *TriNM;
     QRadioButton *TriQM;
     QRadioButton *TriPM;
-    QPushButton *pushButton;
     QWidget *chantiers;
     QGroupBox *main_chantier;
     QHBoxLayout *horizontalLayout_2;
@@ -596,9 +595,9 @@ public:
 
         verticalLayout_4->addWidget(update_mp);
 
-        pushButton_2 = new QPushButton(Crud_box);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setStyleSheet(QLatin1String("border: 2px solid grey;\n"
+        envoiMP = new QPushButton(Crud_box);
+        envoiMP->setObjectName(QStringLiteral("envoiMP"));
+        envoiMP->setStyleSheet(QLatin1String("border: 2px solid grey;\n"
 "padding: 5px;\n"
 "color: teal;\n"
 "border-radius: 10px;\n"
@@ -606,7 +605,7 @@ public:
 "font-size: 16px;\n"
 "font-weight: bold;"));
 
-        verticalLayout_4->addWidget(pushButton_2);
+        verticalLayout_4->addWidget(envoiMP);
 
         supprimer_mp = new QPushButton(Crud_box);
         supprimer_mp->setObjectName(QStringLiteral("supprimer_mp"));
@@ -703,20 +702,6 @@ public:
 "font-weight: bold;"));
 
         verticalLayout_6->addWidget(TriPM);
-
-        pushButton = new QPushButton(groupBox);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setStyleSheet(QLatin1String("image: url(:/new/prefix1/logo.png);\n"
-"background: transparent;\n"
-"border: 2px solid grey;\n"
-"padding: 5px;\n"
-"color: teal;\n"
-"border-radius: 10px;\n"
-"color: #0d9488;\n"
-"font-size: 16px;\n"
-"font-weight: bold;"));
-
-        verticalLayout_6->addWidget(pushButton);
 
         stackedWidget->addWidget(Matiere_Premiere);
         chantiers = new QWidget();
@@ -982,7 +967,7 @@ public:
         chercherM_2->setText(QApplication::translate("MainWindow", "Chercher", Q_NULLPTR));
         ajouter_mp->setText(QApplication::translate("MainWindow", "Ajouter MP", Q_NULLPTR));
         update_mp->setText(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("MainWindow", "envoi pour modifier", Q_NULLPTR));
+        envoiMP->setText(QApplication::translate("MainWindow", "Envoi donnee", Q_NULLPTR));
         supprimer_mp->setText(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
         pred_mp->setText(QApplication::translate("MainWindow", "Sys.Prediction", Q_NULLPTR));
         statistique->setTitle(QString());
@@ -991,7 +976,6 @@ public:
         TriNM->setText(QApplication::translate("MainWindow", "Tri par Nom ", Q_NULLPTR));
         TriQM->setText(QApplication::translate("MainWindow", "Tri par Quantite", Q_NULLPTR));
         TriPM->setText(QApplication::translate("MainWindow", "Tri par Prix", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("MainWindow", "Notification", Q_NULLPTR));
         main_chantier->setTitle(QString());
         Crud_box_2->setTitle(QString());
         chercher_chantiers->setPlaceholderText(QApplication::translate("MainWindow", "chercher...", Q_NULLPTR));

@@ -694,7 +694,7 @@ font-weight: bold;</string>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="envoiMP">
          <property name="styleSheet">
           <string notr="true">border: 2px solid grey;
 padding: 5px;
@@ -705,7 +705,7 @@ font-size: 16px;
 font-weight: bold;</string>
          </property>
          <property name="text">
-          <string>envoi pour modifier</string>
+          <string>Envoi donnee</string>
          </property>
         </widget>
        </item>
@@ -866,24 +866,6 @@ font-weight: bold;</string>
          </property>
          <property name="text">
           <string>Tri par Prix</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton">
-         <property name="styleSheet">
-          <string notr="true">image: url(:/new/prefix1/logo.png);
-background: transparent;
-border: 2px solid grey;
-padding: 5px;
-color: teal;
-border-radius: 10px;
-color: #0d9488;
-font-size: 16px;
-font-weight: bold;</string>
-         </property>
-         <property name="text">
-          <string>Notification</string>
          </property>
         </widget>
        </item>

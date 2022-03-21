@@ -236,7 +236,7 @@ release/moc_mainwindow.cpp: matierep.h \
 		mainwindow.h \
 		release/moc_predefs.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/bin/moc.exe
-	C:\Qt\Qt5.9.9\5.9.9\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++ -I"C:/Users/moham/OneDrive/Bureau/2A/projet web/interface_finale" -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore -IC:/Qt/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward mainwindow.h -o release\moc_mainwindow.cpp
+	C:\Qt\Qt5.9.9\5.9.9\mingw53_32\bin\moc.exe $(DEFINES) --include release/moc_predefs.h -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/mkspecs/win32-g++ -IC:/Users/moham/OneDrive/Bureau/Smart_Contracting_And_Construction_Company_2A2-jmaais -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtGui -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql -IC:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore -IC:/Qt/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.9.9/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.9.9/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward mainwindow.h -o release\moc_mainwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -663,6 +663,8 @@ release/matierep.o: matierep.cpp matierep.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/QSqlQueryModel \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtSql/qsqlquerymodel.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/QSystemTrayIcon \
+		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtWidgets/qsystemtrayicon.h \
 		C:/Qt/Qt5.9.9/5.9.9/mingw53_32/include/QtCore/QtDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\matierep.o matierep.cpp
 

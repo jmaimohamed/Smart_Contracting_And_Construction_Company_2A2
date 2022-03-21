@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
      ui->tab_test->setModel(M.afficher());
+      ui->tab_test->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
 MainWindow::~MainWindow()
 {
@@ -82,9 +83,9 @@ void MainWindow::on_supprimer_mp_clicked()
       QString var=select1->selectedRows().value(0).data().toString();
 
    M.supprimer(var.toInt());
-
-
  ui->tab_test->setModel(M.afficher());
+ QString noti="";
+ M.notif_supp(noti);
 }
 
 void MainWindow::on_ajouter_mp_clicked()
@@ -95,20 +96,11 @@ void MainWindow::on_ajouter_mp_clicked()
         int Prix=ui->le_prix->text().toInt();
         int ID_F=ui->ID_F->text().toInt();
      MatiereP M(ID_MP,NOM_MP,Quantite,Prix,ID_F);
-     bool test=M.ajouter();
+     M.ajouter();
      ui->tab_test->setModel(M.afficher());
-     if(test)
-     {
-         QMessageBox::information(nullptr, QObject::tr("ajouter is open"),
-                     QObject::tr("successful.\n"
-                                 "Click Cancel to exit."), QMessageBox::Cancel);
+     QString noti="";
 
- }
-     else
-         QMessageBox::critical(nullptr, QObject::tr("ajouter is not working"),
-                     QObject::tr("failed.\n"
-                                 "Click Cancel to exit."), QMessageBox::Cancel);
-
+                  M.notif_ajout(noti);
 }
 
 void MainWindow::on_update_mp_clicked()
@@ -121,36 +113,14 @@ int ID_MP=ui->idM->text().toInt();
    MatiereP M(ID_MP,NOM_MP,Quantite,Prix,ID_F);
     M.modifier(ID_MP,NOM_MP,Quantite,Prix,ID_F,ID_MP);
     ui->tab_test->setModel(M.afficher());
+     QString noti="";
+     M.notif_modif(noti);
 }
-
-
-
-void MainWindow::on_le_chercherM_clicked()
-{
-    QString cher =ui->le_chercherM->text();
-    ui->tab_test->setModel(M.chercher(cher));
-}
-
 void MainWindow::on_chercherM_2_clicked()
 {
     QString cher =ui->le_chercherM->text();
     ui->tab_test->setModel(M.chercher(cher));
 }
-
-void MainWindow::on_TriN_clicked()
-{
-    /*M.tri_NOM_MP();
-     ui->tab_test->setModel(M.tri_NOM_MP());*/
-}
-
-void MainWindow::on_TriQ_clicked()
-{/*
-    M.tri_Quantite();
-     ui->tab_test->setModel(M.tri_Quantite());*/
-}
-
-
-
 void MainWindow::on_TriNM_clicked(bool checked)
 {
     if(checked ){
@@ -171,10 +141,12 @@ void MainWindow::on_TriPM_clicked(bool checked)
 
 
 
-
-
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_envoiMP_clicked()
 {
-    QItemSelectionModel *select5 = ui->tab_test->selectionModel();
-    ui->idM->setText(select5->selectedRows().value(0).data().toString());
+    QItemSelectionModel *select2 = ui->tab_test->selectionModel();
+    ui->idM->setText(select2->selectedRows().value(0).data().toString());
+     ui->le_nom->setText(select2->selectedRows(1).value(0).data().toString());
+      ui->le_prix->setText(select2->selectedRows(2).value(0).data().toString());
+       ui->le_quantite->setText(select2->selectedRows(3).value(0).data().toString());
+        ui->ID_F->setText(select2->selectedRows(4).value(0).data().toString());
 }
