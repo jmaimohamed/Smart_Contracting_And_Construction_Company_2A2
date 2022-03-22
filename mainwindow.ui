@@ -27,7 +27,7 @@
      <string notr="true">background: #111827;</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="login_page">
      <widget class="QGroupBox" name="login_group">
@@ -1101,6 +1101,25 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;
          </property>
         </widget>
        </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="styleSheet">
+          <string notr="true">color: teal;
+font: 10pt &quot;MS Shell Dlg 2&quot;;
+</string>
+         </property>
+         <property name="text">
+          <string>Manager</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="nomm">
+         <property name="styleSheet">
+          <string notr="true">color:	#FFFFFF;</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QPushButton" name="retour_chantier_3">
@@ -1290,6 +1309,25 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;
        </item>
        <item row="5" column="1">
         <widget class="QLineEdit" name="date2_3">
+         <property name="styleSheet">
+          <string notr="true">color:	#FFFFFF;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_19">
+         <property name="styleSheet">
+          <string notr="true">color: teal;
+font: 10pt &quot;MS Shell Dlg 2&quot;;
+</string>
+         </property>
+         <property name="text">
+          <string>Manager</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="nomm_3">
          <property name="styleSheet">
           <string notr="true">color:	#FFFFFF;</string>
          </property>

@@ -15,7 +15,7 @@ chantiers::chantiers()
 
 }
 
-chantiers::chantiers(int id_c , QString emplacement, int surface, QString description  ,QDate date_debut,QDate date_fin)
+chantiers::chantiers(int id_c , QString emplacement, int surface, QString description  ,QDate date_debut,QDate date_fin,int id_e)
 {
     this->id_c=id_c ;
     this->emplacement=emplacement ;
@@ -23,6 +23,7 @@ chantiers::chantiers(int id_c , QString emplacement, int surface, QString descri
    this->description=description ;
     this->date_debut=date_debut ;
     this->date_fin=date_fin ;
+    this->id_e=id_e ;
 
 
 }
@@ -76,14 +77,16 @@ bool chantiers::ajouter(){
   QSqlQuery query;
   QString id_string  =QString::number(id_c);
   QString surfacef  =QString::number(surface);
-        query.prepare("INSERT INTO CHANTIERS (ID_C, EMPLACEMENT,SURFACE,DESCRIPTION,DATE_DEBUT,DATE_FIN) "
-                      "VALUES (:ID_C, :EMPLACEMENT,:SURFACE,:DESCRIPTION,:DATE_DEBUT,:DATE_FIN)");
+  QString id_ee  =QString::number(id_e);
+        query.prepare("INSERT INTO CHANTIERS (ID_C, EMPLACEMENT,SURFACE,DESCRIPTION,DATE_DEBUT,DATE_FIN,ID_E) "
+                      "VALUES (:ID_C, :EMPLACEMENT,:SURFACE,:DESCRIPTION,:DATE_DEBUT,:DATE_FIN,:ID_E)");
         query.bindValue(":ID_C", id_string);
      query.bindValue(":EMPLACEMENT",emplacement);
      query.bindValue(":SURFACE", surfacef);
           query.bindValue(":DESCRIPTION", description);
      query.bindValue(":DATE_DEBUT", date_debut);
      query.bindValue(":DATE_FIN", date_fin);
+      query.bindValue(":ID_E", id_ee);
 
   return  query.exec();
 }
@@ -104,13 +107,14 @@ QSqlQueryModel* model=new QSqlQueryModel();
        model->setHeaderData(3, Qt::Horizontal,QObject::tr("DESCRIPTION"));
        model->setHeaderData(4, Qt::Horizontal,QObject::tr("DATE_DEBUT"));
        model->setHeaderData(5, Qt::Horizontal,QObject::tr("DATE_FIN"));
+       model->setHeaderData(5, Qt::Horizontal,QObject::tr("ID_E"));
        return model ;
 }
 bool chantiers::modifier()
 {
 
   QSqlQuery query;
-        query.prepare("UPDATE CHANTIERS SET ID_C=:ID_C, EMPLACEMENT=:EMPLACEMENT,SURFACE=:SURFACE,DESCRIPTION=:DESCRIPTION,DATE_DEBUT=:DATE_DEBUT,DATE_FIN=:DATE_FIN "
+        query.prepare("UPDATE CHANTIERS SET ID_C=:ID_C, EMPLACEMENT=:EMPLACEMENT,SURFACE=:SURFACE,DESCRIPTION=:DESCRIPTION,DATE_DEBUT=:DATE_DEBUT,DATE_FIN=:DATE_FIN,ID_E=:ID_E "
                       "WHERE ID_C=:ID_C ");
         query.bindValue(":ID_C",id_c);
      query.bindValue(":EMPLACEMENT",emplacement);
@@ -118,6 +122,7 @@ bool chantiers::modifier()
           query.bindValue(":DESCRIPTION", description);
      query.bindValue(":DATE_DEBUT", date_debut);
      query.bindValue(":DATE_FIN", date_fin);
+     query.bindValue(":ID_E", id_e);
 query.exec();
  bool test=true ;
   return  test ;

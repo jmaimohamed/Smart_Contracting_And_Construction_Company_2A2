@@ -64,6 +64,8 @@ private slots:
 
     void on_trisur_clicked();
 
+    void on_id_e_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     chantiers a ;
