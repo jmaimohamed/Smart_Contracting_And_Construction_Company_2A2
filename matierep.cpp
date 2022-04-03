@@ -2,6 +2,7 @@
 #include <QSqlQuery>
 #include <QSystemTrayIcon>
 #include <QtDebug>
+#include<QFile>
 
 MatiereP::MatiereP()
 {
@@ -134,4 +135,24 @@ MatiereP::MatiereP(int ID_MP,QString NOM_MP,int Quantite, int Prix,int ID_F)
         notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été ajouter",QSystemTrayIcon::Information,15000);
 
     }
-
+    void MatiereP::file()
+    {
+        QSqlQuery query;
+        QFile myfile("mydata.txt");
+        myfile.open(QIODevice::WriteOnly);
+        query.prepare("select * from MP");
+        query.exec();
+        QString line="";
+        QTextStream out(&myfile);
+        while (query.next()) {
+           line+=query.value(0).toString()+",";
+           line+=query.value(1).toString()+",";
+           line+=query.value(2).toString()+",";
+           line+=query.value(3).toString()+",";
+           line+=query.value(4).toString()+"\n";
+           qDebug()<<line;
+           out<<line;
+           line="";
+        }
+        myfile.close();
+    }

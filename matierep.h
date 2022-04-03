@@ -39,6 +39,7 @@ QSqlQueryModel* tri_Prix();
 void notif_modif(QString noti);
 void notif_ajout(QString noti);
 void notif_supp(QString noti);
+void file();
 };
 
 #endif // MATIEREP_H

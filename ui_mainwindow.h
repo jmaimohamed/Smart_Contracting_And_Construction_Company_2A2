@@ -28,6 +28,7 @@
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "qcustomplot.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -92,16 +93,15 @@ public:
     QPushButton *update_mp;
     QPushButton *envoiMP;
     QPushButton *supprimer_mp;
-    QPushButton *pred_mp;
+    QPushButton *fileMP;
     QTableView *tab_test;
-    QGroupBox *statistique;
-    QHBoxLayout *horizontalLayout_3;
     QPushButton *RetourM;
     QGroupBox *groupBox;
     QVBoxLayout *verticalLayout_6;
     QRadioButton *TriNM;
     QRadioButton *TriQM;
     QRadioButton *TriPM;
+    QCustomPlot *customPlot;
     QWidget *chantiers;
     QGroupBox *main_chantier;
     QHBoxLayout *horizontalLayout_2;
@@ -619,9 +619,9 @@ public:
 
         verticalLayout_4->addWidget(supprimer_mp);
 
-        pred_mp = new QPushButton(Crud_box);
-        pred_mp->setObjectName(QStringLiteral("pred_mp"));
-        pred_mp->setStyleSheet(QLatin1String("border: 2px solid grey;\n"
+        fileMP = new QPushButton(Crud_box);
+        fileMP->setObjectName(QStringLiteral("fileMP"));
+        fileMP->setStyleSheet(QLatin1String("border: 2px solid grey;\n"
 "padding: 5px;\n"
 "color: teal;\n"
 "border-radius: 10px;\n"
@@ -629,7 +629,7 @@ public:
 "font-size: 16px;\n"
 "font-weight: bold;"));
 
-        verticalLayout_4->addWidget(pred_mp);
+        verticalLayout_4->addWidget(fileMP);
 
         tab_test = new QTableView(Matiere_Premiere);
         tab_test->setObjectName(QStringLiteral("tab_test"));
@@ -639,15 +639,6 @@ public:
 "padding: 5px;\n"
 "color: teal;\n"
 "gridline-color: rgb(146, 255, 56);"));
-        statistique = new QGroupBox(Matiere_Premiere);
-        statistique->setObjectName(QStringLiteral("statistique"));
-        statistique->setGeometry(QRect(10, 310, 901, 381));
-        statistique->setStyleSheet(QLatin1String("border: transparent;\n"
-"padding: 5px;\n"
-"color: teal;\n"
-""));
-        horizontalLayout_3 = new QHBoxLayout(statistique);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         RetourM = new QPushButton(Matiere_Premiere);
         RetourM->setObjectName(QStringLiteral("RetourM"));
         RetourM->setGeometry(QRect(0, 0, 131, 41));
@@ -703,6 +694,9 @@ public:
 
         verticalLayout_6->addWidget(TriPM);
 
+        customPlot = new QCustomPlot(Matiere_Premiere);
+        customPlot->setObjectName(QStringLiteral("customPlot"));
+        customPlot->setGeometry(QRect(0, 310, 911, 381));
         stackedWidget->addWidget(Matiere_Premiere);
         chantiers = new QWidget();
         chantiers->setObjectName(QStringLiteral("chantiers"));
@@ -969,8 +963,7 @@ public:
         update_mp->setText(QApplication::translate("MainWindow", "Modifier", Q_NULLPTR));
         envoiMP->setText(QApplication::translate("MainWindow", "Envoi donnee", Q_NULLPTR));
         supprimer_mp->setText(QApplication::translate("MainWindow", "Supprimer", Q_NULLPTR));
-        pred_mp->setText(QApplication::translate("MainWindow", "Sys.Prediction", Q_NULLPTR));
-        statistique->setTitle(QString());
+        fileMP->setText(QApplication::translate("MainWindow", "File", Q_NULLPTR));
         RetourM->setText(QApplication::translate("MainWindow", "Retour", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "Metiers", Q_NULLPTR));
         TriNM->setText(QApplication::translate("MainWindow", "Tri par Nom ", Q_NULLPTR));

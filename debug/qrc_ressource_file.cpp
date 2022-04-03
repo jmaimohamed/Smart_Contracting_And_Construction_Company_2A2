@@ -7,7 +7,7 @@
 *****************************************************************************/
 
 static const unsigned char qt_resource_data[] = {
-  // C:/Users/moham/OneDrive/Bureau/Smart_Contracting_And_Construction_Company_2A2-jmaais/logo.png
+  // C:/Users/moham/OneDrive/Bureau/2A/projet web/interface_finale/logo.png
   0x0,0x0,0xb4,0x6f,
   0x89,
   0x50,0x4e,0x47,0xd,0xa,0x1a,0xa,0x0,0x0,0x0,0xd,0x49,0x48,0x44,0x52,0x0,

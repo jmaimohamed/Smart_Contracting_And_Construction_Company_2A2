@@ -1,6 +1,6 @@
 QT       += core gui sql
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++11
 
@@ -19,12 +19,14 @@ SOURCES += \
     connection.cpp \
     main.cpp \
     mainwindow.cpp \
-    matierep.cpp
+    matierep.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
     connection.h \
     mainwindow.h \
-    matierep.h
+    matierep.h \
+    qcustomplot.h
 
 FORMS += \
     mainwindow.ui
@@ -36,3 +38,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     ressource_file.qrc
+
