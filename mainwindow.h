@@ -64,7 +64,10 @@ private slots:
 
     void on_trisur_clicked();
 
-    void on_id_e_currentIndexChanged(const QString &arg1);
+    void on_stackedWidget_currentChanged(int arg1);
+
+
+
 
 private:
     Ui::MainWindow *ui;

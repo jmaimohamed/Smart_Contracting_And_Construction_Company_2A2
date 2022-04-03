@@ -27,7 +27,7 @@
      <string notr="true">background: #111827;</string>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="login_page">
      <widget class="QGroupBox" name="login_group">
@@ -916,7 +916,7 @@ font-weight: bold;</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="trier_chantiers_2">
+           <widget class="QPushButton" name="estimation">
             <property name="styleSheet">
              <string notr="true">border: 2px solid grey;
 padding: 5px;
@@ -958,7 +958,7 @@ font-weight: bold;</string>
        <string>Retour</string>
       </property>
      </widget>
-     <widget class="QTableView" name="tableView_3">
+     <widget class="QCustomPlot" name="stat">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -1074,30 +1074,11 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;
          </property>
         </widget>
        </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_7">
-         <property name="styleSheet">
-          <string notr="true">color: teal;
-font: 10pt &quot;MS Shell Dlg 2&quot;;
-</string>
-         </property>
-         <property name="text">
-          <string>date fin</string>
-         </property>
-        </widget>
-       </item>
        <item row="4" column="1">
         <widget class="QDateEdit" name="dateEdit">
          <property name="styleSheet">
           <string notr="true">color:	#FFFFFF;
 </string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QDateEdit" name="dateEdit_2">
-         <property name="styleSheet">
-          <string notr="true">color:	#FFFFFF;</string>
          </property>
         </widget>
        </item>
@@ -1115,6 +1096,25 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;
        </item>
        <item row="6" column="1">
         <widget class="QComboBox" name="nomm">
+         <property name="styleSheet">
+          <string notr="true">color:	#FFFFFF;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="styleSheet">
+          <string notr="true">color: teal;
+font: 10pt &quot;MS Shell Dlg 2&quot;;
+</string>
+         </property>
+         <property name="text">
+          <string>date fin</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QDateEdit" name="dateEdit_2">
          <property name="styleSheet">
           <string notr="true">color:	#FFFFFF;</string>
          </property>
@@ -1534,6 +1534,13 @@ font-weight: bold;</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QTableView</extends>
+   <header>qcustomplot.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

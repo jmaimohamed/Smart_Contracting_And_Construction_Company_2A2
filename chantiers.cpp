@@ -73,7 +73,10 @@ void chantiers::setdescription(QString description)
 
 
 bool chantiers::ajouter(){
-
+    int jour =0 ;
+    chantiers c ;
+    jour = (surface * 30 )/120 ;
+    date_fin=date_debut.addDays(jour) ;
   QSqlQuery query;
   QString id_string  =QString::number(id_c);
   QString surfacef  =QString::number(surface);
