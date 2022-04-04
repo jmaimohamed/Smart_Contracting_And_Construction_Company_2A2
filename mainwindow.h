@@ -64,7 +64,9 @@ private slots:
 
     void on_trisur_clicked();
 
-    void on_stackedWidget_currentChanged(int arg1);
+
+
+
 
 
 

@@ -27,7 +27,7 @@
      <string notr="true">background: #111827;</string>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="login_page">
      <widget class="QGroupBox" name="login_group">
@@ -958,13 +958,13 @@ font-weight: bold;</string>
        <string>Retour</string>
       </property>
      </widget>
-     <widget class="QCustomPlot" name="stat">
+     <widget class="QCustomPlot" name="customPlot" native="true">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>390</y>
-        <width>821</width>
-        <height>241</height>
+        <x>50</x>
+        <y>400</y>
+        <width>681</width>
+        <height>231</height>
        </rect>
       </property>
      </widget>
@@ -1537,8 +1537,9 @@ font-weight: bold;</string>
  <customwidgets>
   <customwidget>
    <class>QCustomPlot</class>
-   <extends>QTableView</extends>
+   <extends>QWidget</extends>
    <header>qcustomplot.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

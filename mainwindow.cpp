@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "chantiers.h"
 #include "connexion.h"
+#include "qcustomplot.h"
 #include <QIntValidator>
 #include <QMessageBox>
 #include <QDate>
@@ -37,6 +38,86 @@ void MainWindow::on_gerer_mp_clicked()
 void MainWindow::on_gerer_chantiers_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+    QTableView table_necessiteux,table_n2;
+             QSqlQueryModel * Mod=new  QSqlQueryModel();
+             QSqlQueryModel * Mod2=new  QSqlQueryModel();
+                  connexion c;
+                  QSqlQuery qry,q2;
+                  qry.prepare("select EMPLACEMENT from CHANTIERS");
+                  qry.exec();
+                  Mod->setQuery(qry);
+                  table_necessiteux.setModel(Mod);
+
+                  q2.prepare("select AVG(SURFACE) from CHANTIERS group by EMPLACEMENT");
+                  q2.exec();
+                  Mod2->setQuery(q2);
+                  table_n2.setModel(Mod2);
+
+
+                  const int rowCount = table_necessiteux.model()->rowCount();
+                  const int rowCount2 = table_n2.model()->rowCount();
+                 qDebug()<<table_necessiteux.model()->data(table_necessiteux.model()->index(0, 0)).toString().simplified();
+                 qDebug()<<table_n2.model()->data(table_n2.model()->index(0, 0)).toInt();
+    QCPStatisticalBox *statistical = new QCPStatisticalBox(ui->customPlot->xAxis, ui->customPlot->yAxis);
+    QBrush boxBrush(QColor(60, 60, 255, 100));
+    boxBrush.setStyle(Qt::Dense6Pattern); // make it look oldschool
+    statistical->setBrush(boxBrush);
+
+    // specify data:
+    QCPBars *besoin = new QCPBars(ui->customPlot->xAxis, ui->customPlot->yAxis);
+
+                     besoin->setAntialiased(false); // gives more crisp, pixel aligned bar borders
+
+                     besoin->setStackingGap(1);
+
+    // prepare manual x axis labels:
+          QVector<double> ticks;
+                 QVector<QString> labels;
+
+                   for(int i=0; i<rowCount; ++i){
+                                         ticks.push_back(i);
+                                         labels.push_back(table_necessiteux.model()->data(table_necessiteux.model()->index(i, 0)).toString().simplified());
+                                         qDebug()<<ticks[i];
+                                         qDebug()<<labels[i];
+                                     }
+    ui->customPlot->xAxis->setSubTicks(false);
+    ui->customPlot->xAxis->setTickLength(0, 4);
+    ui->customPlot->xAxis->setTickLabelRotation(20);
+    QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+    textTicker->addTicks(ticks, labels);
+                     ui->customPlot->xAxis->setTicker(textTicker);
+                     ui->customPlot->xAxis->setTickLabelRotation(60);
+                     ui->customPlot->xAxis->setSubTicks(false);
+                     ui->customPlot->xAxis->setTickLength(0, 4);
+                     ui->customPlot->xAxis->setRange(0, 8);
+                     ui->customPlot->xAxis->setBasePen(QPen(Qt::black));
+                     ui->customPlot->xAxis->setTickPen(QPen(Qt::black));
+                     ui->customPlot->xAxis->grid()->setVisible(true);
+                     ui->customPlot->xAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
+                     ui->customPlot->xAxis->setTickLabelColor(Qt::black);
+                     ui->customPlot->xAxis->setLabelColor(Qt::black);
+    ui->customPlot->xAxis->setTicker(textTicker);
+
+    // prepare axes:
+    ui->customPlot->yAxis->setLabel(QString::fromUtf8("Surface"));
+    ui->customPlot->rescaleAxes();
+    ui->customPlot->xAxis->scaleRange(1.7, ui->customPlot->xAxis->range().center());
+    ui->customPlot->yAxis->setRange(0,1000);
+    ui->customPlot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
+
+
+
+
+
+    QVector<double>besoinData;
+
+                     for(int i=0; i<rowCount2; ++i){
+                         besoinData.push_back(table_n2.model()->data(table_n2.model()->index(i, 0)).toInt());
+                         qDebug()<<besoinData;
+
+                     }
+
+                     besoin->setData(ticks, besoinData);
 }
 
 void MainWindow::on_gerer_partenaires_clicked()
@@ -211,121 +292,5 @@ void MainWindow::on_trisur_clicked()
     c.tri_surface() ;
     ui->chan->setModel(c.tri_surface());
 }
-
-
-
-
-void MainWindow::on_stackedWidget_currentChanged(int arg1)
-{
-    QTableView stat,chan;
-        QSqlQueryModel * Mod=new  QSqlQueryModel();
-        QSqlQueryModel * Mod2=new  QSqlQueryModel();
-            connexion c ;
-             QSqlQuery qry,q2;
-             qry.prepare("select SURFACE from CHANTIERS group by SURFACE");
-             qry.exec();
-             Mod->setQuery(qry);
-             stat.setModel(Mod);
-
-             q2.prepare("select count(*) from CHANTIERS group by SURFACE");
-             q2.exec();
-             Mod2->setQuery(q2);
-             chan.setModel(Mod2);
-
-
-
-            qDebug()<<stat.model()->data(stat.model()->index(0, 0)).toString().simplified();
-            qDebug()<<chan.model()->data(chan.model()->index(0, 0)).toInt();
-
-            const int rowCount = stat.model()->rowCount();
-            const int rowCount2 = chan.model()->rowCount();
-
-        if(arg1==3){
-
-           // set dark background gradient:
-            QLinearGradient gradient(0, 0, 0, 400);
-            gradient.setColorAt(0, QColor(90, 90, 90));
-            gradient.setColorAt(0.38, QColor(105, 105, 105));
-            gradient.setColorAt(1, QColor(70, 70, 70));
-            ui->stat->setBackground(QBrush("#fff"));
-
-            // create empty bar chart objects:
-            QCPBars *besoin = new QCPBars(ui->stat->xAxis, ui->stat->yAxis);
-
-            besoin->setAntialiased(false); // gives more crisp, pixel aligned bar borders
-
-            besoin->setStackingGap(1);
-
-            // set names and colors:
-
-            besoin->setName("Surface");
-            besoin->setPen(QPen(QColor("#D5E7F2").lighter(130)));
-            besoin->setBrush(QColor("#D5E7F2"));
-            // stack bars on top of each other:
-
-
-            // prepare x axis with needs' labels:
-            QVector<double> ticks;
-            QVector<QString> labels;
-
-            for(int i=0; i<rowCount; ++i){
-                ticks.push_back(i);
-                labels.push_back(stat.model()->data(stat.model()->index(i, 0)).toString().simplified());
-                qDebug()<<ticks[i];
-                qDebug()<<labels[i];
-            }
-            QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
-            textTicker->addTicks(ticks, labels);
-            ui->stat->xAxis->setTicker(textTicker);
-            ui->stat->xAxis->setTickLabelRotation(60);
-            ui->stat->xAxis->setSubTicks(false);
-            ui->stat->xAxis->setTickLength(0, 4);
-            ui->stat->xAxis->setRange(0, 8);
-            ui->stat->xAxis->setBasePen(QPen(Qt::black));
-            ui->stat->xAxis->setTickPen(QPen(Qt::black));
-            ui->stat->xAxis->grid()->setVisible(true);
-            ui->stat->xAxis->grid()->setPen(QPen(QColor(130, 130, 130), 0, Qt::DotLine));
-            ui->stat->xAxis->setTickLabelColor(Qt::black);
-            ui->stat->xAxis->setLabelColor(Qt::black);
-
-            // prepare y axis:
-            ui->stat->yAxis->setRange(0, 12.1);
-            ui->stat->yAxis->setPadding(5); // a bit more space to the left border
-            ui->stat->yAxis->setLabel("Nombre de nécessiteux\n par Besoin");
-            ui->stat->yAxis->setBasePen(QPen(Qt::black));
-            ui->stat->yAxis->setTickPen(QPen(Qt::black));
-            ui->stat->yAxis->setSubTickPen(QPen(Qt::black));
-            ui->stat->yAxis->grid()->setSubGridVisible(true);
-            ui->stat->yAxis->setTickLabelColor(Qt::black);
-            ui->stat->yAxis->setLabelColor(Qt::black);
-            ui->stat->yAxis->grid()->setPen(QPen(QColor("#000"), 0, Qt::SolidLine));
-            ui->stat->yAxis->grid()->setSubGridPen(QPen(QColor("#000"), 0, Qt::DotLine));
-
-            // Add data:
-            QVector<double>besoinData;
-
-            for(int i=0; i<rowCount2; ++i){
-                besoinData.push_back(stat.model()->data(stat.model()->index(i, 0)).toInt());
-                qDebug()<<besoinData;
-
-            }
-
-            besoin->setData(ticks, besoinData);
-
-            // setup legend:
-            ui->stat->legend->setVisible(true);
-            ui->stat->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignTop|Qt::AlignHCenter);
-            ui->stat->legend->setBrush(QColor("#fff"));
-            ui->stat->legend->setBorderPen(Qt::NoPen);
-            QFont legendFont = font();
-            legendFont.setPointSize(15);
-            ui->stat->legend->setFont(legendFont);
-            ui->stat->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
-            ui->stat->replot();
-        }
-        ui->stat->replot();
-}
-
-
 
 
