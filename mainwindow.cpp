@@ -154,7 +154,12 @@ void MainWindow::on_modifi_clicked()
        ui->description_3->setText(selected1->selectedRows(3).value(0).data().toString());
        ui->date_3->setText(selected1->selectedRows(4).value(0).data().toString());
        ui->date2_3->setText(selected1->selectedRows(5).value(0).data().toString());
-
+       QSqlQueryModel * model=new QSqlQueryModel();
+       QSqlQuery qtest;
+       qtest.prepare("select ID_E from EMPLOYEES where role = 'manager' ");
+       qtest.exec();
+       model->setQuery(qtest);
+       ui->id->setModel(model);
 }
 
 void MainWindow::on_retour_chantier_5_clicked()
@@ -164,7 +169,7 @@ void MainWindow::on_retour_chantier_5_clicked()
 
 void MainWindow::on_modifier_clicked()
 {
-   chantiers c(ui->le_idc_3->text().toInt(),ui->emplacement_3->text(), ui->surface_3->text().toInt(),ui->description_3->text() ,QDate::currentDate(), QDate::currentDate(),ui->nomm_3->currentText().toInt());
+   chantiers c(ui->le_idc_3->text().toInt(),ui->emplacement_3->text(), ui->surface_3->text().toInt(),ui->description_3->text() ,QDate::currentDate(), QDate::currentDate(),ui->id->currentText().toInt());
     bool test=c.modifier();
     QMessageBox msgBox ;
     if(test)
@@ -320,6 +325,7 @@ void MainWindow::on_stackedWidget_currentChanged(int arg1)
         }
         ui->stat->replot();
 }
+
 
 
 

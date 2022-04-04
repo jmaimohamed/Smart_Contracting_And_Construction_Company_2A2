@@ -115,7 +115,6 @@ QSqlQueryModel* model=new QSqlQueryModel();
 }
 bool chantiers::modifier()
 {
-
   QSqlQuery query;
         query.prepare("UPDATE CHANTIERS SET ID_C=:ID_C, EMPLACEMENT=:EMPLACEMENT,SURFACE=:SURFACE,DESCRIPTION=:DESCRIPTION,DATE_DEBUT=:DATE_DEBUT,DATE_FIN=:DATE_FIN,ID_E=:ID_E "
                       "WHERE ID_C=:ID_C ");
