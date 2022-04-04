@@ -664,11 +664,21 @@ border: 2px solid teal;</string>
      <widget class="QPushButton" name="supp_msg">
       <property name="geometry">
        <rect>
-        <x>500</x>
+        <x>490</x>
         <y>290</y>
-        <width>93</width>
-        <height>28</height>
+        <width>131</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#111827;
+color:red;
+border: none;
+background-repeat: none;
+font-size:23px;
+padding:8px;
+border-radius: 10px;
+border: 2px solid teal;</string>
       </property>
       <property name="text">
        <string>Supprimer</string>
@@ -1872,6 +1882,16 @@ color: rgb(255, 0, 0);</string>
        <string>Contenu</string>
       </property>
      </widget>
+     <widget class="QCustomPlot" name="customPlot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>310</y>
+        <width>501</width>
+        <height>321</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -1887,6 +1907,14 @@ color: rgb(255, 0, 0);</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

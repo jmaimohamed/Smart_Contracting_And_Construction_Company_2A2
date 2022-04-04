@@ -1,6 +1,6 @@
 QT       += core gui sql
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += console
 
@@ -21,6 +21,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     messages.cpp \
+    qcustomplot.cpp \
     qrcode.cpp \
     qrcodegeneratordemo.cpp \
     qrcodegenratorworker.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     employees.h \
     mainwindow.h \
     messages.h \
+    qcustomplot.h \
     qrcode.h \
     qrcodegenratorworker.h \
     qrwidget.h

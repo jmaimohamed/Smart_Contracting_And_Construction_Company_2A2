@@ -5,6 +5,9 @@
 #include "qrcode.h"
 #include "qrwidget.h"
 #include "qrcodegenratorworker.h"
+#include "qcustomplot.h"
+#include "connection.h"
+#include <iostream>
 #include <iostream>
 #include <ostream>
 #include <QMessageBox>
@@ -42,6 +45,46 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableView_2->setSelectionBehavior(QAbstractItemView::SelectRows);
 
 
+
+                  Connection c;
+                  QSqlQuery qry,q2;
+                  qry.prepare("select NOM_HEURE from TRAVAIL");
+                  qry.exec();
+                  ui->customPlot->legend->setVisible(true);
+                  ui->customPlot->legend->setFont(QFont("Helvetica",9));
+                  // set locale to english, so we get english decimal separator:
+                  ui->customPlot->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
+                  // add confidence band graphs:
+                  ui->customPlot->addGraph();
+                  QPen pen;
+                  pen.setStyle(Qt::DashLine);
+                  pen.setWidth(2);
+                  pen.setColor(Qt::red);
+                  ui->customPlot->graph(0)->setPen(pen);
+                  ui->customPlot->graph(0)->setName("Nombre d'heures");
+                  // add theory curve graph:
+                  ui->customPlot->graph(0)->setName("Nombre d'heures");
+                  // add error bars:
+                  QCPErrorBars *errorBars = new QCPErrorBars(ui->customPlot->xAxis, ui->customPlot->yAxis);
+                  errorBars->removeFromLegend();
+                  errorBars->setAntialiased(false);
+                  errorBars->setPen(QPen(QColor(180,180,180)));
+
+                  QVector<double>  y1(50), y1err(50), x1(50);
+                  for (int i=0; i<6; ++i)
+                  {
+                    x1[i]=i;
+                    if(qry.next())
+                    y1[i]=qry.value(0).toInt();
+                  }
+                  // pass data to graphs and let Qui->customPlot determine the axes ranges so the whole thing is visible:
+                  ui->customPlot->graph(0)->setData(x1, y1);
+                  ui->customPlot->graph(0)->rescaleAxes(true);
+                  // setup look of bottom tick labels:
+                  ui->customPlot->xAxis->setTickLabelRotation(30);
+                  ui->customPlot->xAxis->ticker()->setTickCount(6);
+                  // make top right axes clones of bottom left axes. Looks prettier:
+                  ui->customPlot->axisRect()->setupFullAxesBox();
 }
 
 MainWindow::~MainWindow()
@@ -63,7 +106,7 @@ void MainWindow::on_gerer_mp_clicked()
 void MainWindow::on_gerer_chantiers_clicked()
 {
 
-    ui->stackedWidget->setCurrentIndex(8);
+    ui->stackedWidget->setCurrentIndex(9);
 
 }
 
