@@ -664,11 +664,21 @@ border: 2px solid teal;</string>
      <widget class="QPushButton" name="supp_msg">
       <property name="geometry">
        <rect>
-        <x>500</x>
+        <x>490</x>
         <y>290</y>
-        <width>93</width>
-        <height>28</height>
+        <width>131</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:#111827;
+color:red;
+border: none;
+background-repeat: none;
+font-size:23px;
+padding:8px;
+border-radius: 10px;
+border: 2px solid teal;</string>
       </property>
       <property name="text">
        <string>Supprimer</string>

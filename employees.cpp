@@ -24,6 +24,7 @@ bool Employees::ajouter()
 {
 QSqlQuery query;
 QString res = QString::number(id);
+
 query.prepare("insert into EMPLOYEES (id_e, nom_e ,date_emb,salaire,role,login,password)" "values (:id, :nom , :date_emb, :salaire, :role, :login, :password)");
 query.bindValue(":id",res);
 query.bindValue(":nom",nom);

@@ -13,7 +13,7 @@ qrwidget::qrwidget(QWidget *parent) :
 
 void qrwidget::paintEvent(QPaintEvent *pe){
     qDebug() <<"hewo";
-
+    (void)*pe;
     QPainter painter(this);
     //NOTE: I have hardcoded some parameters here that would make more sense as variables.
 
