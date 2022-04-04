@@ -25,14 +25,19 @@ public:
     //Setters
     void setDate_upload(QDate du){date_upload=du;}
     void setDate_done(QDate dd){date_done=dd;}
-    void setID(int id){id=id_tache;}
+
     void setNom(QString n){n=nom_e;}
     void setDesc(QString d){d=description;}
+
     //Fonctionnalites
     bool ajouter();
     QSqlQueryModel * afficher();
+    QSqlQueryModel * afficherEmploye(int id_employe);
     bool supprimer (int);
     bool modifier(int id_tache,QDate date_upload,QDate date_done,int id_employe,QString nom_e,QString description,int id_tacheM);
+    QSqlQueryModel * triNom();
+    QSqlQueryModel * triDate();
+    QSqlQueryModel * triId();
 };
 
 #endif // ETUDIANT_H

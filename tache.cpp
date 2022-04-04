@@ -1,5 +1,5 @@
 #include "tache.h"
-
+#include <QMessageBox>
 
 Tache::Tache(int id_tache,QDate date_upload,QDate date_done,int id_employe,QString nom_e,QString description)
 {
@@ -43,6 +43,26 @@ QSqlQueryModel * Tache::afficher()
     return model;
 }
 
+QSqlQueryModel * Tache::afficherEmploye(int id_employe)
+{
+    QSqlQuery query;
+    QSqlQueryModel * model=new QSqlQueryModel();
+    QString res = QString::number(id_employe);
+    query.prepare("select * from taches where id_e = :id_e");
+    query.bindValue(":id_e",res);
+    query.exec();
+    model->setQuery(query);
+
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID tache"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("Date Upload"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("Date Done"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("ID Employe"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("Nom"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("Description"));
+
+    return model;
+}
+
 bool Tache::supprimer(int id_tache)
 {
     QSqlQuery query;
@@ -65,4 +85,25 @@ bool Tache::modifier(int id_tache,QDate date_upload,QDate date_done,int id_emplo
     query.bindValue(":Id_modif",id_tacheM);
     return query.exec();
 }
+
+QSqlQueryModel * Tache ::triNom()
+    {
+     QSqlQueryModel * model= new QSqlQueryModel();
+     model->setQuery("select * from taches order by nom_e");
+     return model;
+    }
+
+QSqlQueryModel * Tache ::triDate()
+    {
+     QSqlQueryModel * model= new QSqlQueryModel();
+     model->setQuery("select * from taches order by date_upload");
+     return model;
+    }
+
+QSqlQueryModel * Tache ::triId()
+    {
+     QSqlQueryModel * model= new QSqlQueryModel();
+     model->setQuery("select * from taches order by id_t");
+     return model;
+    }
 

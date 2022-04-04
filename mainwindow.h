@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "tache.h"
+#include <QFileDialog>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -24,10 +26,6 @@ private slots:
 
     void on_gerer_partenaires_clicked();
 
-    void on_pushButton_5_clicked();
-
-    void on_pushButton_6_clicked();
-
     void on_retour_chantier_clicked();
 
     void on_retour_taches_clicked();
@@ -45,6 +43,19 @@ private slots:
     void on_supprimer_tache_clicked();
 
     void on_modifier_tache_clicked();
+
+    void on_upload_taches_clicked();
+
+
+    void on_tri_nom_clicked(bool checked);
+
+    void on_tri_date_clicked(bool checked);
+
+    void on_tri_id_clicked(bool checked);
+
+    void on_publierPlan_clicked();
+
+    void on_accesPlan_clicked();
 
 private:
     Ui::MainWindow *ui;

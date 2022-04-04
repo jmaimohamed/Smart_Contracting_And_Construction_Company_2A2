@@ -5,6 +5,7 @@
 
 int main(int argc, char *argv[])
 {
+
     QApplication a(argc, argv);
     Connection c;
     bool test=c.createconnection();
@@ -12,8 +13,6 @@ int main(int argc, char *argv[])
     if (test)
         {
             w.show();
-            QMessageBox::information(nullptr,QObject::tr("Database is open"),QObject::tr("Connection succesful.\n"
-                                                                                         "Click Cancel to exit."),QMessageBox::Cancel);
         }
         else
             QMessageBox::critical(nullptr,QObject::tr("Database is not open"),QObject::tr("Connection failed.\n"
