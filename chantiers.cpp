@@ -133,9 +133,10 @@ QSqlQueryModel * chantiers::chercher(QString cher)
 {
     QSqlQueryModel * model= new QSqlQueryModel();
 
- model->setQuery("select * from CHANTIERS where upper(EMPLACEMENT) LIKE upper('%"+cher+"%')");
+ model->setQuery("select * from CHANTIERS where upper(EMPLACEMENT) LIKE upper('%"+cher+"%') OR upper(DESCRIPTION) LIKE upper('%"+cher+"%') OR SURFACE LIKE upper('%"+cher+"%')");
 return model;
 }
+
 QSqlQueryModel * chantiers::tri_emplacement()
 {
  QSqlQueryModel * model= new QSqlQueryModel();

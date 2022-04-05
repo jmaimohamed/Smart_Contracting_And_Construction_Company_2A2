@@ -14,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
     ui->chan->setModel(a.afficher()) ;
     ui->chan->setSelectionBehavior(QAbstractItemView::SelectRows);
 }
@@ -43,12 +42,12 @@ void MainWindow::on_gerer_chantiers_clicked()
              QSqlQueryModel * Mod2=new  QSqlQueryModel();
                   connexion c;
                   QSqlQuery qry,q2;
-                  qry.prepare("select EMPLACEMENT from CHANTIERS");
+                  qry.prepare("select EMPLACEMENT from CHANTIERS group by EMPLACEMENT");
                   qry.exec();
                   Mod->setQuery(qry);
                   table_necessiteux.setModel(Mod);
 
-                  q2.prepare("select AVG(SURFACE) from CHANTIERS group by EMPLACEMENT");
+                  q2.prepare("select COUNT(EMPLACEMENT) from CHANTIERS group by EMPLACEMENT");
                   q2.exec();
                   Mod2->setQuery(q2);
                   table_n2.setModel(Mod2);
@@ -99,10 +98,10 @@ void MainWindow::on_gerer_chantiers_clicked()
     ui->customPlot->xAxis->setTicker(textTicker);
 
     // prepare axes:
-    ui->customPlot->yAxis->setLabel(QString::fromUtf8("Surface"));
+    ui->customPlot->yAxis->setLabel(QString::fromUtf8("Nombre de chantier"));
     ui->customPlot->rescaleAxes();
     ui->customPlot->xAxis->scaleRange(1.7, ui->customPlot->xAxis->range().center());
-    ui->customPlot->yAxis->setRange(0,1000);
+    ui->customPlot->yAxis->setRange(0,1);
     ui->customPlot->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
 
 
