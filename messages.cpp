@@ -59,12 +59,10 @@ QString  Messages::fetch_msg(QString titre)
     QSqlQuery query;
     QString msg;
     QString request="select text from messages where titre like '" +titre+"'";
-    cout << request.toStdString();
         query.prepare(request);
         query.exec();
         if  (query.next())
         msg =query.value(0).toString();
-        cout << msg.toStdString();
         return msg;
 }
 

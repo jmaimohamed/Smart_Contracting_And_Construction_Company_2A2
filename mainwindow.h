@@ -77,9 +77,24 @@ private slots:
 
     void on_supp_msg_clicked();
 
+    void on_Retour_employe_5_clicked();
+
+    void on_retour_emp_clicked();
+
+    void on_retour_emp_5_clicked();
+
+    void on_Activate_ard_clicked();
+
+    void readValues();
+
+    void on_terminate_ard_clicked();
+
+    void on_QR_interface_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employees Emp;
     Messages M;
+    bool ArdunioProcess;
 };
 #endif // MAINWINDOW_H

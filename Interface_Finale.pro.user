@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.0, 2022-03-23T00:24:38. -->
+<!-- Written by QtCreator 4.11.0, 2022-04-16T14:42:40. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -287,8 +287,8 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Wickkid/My Drive/2nd Year/2nd Semester/Projet C++/CRUD/Smart_Contracting_And_Construction_Company_2A2-youssef/Interface_Finale.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Wickkid/My Drive/2nd Year/2nd Semester/Projet C++/CRUD/Smart_Contracting_And_Construction_Company_2A2-youssef/Interface_Finale.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Wickkid/MyDrive/2ndYear/2ndSemester/Projet_C++/CRUD/Smart_Contracting_And_Construction_Company_2A2-youssef/Interface_Finale.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Wickkid/MyDrive/2ndYear/2ndSemester/Projet_C++/CRUD/Smart_Contracting_And_Construction_Company_2A2-youssef/Interface_Finale.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

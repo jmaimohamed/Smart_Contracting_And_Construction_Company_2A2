@@ -11,13 +11,13 @@
 #include <iostream>
 #include <ostream>
 #include <QMessageBox>
-#include <QDebug>
 #include <QTextEdit>
 #include <QIntValidator>
 #include<QWidget>
 #include <QTextDocument>
 #include <QTextEdit>
 #include <fstream>
+#include <windows.h>
 #include <QTextStream>
 #include <QRadioButton>
 #include <QFileDialog>
@@ -43,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->id_emp_i->setValidator(new QIntValidator(0,99999999,this));
     ui->id_emp_i_2->setValidator(new QIntValidator(0,99999999,this));
     ui->tableView_2->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ArdunioProcess=false;
 
 
 
@@ -212,7 +213,7 @@ void MainWindow::on_Retour_employe_3_clicked()
 
 void MainWindow::on_ajouter_em_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->stackedWidget->setCurrentIndex(4);
 }
 
 void MainWindow::on_Retour_employe_2_clicked()
@@ -263,7 +264,7 @@ void MainWindow::on_modifier_emp_clicked()
 {
 
     int index=0;
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(5);
     QItemSelectionModel *select = ui->tableView_2->selectionModel();
     if (select->selectedRows(4).value(0).data().toString()=="Chef")
         index=0;
@@ -348,6 +349,7 @@ void MainWindow::on_pushButton_clicked()
            QMessageBox::critical(nullptr, QObject::tr("not ok"),
                                  QObject::tr("Ajout non effectuée.\n"
                                              "Click cancel to exit."), QMessageBox::Cancel);
+    ui->titres_rec->setModel(M.afficher());
 }
 
 void MainWindow::on_reclamations_clicked()
@@ -384,3 +386,92 @@ void MainWindow::on_supp_msg_clicked()
                                              "Click cancel to exit."), QMessageBox::Cancel);
     ui->titres_rec->setModel(M.afficher());
 }
+
+void MainWindow::on_Retour_employe_5_clicked()
+{
+ ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_retour_emp_clicked()
+{
+ ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::on_QR_interface_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(10);
+}
+
+void MainWindow::on_retour_emp_5_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->id_entry->setText("");
+    ui->entry_rej_acc->setText("");
+    ui->entry_rej_acc->setStyleSheet("QLineEdit{border: 2px solid teal;border-radius: 10px;color:white;padding: 0 8px;selection-background-color: darkgray;font-size: 25px;}");
+}
+
+void MainWindow::readValues(){
+    QString final=".";
+    QString comp="";
+    int rech;
+    ArdunioProcess=true;
+    QFile file("C:/Users/Wickkid/MyDrive/2ndYear/2ndSemester/Projet_C++/ARDUINO/PYTHON/QRcode.txt");
+    file.open(QIODevice::WriteOnly | QIODevice::Text);
+    file.close();
+   while (ArdunioProcess==true)
+        {
+file.open(QIODevice::ReadOnly | QIODevice::Text);
+QTextStream in(&file);
+final=in.readAll();
+if((comp!=final) && (final!="."))
+{
+    comp=final;
+}
+ui->id_entry->setText(comp);
+if (ui->id_entry->text()!="")
+{
+string test=ui->id_entry->text().toStdString();
+if (!(test.find_first_not_of("0123456789") == std::string::npos))
+    rech=0;
+else {
+    rech=Emp.rechercher(ui->id_entry->text().toInt());
+}
+if (rech==1)
+{
+    ui->entry_rej_acc->setText("QR Code Valide!");
+    ui->entry_rej_acc->setStyleSheet("QLineEdit{background-color:green;border: 2px solid teal;border-radius: 10px;color:white;padding: 0 8px;selection-background-color: darkgray;font-size: 25px;}");
+}
+else
+{
+    ui->entry_rej_acc->setText("QR Code Non Valide!");
+    ui->entry_rej_acc->setStyleSheet("QLineEdit{background-color:red;border: 2px solid teal;border-radius: 10px;color:white;padding: 0 8px;selection-background-color: darkgray;font-size: 25px;}");
+}
+}
+
+QApplication::processEvents();
+QThread::msleep(500);
+file.close();
+        }
+
+
+}
+
+void MainWindow::on_Activate_ard_clicked()
+{
+system("start C:/Users/Wickkid/MyDrive/2ndYear/2ndSemester/Projet_C++/ARDUINO/exec.bat");
+readValues();
+}
+
+
+
+void MainWindow::on_terminate_ard_clicked()
+{
+    ArdunioProcess=false;
+    ui->entry_rej_acc->setText("");
+    ui->entry_rej_acc->setStyleSheet("QLineEdit{border: 2px solid teal;border-radius: 10px;color:white;padding: 0 8px;selection-background-color: darkgray;font-size: 25px;}");
+    system("start C:/Users/Wickkid/MyDrive/2ndYear/2ndSemester/Projet_C++/ARDUINO/kill.bat");
+    QMessageBox::information(nullptr, QObject::tr("Processus Arreté!"),
+                             QObject::tr("Processus Arrete!"), QMessageBox::Ok);
+
+}
+

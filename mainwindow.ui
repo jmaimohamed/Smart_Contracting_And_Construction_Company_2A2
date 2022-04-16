@@ -438,9 +438,9 @@ border-radius: 10px;</string>
      <widget class="QLineEdit" name="chercher_employe">
       <property name="geometry">
        <rect>
-        <x>877</x>
+        <x>937</x>
         <y>0</y>
-        <width>191</width>
+        <width>131</width>
         <height>41</height>
        </rect>
       </property>
@@ -507,14 +507,45 @@ font-weight: bold;</string>
      <widget class="QPushButton" name="reclamations">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>740</x>
         <y>0</y>
         <width>101</width>
         <height>41</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
       <property name="text">
        <string>Messages</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="QR_interface">
+      <property name="geometry">
+       <rect>
+        <x>840</x>
+        <y>0</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>QR</string>
       </property>
      </widget>
     </widget>
@@ -664,10 +695,10 @@ border: 2px solid teal;</string>
      <widget class="QPushButton" name="supp_msg">
       <property name="geometry">
        <rect>
-        <x>490</x>
+        <x>480</x>
         <y>290</y>
-        <width>131</width>
-        <height>41</height>
+        <width>141</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -1890,6 +1921,137 @@ color: rgb(255, 0, 0);</string>
         <width>501</width>
         <height>321</height>
        </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="QR_Ardunio_verif">
+     <widget class="QPushButton" name="Activate_ard">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>90</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Activer</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="terminate_ard">
+      <property name="geometry">
+       <rect>
+        <x>590</x>
+        <y>90</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Terminer</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="id_entry">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>230</y>
+        <width>281</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{ background-color:#111827;
+border: 2px solid teal;
+border-radius: 10px;
+color:white;
+padding: 0 8px;
+selection-background-color: darkgray;
+font-size: 25px;}
+QLineEdit:focus { background-color:rgb(192, 192, 255);}</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="entry_rej_acc">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>300</y>
+        <width>461</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{ 
+border: 2px solid teal;
+border-radius: 10px;
+color:white;
+padding: 0 8px;
+selection-background-color: darkgray;
+font-size: 25px;}</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="retour_emp_5">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>221</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Retour</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>200</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 16px;
+font-weight: bold;
+color: rgb(255, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>QR CODE</string>
       </property>
      </widget>
     </widget>

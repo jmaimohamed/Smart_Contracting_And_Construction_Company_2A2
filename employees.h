@@ -17,6 +17,7 @@ public:
     Employees();
     Employees(int id,QString nom,QDate date_emb ,int salaire,QString role,QString login,QString password);
     bool ajouter();
+    int rechercher(int id);
     bool supprimer(int id);
     bool modifier();
     QSqlQueryModel* afficher(int index,bool direction,QString search);

@@ -72,7 +72,7 @@ QSqlQueryModel * Employees::afficher(int index,bool direction,QString search)
         query="select * from employees order by "+sort_categ+" "+dir;
     }
         else {
-     query="select * from employees where NOM_E like '"+search+"' order by "+sort_categ+" "+dir;
+     query="select * from employees where NOM_E like '%"+search+"%' order by "+sort_categ+" "+dir;
     }
     model->setQuery(query);
     model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_E"));
@@ -97,4 +97,18 @@ bool Employees::modifier(){
       query.bindValue(":LOGIN", login);
       query.bindValue(":PASSWORD", password);
     return query.exec() ;
+}
+
+
+int Employees::rechercher(int id)
+{
+    QSqlQuery test;
+    QString res=QString::number(id);
+    int count=0;
+    test.prepare("select count (*) from EMPLOYEES where ID_E= :id");
+    test.bindValue(":id",res);
+    test.exec();
+    if(test.next())
+    count=test.value(0).toInt();
+    return count;
 }
