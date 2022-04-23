@@ -4,6 +4,18 @@
 #include<QString>
 #include<QSqlQuery>
 #include<QSqlQueryModel>
+#include<iostream>
+#include<QDebug>
+#include <QtPrintSupport/QPrinter>
+#include <QTextDocument>
+#include "../../mypartinproject/myproject/smtp/src/SmtpMime"
+#include <QSslSocket>
+#include <QProcess>
+#include <fstream>
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 
 class Partenaire
@@ -38,6 +50,17 @@ public:
     bool supprimer(int);
     bool modifier();
     QSqlQueryModel * afficher();
+
+
+    // functionalities
+     QSqlQueryModel * afficher(QString); // filtrage
+     QSqlQueryModel * afficher(int); // returns data for a given partner ID
+     void Contract_to_Pdf(QString,QString,QString,QString,QString,QString); // convertion du text en pdf avec téléchargement
+     void Send_email(QString,QString,QString,QString);
+     QString translate(); // traduction du text
+     QString recommand();
+
+
 
 };
 

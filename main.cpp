@@ -2,6 +2,8 @@
 #include <QApplication>
 #include <QMessageBox>
 #include "connection.h"
+#include <QStringList>
+#include <QProcess>
 
 int main(int argc, char *argv[])
 {

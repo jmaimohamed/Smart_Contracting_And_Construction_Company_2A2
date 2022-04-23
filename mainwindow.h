@@ -52,6 +52,26 @@ private slots:
 
     void on_amrou11_2_clicked();
 
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_amrou_filter_reset_clicked();
+
+    void on_amrou_filter_go_clicked();
+
+    void on_amrou_download_pdf_clicked();
+
+    void on_amrou14_clicked();
+
+    void on_amrou_translates_clicked();
+
+    void on_amrou_inverse_content_clicked();
+
+    void on_amrou5_2_clicked();
+
+    void on_amrou_contact_email_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
