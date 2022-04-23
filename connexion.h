@@ -10,7 +10,7 @@ private :
 public:
     connexion();
     bool ouvrirconnexion();
-
+ void closeConnection();
 };
 
 

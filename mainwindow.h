@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 #include <QMainWindow>
 #include "chantiers.h"
+#include "arduino.h"
+#include "qcustomplot_mp.h"
+#include "matierep.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -64,15 +67,56 @@ private slots:
 
     void on_trisur_clicked();
 
+// matiere premiers
+
+    void on_return_2_clicked();
+
+    void on_arduino_clicked();
+
+    void on_yajour_clicked();
+
+    void update();
+
+    void on_simen_clicked();
+
+    void on_return_MP_clicked();
+
+    void on_envoi_MP_clicked();
+
+    void on_Ajout_MP_clicked();
+
+    void on_update_MP_clicked();
+
+    void on_supprimer_MP_clicked();
+
+    void on_chercherMP_clicked();
+
+    void on_file_MP_clicked();
+
+    void on_triNM_clicked(bool checked);
+
+    void on_triQM_clicked(bool checked);
+
+    void on_triPM_clicked(bool checked);
+// fin matiere premier//
 
 
+    void on_return_Arduino_clicked();
 
-
-
-
+    void on_Arduinoo_clicked();
 
 private:
+    QSerialPort *serial;
+        QString portname;
+        quint16 vendorId;
+        quint16 productId;
+        bool arduino_available;
+        void arduino_init();
     Ui::MainWindow *ui;
+    MatiereP M;
+    Arduino A;
     chantiers a ;
+    QByteArray data;
+
 };
 #endif // MAINWINDOW_H

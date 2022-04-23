@@ -1,6 +1,6 @@
 QT       += core gui sql
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport serialport
 
 CONFIG += c++11
 
@@ -16,16 +16,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arduino.cpp \
     chantiers.cpp \
     connexion.cpp \
     main.cpp \
     mainwindow.cpp \
+    matierep.cpp \
     qcustomplot.cpp
 
 HEADERS += \
+    arduino.h \
     chantiers.h \
     connexion.h \
     mainwindow.h \
+    matierep.h \
     qcustomplot.h
 
 FORMS += \

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1068</width>
-    <height>699</height>
+    <width>1209</width>
+    <height>751</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,17 +17,17 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>-20</x>
-      <y>-10</y>
-      <width>1091</width>
-      <height>681</height>
+      <x>0</x>
+      <y>0</y>
+      <width>1201</width>
+      <height>731</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">background: #111827;</string>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>8</number>
     </property>
     <widget class="QWidget" name="login_page">
      <widget class="QGroupBox" name="login_group">
@@ -463,13 +463,13 @@ font-weight: bold;</string>
      </widget>
     </widget>
     <widget class="QWidget" name="Matiere_Premiere">
-     <widget class="QGroupBox" name="ajout_box">
+     <widget class="QGroupBox" name="Crud_MP">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>30</y>
-        <width>401</width>
-        <height>261</height>
+        <x>970</x>
+        <y>50</y>
+        <width>221</width>
+        <height>411</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -481,144 +481,54 @@ color: teal;
       <property name="title">
        <string/>
       </property>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="1" column="0">
-        <layout class="QVBoxLayout" name="Abutton_box">
-         <item>
-          <widget class="QPushButton" name="ajouter_mp">
-           <property name="styleSheet">
-            <string notr="true">border: 2px solid grey;
-padding: 5px;
-color: teal;
-border-radius: 10px;
-color: #0d9488;
-font-size: 16px;
-font-weight: bold;</string>
-           </property>
-           <property name="text">
-            <string>Ajouter MP</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="effacer_mp">
-           <property name="styleSheet">
-            <string notr="true">border: 2px solid grey;
-padding: 5px;
-color: teal;
-border-radius:10px;
-color: #0d9488;
-font-size: 16px;
-font-weight: bold;
-</string>
-           </property>
-           <property name="text">
-            <string>Effacer</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="0" column="0">
-        <layout class="QGridLayout" name="cle_box">
-         <item row="0" column="0">
-          <widget class="QLabel" name="nom">
-           <property name="styleSheet">
-            <string notr="true">color: #0d9488;
-font-size: 16px;
-font-weight: bold;</string>
-           </property>
-           <property name="text">
-            <string>Nom</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="le_nom">
-           <property name="styleSheet">
-            <string notr="true">border: 2px solid teal;
-padding: 5px;
-color: red;
-</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="quantite">
-           <property name="styleSheet">
-            <string notr="true">color: #0d9488;
-font-size: 16px;
-font-weight: bold;</string>
-           </property>
-           <property name="text">
-            <string>Quantite</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLineEdit" name="le_quantite">
-           <property name="styleSheet">
-            <string notr="true">border: 2px solid teal;
-padding: 5px;
-color: teal;
-</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="prix">
-           <property name="styleSheet">
-            <string notr="true">color: #0d9488;
-font-size: 16px;
-font-weight: bold;</string>
-           </property>
-           <property name="text">
-            <string>Prix</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="le_prix">
-           <property name="styleSheet">
-            <string notr="true">border: 2px solid teal;
-padding: 5px;
-color: teal;
-</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QGroupBox" name="Crud_box">
-      <property name="geometry">
-       <rect>
-        <x>890</x>
-        <y>10</y>
-        <width>171</width>
-        <height>251</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: transparent;
-padding: 5px;
-color: teal;
-</string>
-      </property>
-      <property name="title">
-       <string>Metiers</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
+      <layout class="QVBoxLayout" name="verticalLayout_9">
        <item>
-        <widget class="QLineEdit" name="chercherM">
+        <widget class="QLineEdit" name="le_chercherMP">
+         <property name="styleSheet">
+          <string notr="true">border: transparent;
+padding: 5px;
+color: teal;
+</string>
+         </property>
          <property name="placeholderText">
           <string>Search...</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="update_mp">
+        <widget class="QPushButton" name="chercherMP">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Chercher</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Ajout_MP">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Ajouter</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="update_MP">
          <property name="styleSheet">
           <string notr="true">border: 2px solid grey;
 padding: 5px;
@@ -634,14 +544,23 @@ font-weight: bold;</string>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="le_supp">
-         <property name="placeholderText">
-          <string>tapez_Id</string>
+        <widget class="QPushButton" name="envoi_MP">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Envoi pour modifier</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="supprimer_mp">
+        <widget class="QPushButton" name="supprimer_MP">
          <property name="styleSheet">
           <string notr="true">border: 2px solid grey;
 padding: 5px;
@@ -657,7 +576,7 @@ font-weight: bold;</string>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pred_mp">
+        <widget class="QPushButton" name="file_MP">
          <property name="styleSheet">
           <string notr="true">border: 2px solid grey;
 padding: 5px;
@@ -668,35 +587,19 @@ font-size: 16px;
 font-weight: bold;</string>
          </property>
          <property name="text">
-          <string>Sys.Prediction</string>
+          <string>File</string>
          </property>
         </widget>
        </item>
       </layout>
      </widget>
-     <widget class="QTableView" name="tab_test">
+     <widget class="QGroupBox" name="Ajout_Box">
       <property name="geometry">
        <rect>
-        <x>410</x>
-        <y>0</y>
-        <width>471</width>
-        <height>271</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border: transparent;
-padding: 5px;
-color: teal;
-</string>
-      </property>
-     </widget>
-     <widget class="QGroupBox" name="statistique">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>270</y>
-        <width>1051</width>
-        <height>371</height>
+        <x>20</x>
+        <y>60</y>
+        <width>321</width>
+        <height>251</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -706,17 +609,157 @@ color: teal;
 </string>
       </property>
       <property name="title">
-       <string/>
+       <string>ajout /modif</string>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+      <layout class="QFormLayout" name="formLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="le_id_MP">
+         <property name="styleSheet">
+          <string notr="true">color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="ID_MP">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid teal;
+padding: 5px;
+color: yellow;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="le_nom_MP">
+         <property name="styleSheet">
+          <string notr="true">color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Nom</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="Nom_MP">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid teal;
+padding: 5px;
+color: yellow;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="le_quatite_MP">
+         <property name="styleSheet">
+          <string notr="true">color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Qunatite</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="Quantite_MP">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid teal;
+padding: 5px;
+color: yellow;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="le_prix_MP">
+         <property name="styleSheet">
+          <string notr="true">color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Prix</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="Prix_MP">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid teal;
+padding: 5px;
+color: yellow;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="le_ID_FMP">
+         <property name="styleSheet">
+          <string notr="true">color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>ID_F</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="ID_FMP">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid teal;
+padding: 5px;
+color: yellow;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0" colspan="2">
+        <widget class="QPushButton" name="clear">
+         <property name="styleSheet">
+          <string notr="true">color: yellow;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Clear</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
-     <widget class="QPushButton" name="RetourM">
+     <widget class="QPushButton" name="return_MP">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>131</width>
+        <x>20</x>
+        <y>10</y>
+        <width>101</width>
         <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: red;
+border-radius: 10px;
+color: red;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>RETURN</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Matieres_Premierss">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>10</y>
+        <width>181</width>
+        <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -726,10 +769,124 @@ color: teal;
 border-radius: 10px;
 color: #0d9488;
 font-size: 16px;
-font-weight: bold;</string>
+font-weight: bold;
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+</string>
       </property>
       <property name="text">
-       <string>Retour</string>
+       <string>Matieres Premiers</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="metier_MP">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>460</y>
+        <width>231</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: transparent;
+padding: 5px;
+color: teal;
+</string>
+      </property>
+      <property name="title">
+       <string>metier</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <item>
+        <widget class="QRadioButton" name="triNM">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Tri par nom</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="triQM">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Tri par quantite</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="triPM">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>tri par Prix</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Arduinoo">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Arduino</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QCustomPlot" name="customPlot_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>320</y>
+        <width>941</width>
+        <height>371</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTableView" name="tab_test">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>60</y>
+        <width>631</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: transparent;
+border-color: rgb(107, 255, 251);
+padding: 5px;
+color: teal;
+gridline-color: rgb(146, 255, 56);</string>
       </property>
      </widget>
     </widget>
@@ -1520,6 +1677,105 @@ font-weight: bold;</string>
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="Arduino_MP">
+     <widget class="QPushButton" name="return_Arduino">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>return</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>440</y>
+        <width>411</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="title">
+       <string>choose</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QPushButton" name="simen">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>simen</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>260</y>
+        <width>341</width>
+        <height>91</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="image_arduino">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>0</y>
+        <width>621</width>
+        <height>681</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#image_arduino{
+background-image:url(&quot;C:/Users/moham/OneDrive/Bureau/2A/projet web/interface_finale/logo.png&quot;);
+background-position: center no-repeat;
+background-size: 50%;
+border: none;
+border: transparent;
+padding: 5px;
+color: teal;
+}
+</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -1527,7 +1783,7 @@ font-weight: bold;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1068</width>
+     <width>1209</width>
      <height>26</height>
     </rect>
    </property>
@@ -1538,7 +1794,7 @@ font-weight: bold;</string>
   <customwidget>
    <class>QCustomPlot</class>
    <extends>QWidget</extends>
-   <header>qcustomplot.h</header>
+   <header location="global">qcustomplot.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
