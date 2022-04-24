@@ -13,6 +13,38 @@
 #include "matierep.h"
 #include "arduino.h"
 #include "partenaire.h"
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include "employees.h"
+#include "messages.h"
+#include "qrcode.h"
+#include "qrwidget.h"
+#include "qrcodegenratorworker.h"
+#include "qcustomplot.h"
+#include <iostream>
+#include <iostream>
+#include <ostream>
+#include <QMessageBox>
+#include <QTextEdit>
+#include <QIntValidator>
+#include<QWidget>
+#include <QTextDocument>
+#include <QTextEdit>
+#include <fstream>
+#include <windows.h>
+#include <QTextStream>
+#include <QRadioButton>
+#include <QFileDialog>
+#include <QPixmap>
+#include <QPainter>
+#include <string>
+#include <QtSvg/QSvgRenderer>
+#include <QtSvg/QSvgGenerator>
+#include<QDirModel>
+#include <QtPrintSupport/QPrinter>
+#include <QtPrintSupport/QAbstractPrintDialog>
+#include<QDirModel>
+#include <QtPrintSupport/QPrintDialog>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -24,6 +56,55 @@ MainWindow::MainWindow(QWidget *parent)
      ui->tab_test->setSelectionBehavior(QAbstractItemView::SelectRows);
     serial = new QSerialPort(); //Inicializa la variable Serial
     arduino_available = false;
+
+//INITIATION YASSINE
+    this->emp_tri_dir=0;
+    ui->tableView_9->setModel(Emp.afficher(ui->tri_emp_5->currentIndex(),ui->direc_5->checkState(),ui->chercher_employe_5->text()));
+    ui->titres_rec_5->setModel(Msg.afficher());
+    ui->id_emp_i_9->setValidator(new QIntValidator(0,99999999,this));
+    ui->id_emp_i_10->setValidator(new QIntValidator(0,99999999,this));
+    ui->tableView_9->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ArdunioProcess=false;
+
+//STATISTIQUE YASSINE
+    QSqlQuery qry,q2;
+    qry.prepare("select NOM_HEURE from TRAVAIL");
+    qry.exec();
+    ui->customPlot->legend->setVisible(true);
+    ui->customPlot->legend->setFont(QFont("Helvetica",9));
+    // set locale to english, so we get english decimal separator:
+    ui->customPlot->setLocale(QLocale(QLocale::English, QLocale::UnitedKingdom));
+    // add confidence band graphs:
+    ui->customPlot->addGraph();
+    QPen pen;
+    pen.setStyle(Qt::DashLine);
+    pen.setWidth(2);
+    pen.setColor(Qt::red);
+    ui->customPlot->graph(0)->setPen(pen);
+    ui->customPlot->graph(0)->setName("Nombre d'heures");
+    // add theory curve graph:
+    ui->customPlot->graph(0)->setName("Nombre d'heures");
+    // add error bars:
+    QCPErrorBars *errorBars = new QCPErrorBars(ui->customPlot->xAxis, ui->customPlot->yAxis);
+    errorBars->removeFromLegend();
+    errorBars->setAntialiased(false);
+    errorBars->setPen(QPen(QColor(180,180,180)));
+
+    QVector<double>  y1(50), y1err(50), x1(50);
+    for (int i=0; i<6; ++i)
+    {
+      x1[i]=i;
+      if(qry.next())
+      y1[i]=qry.value(0).toInt();
+    }
+    // pass data to graphs and let Qui->customPlot determine the axes ranges so the whole thing is visible:
+    ui->customPlot->graph(0)->setData(x1, y1);
+    ui->customPlot->graph(0)->rescaleAxes(true);
+    // setup look of bottom tick labels:
+    ui->customPlot->xAxis->setTickLabelRotation(30);
+    ui->customPlot->xAxis->ticker()->setTickCount(6);
+    // make top right axes clones of bottom left axes. Looks prettier:
+    ui->customPlot->axisRect()->setupFullAxesBox();
 
     foreach (const QSerialPortInfo &serial_Info, QSerialPortInfo::availablePorts()) {//Lee la informaciรณn de cada puerto serial
             qDebug()<<"Puerto: "<<serial_Info.portName();
@@ -809,4 +890,356 @@ void MainWindow::on_amrou5_10_clicked()
     ui->stackedWidget->setCurrentIndex(14);
     Partenaire p;
     ui->amrou_outputtable_15->setModel(p.afficher());
+}
+
+
+//NEW PARTIE YASSINE
+
+//PAGE EMPLOYE 2
+void MainWindow::on_Retour_employe_18_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_ajouter_em_6_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(18);
+}
+
+void MainWindow::on_del_emp_6_clicked()
+{
+    QItemSelectionModel *selection = ui->tableView_9->selectionModel();
+    int id=selection->selectedRows().value(0).data().toInt();
+        std::cout << id;
+        bool test=Emp.supprimer(id);
+        if (test)
+        {
+            ui->tableView_9->setModel(Emp.afficher(ui->tri_emp_5->currentIndex(),ui->direc_5->checkState(),ui->chercher_employe_5->text()));
+            QMessageBox::information(nullptr, QObject::tr("OK"),
+                        QObject::tr("Supression Effectue\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+        }
+        else
+            QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+                        QObject::tr("Suppression non effectué!\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+
+void MainWindow::on_modifier_emp_6_clicked()
+{
+
+    int index=0;
+    ui->stackedWidget->setCurrentIndex(19);
+    QItemSelectionModel *select = ui->tableView_9->selectionModel();
+    if (select->selectedRows(4).value(0).data().toString()=="Chef")
+        index=0;
+    else if (select->selectedRows(4).value(0).data().toString()=="Ingenieur")
+        index=1;
+        else if (select->selectedRows(4).value(0).data().toString()=="Architecte")
+        index=2;
+    else index=3;
+    ui->id_emp_i_10->setText(select->selectedRows().value(0).data().toString());
+    ui->nom_emp_i_10->setText(select->selectedRows(1).value(0).data().toString());
+    ui->role_emp_i_10->setCurrentIndex(index);
+    ui->login_emp_i_10->setText(select->selectedRows(5).value(0).data().toString());
+    ui->pass_emp_i_10->setText(select->selectedRows(6).value(0).data().toString());
+}
+
+
+
+void MainWindow::on_tri_emp_5_currentIndexChanged(int index)
+{
+    (void)index;
+ ui->tableView_9->setModel(Emp.afficher(ui->tri_emp_5->currentIndex(),ui->direc_5->checkState(),ui->chercher_employe_5->text()));
+}
+
+void MainWindow::on_direc_5_stateChanged(int arg1)
+{
+    (void)arg1;
+    ui->tableView_9->setModel(Emp.afficher(ui->tri_emp_5->currentIndex(),ui->direc_5->checkState(),ui->chercher_employe_5->text()));
+}
+
+void MainWindow::on_chercher_employe_5_textEdited(const QString &arg1)
+{
+    (void)arg1;
+    ui->tableView_9->setModel(Emp.afficher(ui->tri_emp_5->currentIndex(),ui->direc_5->checkState(),ui->chercher_employe_5->text()));
+}
+
+void MainWindow::on_QR_interface_5_clicked()
+{
+  ui->stackedWidget->setCurrentIndex(21);
+}
+
+
+
+
+//PAGE (AJOUTER_EMP_5) 18
+void MainWindow::on_ajouter_emp_9_clicked()
+{
+    int id= ui->id_emp_i_9->text().toInt();
+    QString nom=ui->nom_emp_i_9->text();
+    QString role=ui->role_emp_i_9->currentText();
+    QString login=ui->login_emp_i_9->text();
+    QString password=ui->pass_emp_i_9->text();
+    int salary;
+if (ui->role_emp_i_9->currentText()=="Chef")
+    salary=3500;
+else if (ui->role_emp_i_9->currentText()=="Ouvrier")
+    salary=1000;
+else salary=2500;
+    Employees E(id,nom,QDate::currentDate(),salary,role,login,password);
+    bool test=E.ajouter();
+    if (test)
+    {
+        QMessageBox::information(nullptr, QObject::tr("OK"),
+                    QObject::tr("Ajout Effectue\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+        ui->tableView_9->setModel(Emp.afficher(ui->tri_emp_5->currentIndex(),ui->direc_5->checkState(),ui->chercher_employe_5->text()));
+    }
+    else
+        QMessageBox::critical(nullptr, QObject::tr("NOT OK"),
+                    QObject::tr("Ajout non effectué!\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_Retour_employe_19_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->id_emp_i_9->text()="";
+    ui->nom_emp_i_9->text()="";
+    ui->login_emp_i_9->text()="";
+    ui->pass_emp_i_9->text()="";
+    ui->role_emp_i_9->setCurrentIndex(1);
+}
+
+void MainWindow::on_generQR_5_clicked()
+{
+    int  Code=ui->id_emp_i_9->text().toInt();
+    const qrcodegen::QrCode qr = qrcodegen::QrCode::encodeText(std::to_string(Code).c_str(), qrcodegen::QrCode::Ecc::LOW);
+    std::ofstream myfile;
+    myfile.open ("qrcode.svg") ;
+    myfile << qr.toSvgString(1);
+    myfile.close();
+    QSvgRenderer svgRenderer(QString("qrcode.svg"));
+    QPixmap pix( QSize(90, 90));
+    QPainter pixPainter( &pix );
+    svgRenderer.render(&pixPainter);
+    ui->QR_aff_5->setPixmap(pix);
+}
+
+
+
+
+
+//PAGE MODIFIER  19
+
+
+void MainWindow::on_ajouter_emp_10_clicked()
+{
+    int salary;
+if (ui->role_emp_i_10->currentText()=="Chef")
+    salary=3500;
+else if (ui->role_emp_i_10->currentText()=="Ouvrier")
+    salary=1000;
+else salary=2500;
+
+    Employees E(ui->id_emp_i_10->text().toInt(),
+                 ui->nom_emp_i_10->text(),
+                 QDate::currentDate(),
+                 salary,
+                 ui->role_emp_i_10->currentText(),
+                 ui->login_emp_i_10->text(),
+                 ui->pass_emp_i_10->text()
+                 );
+
+
+    bool result_query = E.modifier();
+
+    if (result_query)
+       {
+           QMessageBox::information(nullptr, QObject::tr("ok"),
+                                    QObject::tr("Modification effectuée.\n"
+                                                "Click on ok to exit."), QMessageBox::Ok);
+           ui->tableView_9->setModel(Emp.afficher(ui->tri_emp_5->currentIndex(),ui->direc_5->isTristate(),ui->chercher_employe_5->text()));
+       }
+       else
+           QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                                 QObject::tr("Modification non effectuée.\n"
+                                             "Click cancel to exit."), QMessageBox::Cancel);
+}
+
+
+
+void MainWindow::on_Retour_employe_20_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->id_emp_i_10->text()="";
+    ui->nom_emp_i_10->text()="";
+    ui->login_emp_i_10->text()="";
+    ui->pass_emp_i_10->text()="";
+    ui->role_emp_i_10->setCurrentIndex(1);
+}
+
+
+
+
+//PAGE INTERFACE EMPLOYE 20
+void MainWindow::on_pushButton_9_clicked()
+{
+    Messages Msg(ui->titre_rec_5->text(),
+                 ui->reclamation_i_5->toPlainText(),
+                 false
+                 );
+
+
+    bool result_query = Msg.ajouter();
+
+    if (result_query)
+       {
+           QMessageBox::information(nullptr, QObject::tr("ok"),
+                                    QObject::tr("Ajout effectuée.\n"
+                                                "Click on ok to exit."), QMessageBox::Ok);
+           ui->tableView_9->setModel(Emp.afficher(ui->tri_emp_5->currentIndex(),ui->direc_5->isTristate(),ui->chercher_employe_5->text()));
+       }
+       else
+           QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                                 QObject::tr("Ajout non effectuée.\n"
+                                             "Click cancel to exit."), QMessageBox::Cancel);
+    ui->titres_rec_5->setModel(Msg.afficher());
+}
+
+void MainWindow::on_Retour_employe_21_clicked()
+{
+  ui->stackedWidget->setCurrentIndex(1);
+}
+
+//PAGE LISTE RECLAMATIONS 17
+void MainWindow::on_reclamations_5_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(17);
+}
+
+void MainWindow::on_titres_rec_5_clicked(const QModelIndex &index)
+{
+    (void)&index;
+    QItemSelectionModel *select = ui->titres_rec_5->selectionModel();
+    QString titre=select->selectedRows().value(0).data().toString();
+    QString text=Msg.fetch_msg(titre);
+    ui->titre_aff_5->setText(titre);
+    ui->msg_aff_5->setText(text);
+}
+
+void MainWindow::on_supp_msg_5_clicked()
+{
+    QItemSelectionModel *select = ui->titres_rec_5->selectionModel();
+    QString titre=select->selectedRows().value(0).data().toString();
+
+    if (Msg.supprimer(titre))
+       {
+           QMessageBox::information(nullptr, QObject::tr("ok"),
+                                    QObject::tr("Supression effectuée.\n"
+                                                "Click on ok to exit."), QMessageBox::Ok);
+    }
+       else
+           QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                                 QObject::tr("Supression non effectuée.\n"
+                                             "Click cancel to exit."), QMessageBox::Cancel);
+    ui->titres_rec_5->setModel(Msg.afficher());
+}
+
+void MainWindow::on_retour_emp_9_clicked()
+{
+ ui->stackedWidget->setCurrentIndex(2);
+}
+
+
+
+//INTERFACE QR CODE ARDUINO 21
+
+
+
+void MainWindow::on_retour_emp_10_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    ui->id_entry_5->setText("");
+    ui->entry_rej_acc_5->setText("");
+    ui->entry_rej_acc_5->setStyleSheet("QLineEdit{border: 2px solid teal;border-radius: 10px;color:white;padding: 0 8px;selection-background-color: darkgray;font-size: 25px;}");
+}
+
+void MainWindow::readValues(){
+    QString final=".";
+    QString comp="";
+    int rech;
+    ArdunioProcess=true;
+    QFile file("C:/Users/Wickkid/Documents/Arduino/PYTHON/QRcode.txt");
+    file.open(QIODevice::WriteOnly | QIODevice::Text);
+    file.close();
+   while (ArdunioProcess==true)
+        {
+file.open(QIODevice::ReadOnly | QIODevice::Text);
+QTextStream in(&file);
+final=in.readAll();
+qDebug() <<final;
+if((ui->id_entry_5->text()!=final) && (final!="."))
+{
+    ui->id_entry_5->setText(final);
+}
+if (ui->id_entry_5->text()!="")
+{
+string test=ui->id_entry_5->text().toStdString();
+if (!(test.find_first_not_of("0123456789") == std::string::npos))
+    rech=0;
+else {
+    rech=Emp.rechercher(ui->id_entry_5->text().toInt());
+}
+if (rech==1)
+{
+    A.write_to_arduino("1");
+    ui->entry_rej_acc_5->setText("QR Code Valide!");
+    ui->entry_rej_acc_5->setStyleSheet("QLineEdit{background-color:green;border: 2px solid teal;border-radius: 10px;color:white;padding: 0 8px;selection-background-color: darkgray;font-size: 25px;}");
+    QApplication::processEvents();
+    file.close();
+    file.open(QIODevice::WriteOnly | QIODevice::Text);
+    file.close();
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    QThread::msleep(5000);
+    ui->id_entry_5->setText("");
+    ui->entry_rej_acc_5->setText("");
+    ui->entry_rej_acc_5->setStyleSheet("QLineEdit{border: 2px solid teal;border-radius: 10px;color:white;padding: 0 8px;selection-background-color: darkgray;font-size: 25px;}");
+}
+else if (rech==0)
+{
+    ui->entry_rej_acc_5->setText("QR Code Non Valide!");
+    ui->entry_rej_acc_5->setStyleSheet("QLineEdit{background-color:red;border: 2px solid teal;border-radius: 10px;color:white;padding: 0 8px;selection-background-color: darkgray;font-size: 25px;}");
+}
+}
+
+QApplication::processEvents();
+QThread::msleep(500);
+file.close();
+        }
+}
+
+
+void MainWindow::on_Activate_ard_5_clicked()
+{
+    system("cd C:/Users/Wickkid/Documents/Arduino && exec.vbs");
+    readValues();
+}
+
+void MainWindow::on_terminate_ard_5_clicked()
+{
+    ArdunioProcess=false;
+    ui->id_entry_5->setText("");
+    ui->entry_rej_acc_5->setText("");
+    ui->entry_rej_acc_5->setStyleSheet("QLineEdit{border: 2px solid teal;border-radius: 10px;color:white;padding: 0 8px;selection-background-color: darkgray;font-size: 25px;}");
+    system("cd C:/Users/Wickkid/Documents/Arduino && kill.vbs");
+    QMessageBox::information(nullptr, QObject::tr("Processus Arreté!"),
+                             QObject::tr("Processus Arrete!"), QMessageBox::Ok);
+}
+
+void MainWindow::on_Plateforme_emp_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(20);
 }

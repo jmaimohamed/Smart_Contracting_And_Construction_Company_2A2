@@ -5,6 +5,8 @@
 #include "arduino.h"
 #include "qcustomplot_mp.h"
 #include "matierep.h"
+#include "messages.h"
+#include "employees.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -16,6 +18,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    int emp_tri_dir;
 
 private slots:
     void on_login_button_clicked();
@@ -151,6 +154,55 @@ private slots:
 
     void on_amrou5_10_clicked();
 
+    void on_Retour_employe_18_clicked();
+
+    void on_ajouter_em_6_clicked();
+
+    void on_del_emp_6_clicked();
+
+    void on_ajouter_emp_9_clicked();
+
+    void on_Retour_employe_19_clicked();
+
+    void on_ajouter_emp_10_clicked();
+
+    void on_modifier_emp_6_clicked();
+
+    void on_Retour_employe_20_clicked();
+
+
+    void on_tri_emp_5_currentIndexChanged(int index);
+
+    void on_direc_5_stateChanged(int arg1);
+
+    void on_chercher_employe_5_textEdited(const QString &arg1);
+
+    void on_generQR_5_clicked();
+
+    void on_pushButton_9_clicked();
+
+    void on_reclamations_5_clicked();
+
+    void on_titres_rec_5_clicked(const QModelIndex &index);
+
+    void on_supp_msg_5_clicked();
+
+    void on_Retour_employe_21_clicked();
+
+    void on_retour_emp_9_clicked();
+
+    void on_QR_interface_5_clicked();
+
+    void on_retour_emp_10_clicked();
+
+    void readValues();
+
+    void on_Activate_ard_5_clicked();
+
+    void on_terminate_ard_5_clicked();
+
+    void on_Plateforme_emp_clicked();
+
 private:
     QSerialPort *serial;
         QString portname;
@@ -163,6 +215,9 @@ private:
     Arduino A;
     chantiers a ;
     QByteArray data;
+    Employees Emp;
+    Messages Msg;
+    bool ArdunioProcess;
 
 };
 #endif // MAINWINDOW_H

@@ -1,4 +1,4 @@
-QT       += core gui sql printsupport network
+QT       += core gui sql printsupport network svg
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport serialport
 
@@ -20,20 +20,31 @@ SOURCES += \
     arduino.cpp \
     chantiers.cpp \
     connexion.cpp \
+    employees.cpp \
     main.cpp \
     mainwindow.cpp \
     matierep.cpp \
+    messages.cpp \
     partenaire.cpp \
     qcustomplot.cpp \
+    qrcode.cpp \
+    qrcodegeneratordemo.cpp \
+    qrcodegenratorworker.cpp \
+    qrwidget.cpp
 
 HEADERS += \
     arduino.h \
     chantiers.h \
     connexion.h \
+    employees.h \
     mainwindow.h \
     matierep.h \
+    messages.h \
     partenaire.h \
     qcustomplot.h \
+    qrcode.h \
+    qrcodegenratorworker.h \
+    qrwidget.h
 
 FORMS += \
     mainwindow.ui
