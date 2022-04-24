@@ -105,6 +105,52 @@ private slots:
 
     void on_Arduinoo_clicked();
 
+    void on_amrou1_9_clicked();
+
+    void on_amrou2_5_clicked();
+
+    void on_amrou1_10_clicked();
+
+    void on_amrou9_5_clicked();
+
+    void on_amrou4_26_clicked();
+
+    void on_amrou5_9_clicked();
+
+    void on_amrou4_27_clicked();
+
+    void on_amrou4_28_clicked();
+
+    void on_amrou4_29_clicked();
+
+    void on_amrou4_25_clicked();
+
+    void on_amrou_filter_go_5_clicked();
+
+    void on_amrou_filter_reset_5_clicked();
+
+    void on_amrou7_5_clicked();
+
+    void on_amrou4_30_clicked();
+
+    void on_amrou8_5_clicked();
+
+    void on_amrou10_9_clicked();
+
+    void on_amrou11_9_clicked();
+
+    void on_amrou12_5_clicked();
+
+    void on_amrou_inverse_content_clicked();
+
+    void on_amrou_download_pdf_clicked();
+
+    void on_amrou_translates_clicked();
+
+    void on_amrou14_5_clicked();
+
+    void on_amrou5_10_clicked();
+
 private:
     QSerialPort *serial;
         QString portname;
