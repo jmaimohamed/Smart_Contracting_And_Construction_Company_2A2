@@ -1,4 +1,4 @@
-QT       += core gui sql printsupport network svg
+QT       += core gui sql printsupport network svg multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport serialport
 
@@ -22,6 +22,7 @@ SOURCES += \
     connexion.cpp \
     employees.cpp \
     exportexcel.cpp \
+    fournisseur.cpp \
     main.cpp \
     mainwindow.cpp \
     matierep.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
     connexion.h \
     employees.h \
     exportexcel.h \
+    fournisseur.h \
     mainwindow.h \
     matierep.h \
     messages.h \

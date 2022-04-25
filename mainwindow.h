@@ -10,6 +10,14 @@
 #include "tache.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
+class QCamera;
+class QCameraViewfinder;
+class QCameraImageCapture;
+class QVBoxLayout;
+class QMenu;
+class QLineEdit;
+class QPushButton;
+class QVBoxLayout;
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
@@ -232,7 +240,34 @@ private slots:
 
     void on_export_button_clicked();
 
+    void on_gerer_fournisseur_clicked();
+
+    void on_ajouter_f_clicked();
+
+    void on_supprimer_f_clicked();
+
+    void on_modifier_f_clicked();
+
+    void on_enregistrer_f_clicked();
+
+    void on_rechercher_f_clicked();
+
+    void on_recue_f_clicked();
+
+    void on_Formulaire_clicked();
+
+    void on_pushButton_clicked();
+
 private:
+    QPushButton *findButton;
+     QCamera *mCamera;
+         QCameraViewfinder *mCameraViewfinder;
+         QCameraImageCapture *mCameraImageCapture;
+         QVBoxLayout *mLayout;
+         QMenu *mOptionmenu;
+         QAction  *mEgendrerAction;
+         QAction *meffacerAction;
+         QAction *mcapturerAction;
     QSerialPort *serial;
         QString portname;
         quint16 vendorId;

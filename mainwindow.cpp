@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "chantiers.h"
+#include "fournisseur.h"
 #include "connexion.h"
 #include "qcustomplot.h"
 #include <QIntValidator>
@@ -48,6 +49,13 @@
 #include <QtPrintSupport/QAbstractPrintDialog>
 #include<QDirModel>
 #include <QtPrintSupport/QPrintDialog>
+#include <QVBoxLayout>
+#include <QCamera>
+#include <QCameraViewfinder>
+#include <QCameraImageCapture>
+#include <QMenu>
+#include <QAction>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -59,6 +67,47 @@ MainWindow::MainWindow(QWidget *parent)
      ui->tab_test->setSelectionBehavior(QAbstractItemView::SelectRows);
     serial = new QSerialPort(); //Inicializa la variable Serial
     arduino_available = false;
+//Camera mehdi
+
+    fournissseur f;
+        mCamera= new QCamera(this);
+        mCameraViewfinder= new QCameraViewfinder(this);
+    mCameraImageCapture = new QCameraImageCapture(mCamera,this);
+    mLayout= new QVBoxLayout;
+    mOptionmenu= new QMenu("option", this);
+    mEgendrerAction= new QAction(" action", this);
+    meffacerAction = new QAction("effacer",this);
+    mcapturerAction= new QAction("capturer", this);
+    mOptionmenu->addActions({mEgendrerAction,meffacerAction,mcapturerAction});
+    ui->optionbutton->setMenu(mOptionmenu);
+    mCamera->setViewfinder(mCameraViewfinder);
+    mLayout->addWidget(mCameraViewfinder);
+    mLayout->setMargin(0);
+            ui->scrollAreaWidgetContents_2->setLayout(mLayout);
+            connect(mEgendrerAction, &QAction::triggered,[&](){
+                mCamera->start();
+                    });
+            connect(meffacerAction, &QAction::triggered,[&](){
+                mCamera->stop();
+            });
+            connect(mcapturerAction, &QAction::triggered,[&](){
+                auto filename=QFileDialog::getSaveFileName(this, "Capturer", "/","Image(*.jp;*.jpeg)");
+                if(filename.isEmpty()){
+                    return;
+                }
+                mCameraImageCapture->setCaptureDestination(QCameraImageCapture::CaptureToFile);
+    QImageEncoderSettings ImageEcoderSettings ;
+    ImageEcoderSettings.setCodec("image/jpeg");
+    ImageEcoderSettings.setResolution(1600, 1200);
+    mCameraImageCapture->setEncodingSettings(ImageEcoderSettings);
+    mCamera->setCaptureMode(QCamera::CaptureStillImage);
+    mCamera->start();
+    mCamera->searchAndLock();
+    mCameraImageCapture->capture(filename);
+    mCamera->unlock();
+
+            });
+
 
 
 //YOUSSEF SETUP
@@ -1424,3 +1473,154 @@ void MainWindow::on_export_button_clicked()
                   }
 
 }
+
+void MainWindow::on_gerer_fournisseur_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(24);
+
+
+}
+
+
+void MainWindow::on_ajouter_f_clicked()
+{
+
+        fournissseur e (ui->id_f->text().toInt(),
+
+                         ui->nom_f->text(),
+                         ui->quantite_f->text().toInt(),
+                         ui->prix_f->text().toInt(),
+                       ui->date_f->text());
+        bool result_query = e.ajouter_fournisseur();
+        if (result_query)
+               {
+                   QMessageBox::information(nullptr, QObject::tr("ok"),
+                                            QObject::tr("Ajout effectué.\n"
+                                                        "Click on ok to exit."), QMessageBox::Ok);
+                   ui->id_f->setText("");
+                    ui->nom_f->setText("");
+                    ui->quantite_f->setText("");
+                    ui->prix_f->setText("");
+                    ui->date_f->setText("");
+               }
+               else
+                   QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                                         QObject::tr("Ajout non effectué.\n"
+                                                     "Click cancel to exit."), QMessageBox::Cancel);
+    fournissseur f;
+        ui->tableView_f->setModel(f.afficher());
+
+
+        }
+
+
+
+void MainWindow::on_supprimer_f_clicked()
+{
+    fournissseur f;
+    QItemSelectionModel *select = ui->tableView_f->selectionModel();
+                 int id_f =select->selectedRows().value(0).data().toInt();
+                 if(f.supprimer(id_f))
+                 {
+                     ui->tableView_f->setModel(f.afficher());
+                     QMessageBox::information(nullptr, QObject::tr("ok"),
+                                              QObject::tr("Supression effectuée.\n"
+                                                          "Click on ok to proceed."), QMessageBox::Ok);
+                 }
+                 else
+                     QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                                           QObject::tr("Supression non effectuée.\n"
+                                                       "Click cancel to exit."), QMessageBox::Cancel);
+
+
+
+}
+
+
+void MainWindow::on_modifier_f_clicked()
+{
+    QItemSelectionModel *select = ui->tableView_f->selectionModel();
+          ui->id_f->setText(select->selectedRows(0).value(0).data().toString());
+          ui->nom_f->setText(select->selectedRows(1).value(0).data().toString());
+          ui->quantite_f->setText(select->selectedRows(2).value(0).data().toString());
+          ui->prix_f->setText(select->selectedRows(3).value(0).data().toString());
+          ui->date_f->setText(select->selectedRows(4).value(0).data().toString());
+
+}
+
+
+void MainWindow::on_enregistrer_f_clicked()
+{
+    fournissseur e(ui->id_f->text().toInt(),
+
+                       ui->nom_f->text(),
+                       ui->quantite_f->text().toInt(),
+                       ui->prix_f->text().toInt(),
+                     ui->date_f->text());
+        bool result_query = e.modifier();
+        if (result_query)
+               {
+                   QMessageBox::information(nullptr, QObject::tr("ok"),
+                                            QObject::tr("modification effectué.\n"
+                                                        "Click on ok to exit."), QMessageBox::Ok);
+                 ui->tableView_f->setModel(e.afficher());
+               }
+               else
+                   QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                                         QObject::tr("modification non effectué.\n"
+                                                     "Click cancel to exit."), QMessageBox::Cancel);
+}
+
+
+void MainWindow::on_rechercher_f_clicked()
+{
+    fournissseur c ;
+       QString n =ui->chercher_f->text();
+       ui->tableView_f->setModel(c.recherche(n));
+}
+
+
+void MainWindow::on_recue_f_clicked()
+{
+
+        QPrinter printer;
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setOutputFileName("a.pdf");
+        QPainter painter;
+        if(! painter.begin(&printer))
+        {
+            //failed to open
+            qWarning("failed to open file");
+        }
+        QItemSelectionModel *select = ui->tableView_f->selectionModel();
+         select->selectedRows(4).value(0).data().toString();
+         painter.drawPixmap(0,0,QPixmap("logo.jpg"));
+         painter.drawText(200,0,"Architech");
+        painter.drawText(200,500,"id  :"+select->selectedRows(0).value(0).data().toString());
+        painter.drawText(300,500,"nom  :"+select->selectedRows(1).value(0).data().toString());
+        painter.drawText(400,500,"quant  :"+select->selectedRows(2).value(0).data().toString());
+        painter.drawText(500,500,"prix  :"+select->selectedRows(3).value(0).data().toString());
+        painter.drawText(600,500,"date de livraison  :"+select->selectedRows(4).value(0).data().toString());
+        QRect rect(0,800,0,800);
+        painter.drawRect(rect);
+        painter.end();
+    }
+
+
+
+
+void MainWindow::on_Formulaire_clicked()
+{
+
+        fournissseur f;
+        QItemSelectionModel *select = ui->tableView_f->selectionModel();
+        string nom_f = select->selectedRows(1).value(0).data().toString().toStdString();
+        string quantite_f = select->selectedRows(2).value(0).data().toString().toStdString();
+        string prix_f = select->selectedRows(3).value(0).data().toString().toStdString();
+        string date_f = select->selectedRows(4).value(0).data().toString().toStdString();
+            string a = "http://localhost/Untitled-1.php?nom_f="+nom_f+"&quantite_f="+quantite_f+"&prix_f="+prix_f+"&date_f="+date_f+"";
+            cout<< a<<endl;
+            QString url = QString::fromStdString(a);
+                  QDesktopServices::openUrl(QUrl(url));
+    }
+

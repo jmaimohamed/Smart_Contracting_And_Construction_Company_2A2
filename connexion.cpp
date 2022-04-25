@@ -6,9 +6,10 @@ bool connexion::ouvrirconnexion()
 {
 
     db = QSqlDatabase::addDatabase("QODBC");
-    db.setDatabaseName("mybase");
-    db.setUserName("Youssef");//inserer nom de l'utilisateur
-    db.setPassword("youssef");//inserer mot de passe de cet utilisateur
+    db.setDatabaseName("BD_HMM");
+    db.setUserName("mehdi");//inserer nom de l'utilisateur
+    db.setPassword("mehdi123");//inserer mot de passe de cet utilisateur
+
 
     if (db.open())
     return true ;
