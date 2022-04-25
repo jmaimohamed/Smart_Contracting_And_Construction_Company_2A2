@@ -21,6 +21,7 @@ SOURCES += \
     chantiers.cpp \
     connexion.cpp \
     employees.cpp \
+    exportexcel.cpp \
     main.cpp \
     mainwindow.cpp \
     matierep.cpp \
@@ -30,13 +31,15 @@ SOURCES += \
     qrcode.cpp \
     qrcodegeneratordemo.cpp \
     qrcodegenratorworker.cpp \
-    qrwidget.cpp
+    qrwidget.cpp \
+    tache.cpp
 
 HEADERS += \
     arduino.h \
     chantiers.h \
     connexion.h \
     employees.h \
+    exportexcel.h \
     mainwindow.h \
     matierep.h \
     messages.h \
@@ -44,7 +47,8 @@ HEADERS += \
     qcustomplot.h \
     qrcode.h \
     qrcodegenratorworker.h \
-    qrwidget.h
+    qrwidget.h \
+    tache.h
 
 FORMS += \
     mainwindow.ui

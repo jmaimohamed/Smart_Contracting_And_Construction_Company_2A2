@@ -27,7 +27,7 @@
      <string notr="true">background: #111827;</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>23</number>
     </property>
     <widget class="QWidget" name="login_page">
      <widget class="QGroupBox" name="login_group">
@@ -1663,7 +1663,7 @@ font-weight: bold;</string>
        <rect>
         <x>10</x>
         <y>30</y>
-        <width>1061</width>
+        <width>1151</width>
         <height>321</height>
        </rect>
       </property>
@@ -1684,19 +1684,167 @@ color: teal;
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
-        <widget class="QTableView" name="tableView_tache">
-         <property name="styleSheet">
-          <string notr="true">border: transparent;
-padding: 5px;
-color: teal;
-</string>
+        <widget class="QGroupBox" name="Input_Box_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QFormLayout" name="formLayout_5">
+          <item row="0" column="0">
+           <widget class="QLabel" name="tache_label_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>ID Tache</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="idTache_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid teal;
+padding: 5px;
+color: red;
+</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="dateD_label_3">
+            <property name="text">
+             <string>Date_Done</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QDateEdit" name="dateDone_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid teal;
+padding: 5px;
+
+</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="idE_label_3">
+            <property name="text">
+             <string>ID Employe</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="idEmploye_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid teal;
+padding: 5px;
+
+</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="nomE_label_3">
+            <property name="text">
+             <string>Nom Employe</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="nomEmploye_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid teal;
+padding: 5px;
+</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="description_label_3">
+            <property name="text">
+             <string>Description</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QTextEdit" name="descEmploye_3">
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid teal;
+padding: 5px;
+</string>
+            </property>
+            <property name="html">
+             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QDateEdit" name="dateUpload_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 2px solid teal;
+padding: 5px;
+
+</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="dateU_label_3">
+            <property name="text">
+             <string>Date_Upload</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
        <item>
         <widget class="QGroupBox" name="Crud_box_3">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
@@ -1730,13 +1878,22 @@ font-weight: bold;</string>
           <item>
            <widget class="QPushButton" name="ajouter_tache">
             <property name="styleSheet">
-             <string notr="true">border: 2px solid grey;
+             <string notr="true">QPushButton
+{
+border: 2px solid grey;
 padding: 5px;
 color: teal;
 border-radius: 10px;
 color: #0d9488;
 font-size: 16px;
-font-weight: bold;</string>
+font-weight: bold;
+}
+QPushButton:hover
+{
+   background-color:#0d9488;
+	color:black;
+}
+</string>
             </property>
             <property name="text">
              <string>Ajouter</string>
@@ -1744,15 +1901,49 @@ font-weight: bold;</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="modifier_tache">
+           <widget class="QPushButton" name="upload_taches_3">
             <property name="styleSheet">
-             <string notr="true">border: 2px solid grey;
+             <string notr="true">QPushButton
+{
+border: 2px solid grey;
 padding: 5px;
 color: teal;
 border-radius: 10px;
 color: #0d9488;
 font-size: 16px;
-font-weight: bold;</string>
+font-weight: bold;
+}
+QPushButton:hover
+{
+   background-color:#0d9488;
+	color:black;
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Upload</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="modifier_tache">
+            <property name="styleSheet">
+             <string notr="true">QPushButton
+{
+border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;
+}
+QPushButton:hover
+{
+   background-color:#0d9488;
+	color:black;
+}
+</string>
             </property>
             <property name="text">
              <string>Modifier</string>
@@ -1762,13 +1953,22 @@ font-weight: bold;</string>
           <item>
            <widget class="QPushButton" name="supprimer_tache">
             <property name="styleSheet">
-             <string notr="true">border: 2px solid grey;
+             <string notr="true">QPushButton
+{
+border: 2px solid grey;
 padding: 5px;
 color: teal;
 border-radius: 10px;
 color: #0d9488;
 font-size: 16px;
-font-weight: bold;</string>
+font-weight: bold;
+}
+QPushButton:hover
+{
+   background-color:#0d9488;
+	color:black;
+}
+</string>
             </property>
             <property name="text">
              <string>Supprimer</string>
@@ -1776,18 +1976,27 @@ font-weight: bold;</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="trier_taches">
+           <widget class="QPushButton" name="chercher_tacheB_3">
             <property name="styleSheet">
-             <string notr="true">border: 2px solid grey;
+             <string notr="true">QPushButton
+{
+border: 2px solid grey;
 padding: 5px;
 color: teal;
 border-radius: 10px;
 color: #0d9488;
 font-size: 16px;
-font-weight: bold;</string>
+font-weight: bold;
+}
+QPushButton:hover
+{
+   background-color:#0d9488;
+	color:black;
+}
+</string>
             </property>
             <property name="text">
-             <string>Trier</string>
+             <string>Chercher</string>
             </property>
            </widget>
           </item>
@@ -1799,7 +2008,7 @@ font-weight: bold;</string>
      <widget class="QPushButton" name="retour_taches">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>10</x>
         <y>0</y>
         <width>93</width>
         <height>28</height>
@@ -1817,6 +2026,93 @@ font-weight: bold;</string>
       <property name="text">
        <string>Retour</string>
       </property>
+     </widget>
+     <widget class="QTableView" name="tableView_tache">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>360</y>
+        <width>951</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: transparent;
+color: teal;
+</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="Tri_box">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>360</y>
+        <width>191</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: transparent;</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_7">
+       <item>
+        <widget class="QRadioButton" name="tri_date_2">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Trier par Date </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="tri_nom_2">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Trier par Nom</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="tri_id_2">
+         <property name="styleSheet">
+          <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+         </property>
+         <property name="text">
+          <string>Trier par ID</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
     <widget class="QWidget" name="Arduino_MP">
@@ -3185,8 +3481,8 @@ letter-spacing: 0.1px;</string>
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_16aaa">
@@ -3465,8 +3761,8 @@ background: transparent;</string>
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="line_41mouchnormal">
@@ -5400,6 +5696,198 @@ color: rgb(255, 0, 0);</string>
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="Architect">
+     <widget class="QPushButton" name="retour_taches_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Retour</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>1161</width>
+        <height>671</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <widget class="QLabel" name="image_2">
+       <property name="geometry">
+        <rect>
+         <x>184</x>
+         <y>10</y>
+         <width>861</width>
+         <height>601</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>162</width>
+         <height>94</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string/>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_12">
+        <item>
+         <widget class="QPushButton" name="publierPlan_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton
+{
+border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;
+}
+QPushButton:hover
+{
+   background-color:#0d9488;
+	color:black;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Publier le plan</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="accesPlan_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton
+{
+border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;
+}
+QPushButton:hover
+{
+   background-color:#0d9488;
+	color:black;
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Acceder au plan</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Employe_Tache">
+     <widget class="QTableView" name="tableView_employe">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>1061</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: transparent;
+color: teal;
+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="export_button">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>410</y>
+        <width>421</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;
+}
+QPushButton:hover
+{
+   background-color:#0d9488;
+	color:black;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Export</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Retour_employe">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid grey;
+padding: 5px;
+color: teal;
+border-radius: 10px;
+color: #0d9488;
+font-size: 16px;
+font-weight: bold;</string>
+      </property>
+      <property name="text">
+       <string>Retour</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -5408,7 +5896,7 @@ color: rgb(255, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>1209</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

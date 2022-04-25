@@ -7,6 +7,7 @@
 #include "matierep.h"
 #include "messages.h"
 #include "employees.h"
+#include "tache.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -203,6 +204,34 @@ private slots:
 
     void on_Plateforme_emp_clicked();
 
+    void on_ajouter_tache_clicked();
+
+    void on_upload_taches_3_clicked();
+
+    void on_modifier_tache_clicked();
+
+    void on_supprimer_tache_clicked();
+
+    void on_chercher_tacheB_3_clicked();
+
+    void on_tri_date_2_clicked(bool checked);
+
+    void on_tri_nom_2_clicked(bool checked);
+
+    void on_tri_id_2_clicked(bool checked);
+
+    void on_retour_taches_2_clicked();
+
+    void on_publierPlan_clicked();
+
+    void on_accesPlan_clicked();
+
+    void on_publierPlan_2_clicked();
+
+    void on_accesPlan_2_clicked();
+
+    void on_export_button_clicked();
+
 private:
     QSerialPort *serial;
         QString portname;
@@ -218,6 +247,7 @@ private:
     Employees Emp;
     Messages Msg;
     bool ArdunioProcess;
+    Tache T;
 
 };
 #endif // MAINWINDOW_H
