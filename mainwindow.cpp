@@ -750,8 +750,9 @@ void MainWindow::on_amrou1_9_clicked()
 void MainWindow::on_amrou2_5_clicked()
 {
   ui->stackedWidget->setCurrentIndex(14);
+  chantiers c;
   Partenaire p;
-  ui->amrou_outputtable_15->setModel(p.afficher());
+  ui->amrou_outputtable_15->setModel(c.afficher());
 }
 
 void MainWindow::on_amrou1_10_clicked()
@@ -937,8 +938,8 @@ void MainWindow::on_amrou14_5_clicked()
     Partenaire p;
     QItemSelectionModel *select = ui->amrou_outputtable_15->selectionModel();
     ofstream idchantier("../Smart_Contracting_And_Construction_Company_2A2/id_chantier.txt");
-    QString id = "2"; //select->selectedRows(0).value(0).data().toString();
-    qDebug() << "id = " << id << endl;
+    QString id = select->selectedRows(0).value(0).data().toString();
+    qDebug()<< "id to be sent to rec = " << id << endl;
     idchantier << id.toStdString();
     idchantier.close();
     ui->stackedWidget->setCurrentIndex(16);
@@ -969,7 +970,8 @@ void MainWindow::on_amrou5_10_clicked()
 {
     ui->stackedWidget->setCurrentIndex(14);
     Partenaire p;
-    ui->amrou_outputtable_15->setModel(p.afficher());
+    chantiers c;
+    ui->amrou_outputtable_15->setModel(c.afficher());
 }
 
 
