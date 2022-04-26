@@ -7,7 +7,7 @@ class chantiers
 {
 public:
     chantiers();
-    chantiers(int,QString,int,QString,QDate,QDate,int);
+    chantiers(int,QString,int,QString,QDate,QDate,int,QString);
 int getid_c ();
 QString getemplacement() ;
 int getsurface();
@@ -30,7 +30,7 @@ QSqlQueryModel* tri_date();
 QSqlQueryModel* tri_surface();
 private:
     int id_c,surface,id_e;
-    QString description,emplacement ;
+    QString description,emplacement,plan ;
     QDate date_debut,date_fin ;
 };
 

@@ -501,7 +501,8 @@ void MainWindow::on_ajouter_clicked()
     QDate date_debut = ui->dateEdit->date();
     QDate date_fin = ui->dateEdit_2->date();
     int id_e=ui->nomm->currentText().toInt();
-  chantiers C(id_c, emplacement , surface, description ,date_debut, date_fin,id_e);
+    QString plan=ui->planC->text() ;
+  chantiers C(id_c, emplacement , surface, description ,date_debut, date_fin,id_e,plan);
   bool test=C.ajouter();
   QMessageBox msgBox ;
   if(test)
@@ -545,6 +546,7 @@ void MainWindow::on_modifi_clicked()
        ui->description_3->setText(selected1->selectedRows(3).value(0).data().toString());
        ui->date_3->setText(selected1->selectedRows(4).value(0).data().toString());
        ui->date2_3->setText(selected1->selectedRows(5).value(0).data().toString());
+       ui->planC_2->setText(selected1->selectedRows(6).value(0).data().toString());
        QSqlQueryModel * model=new QSqlQueryModel();
        QSqlQuery qtest;
        qtest.prepare("select ID_E from EMPLOYEES where role = 'manager' ");
@@ -560,7 +562,7 @@ void MainWindow::on_retour_chantier_5_clicked()
 
 void MainWindow::on_modifier_clicked()
 {
-   chantiers c(ui->le_idc_3->text().toInt(),ui->emplacement_3->text(), ui->surface_3->text().toInt(),ui->description_3->text() ,QDate::currentDate(), QDate::currentDate(),ui->id->currentText().toInt());
+   chantiers c(ui->le_idc_3->text().toInt(),ui->emplacement_3->text(), ui->surface_3->text().toInt(),ui->description_3->text() ,QDate::currentDate(), QDate::currentDate(),ui->id->currentText().toInt(),ui->planC_2->text());
     bool test=c.modifier();
     QMessageBox msgBox ;
     if(test)

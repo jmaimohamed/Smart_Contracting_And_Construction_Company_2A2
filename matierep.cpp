@@ -149,7 +149,7 @@ MatiereP::MatiereP(int ID_MP,QString NOM_MP,int Quantite, int Prix,int ID_F)
     {
         QSqlQuery query;
         QFile myfile("mydata.txt");
-        myfile.open(QIODevice::WriteOnly);
+        myfile.open(QIODevice::WriteOnly | QIODevice::Text);
         query.prepare("select * from MP");
         query.exec();
         QString line="";
