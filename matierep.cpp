@@ -75,6 +75,16 @@ MatiereP::MatiereP(int ID_MP,QString NOM_MP,int Quantite, int Prix,int ID_F)
        return query.exec();
 
     }
+    bool MatiereP::modifier_qt(int Quantite)
+    {
+        QSqlQuery query;
+       query.prepare("update MP set Quantite=:Quantite where NOM_MP='simen'");
+
+       query.bindValue(":Quantite",Quantite);
+
+       return query.exec();
+
+    }
     QSqlQueryModel * MatiereP::chercher(QString cher)
     {
         QSqlQueryModel * model= new QSqlQueryModel();
@@ -108,7 +118,7 @@ MatiereP::MatiereP(int ID_MP,QString NOM_MP,int Quantite, int Prix,int ID_F)
         notifyIcon->setIcon(QIcon("C:/Users/moham/OneDrive/Bureau/system tray tutorial/feather/alert-triangle.svg"));
         QString s = noti;
         notifyIcon->show();
-        notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été modifiée !",QSystemTrayIcon::Information,15000);
+        notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été "+noti,QSystemTrayIcon::Information,15000);
     }
 
     void MatiereP::notif_supp(QString noti)
@@ -119,7 +129,7 @@ MatiereP::MatiereP(int ID_MP,QString NOM_MP,int Quantite, int Prix,int ID_F)
         notifyIcon->setIcon(QIcon("C:/Users/moham/OneDrive/Bureau/system tray tutorial/feather/alert-triangle.svg"));
         QString s = noti;
         notifyIcon->show();
-        notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été suprimée !",QSystemTrayIcon::Information,15000);
+        notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été"+noti,QSystemTrayIcon::Information,15000);
 
     }
 
@@ -132,7 +142,7 @@ MatiereP::MatiereP(int ID_MP,QString NOM_MP,int Quantite, int Prix,int ID_F)
         notifyIcon->setIcon(QIcon("C:/Users/moham/OneDrive/Bureau/system tray tutorial/feather/alert-triangle.svg"));
         QString s = noti;
         notifyIcon->show();
-        notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été ajouter",QSystemTrayIcon::Information,15000);
+        notifyIcon->showMessage("Gestion d'Une matiere premiere","Une matiere premiere a été "+noti,QSystemTrayIcon::Information,15000);
 
     }
     void MatiereP::file()
@@ -156,3 +166,19 @@ MatiereP::MatiereP(int ID_MP,QString NOM_MP,int Quantite, int Prix,int ID_F)
         }
         myfile.close();
     }
+int MatiereP::getQuantite_UPDATE_S(){
+    QSqlQuery query;
+
+         query.prepare("Select Quantite from MP  where NOM_MP='simen'");
+    query.exec();
+    query.first();
+    return query.value(0).toInt();
+}
+int MatiereP::getQuantite_UPDATE_Y(){
+    QSqlQuery query;
+
+         query.prepare("Select Quantite from MP  where NOM_MP='yajour'");
+    query.exec();
+    query.first();
+    return query.value(0).toInt();
+}

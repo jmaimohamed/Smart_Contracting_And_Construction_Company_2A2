@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include "qcustomplot.h"
 #include <QDebug>
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
+#include "arduino.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -62,9 +65,32 @@ private slots:
 
     void on_fileMP_clicked();
 
+    void on_arduino_clicked();
+
+    void on_return_2_clicked();
+
+
+
+    void on_yajour_clicked();
+
+    void update();
+
+    void on_simen_clicked();
+
+    //void on_upadateeee_clicked();
+
+    void on_plus_S_clicked();
+
 private:
+    QSerialPort *serial;
+        QString portname;
+        quint16 vendorId;
+        quint16 productId;
+        bool arduino_available;
+        void arduino_init();
     Ui::MainWindow *ui;
     MatiereP M;
+    Arduino A;
 
 };
 #endif // MAINWINDOW_H

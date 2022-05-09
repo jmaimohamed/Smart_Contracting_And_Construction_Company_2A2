@@ -6,6 +6,7 @@
 #include "matierep.h"
 #include "qcustomplot.h"
 #include "connection.h"
+#include "arduino.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -13,7 +14,46 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
      ui->tab_test->setModel(M.afficher());
       ui->tab_test->setSelectionBehavior(QAbstractItemView::SelectRows);
+      serial = new QSerialPort(); //Inicializa la variable Serial
+      arduino_available = false;
+
+      foreach (const QSerialPortInfo &serial_Info, QSerialPortInfo::availablePorts()) {//Lee la informaciรณn de cada puerto serial
+              qDebug()<<"Puerto: "<<serial_Info.portName();
+              portname = serial_Info.portName();
+              qDebug()<<"Vendor Id: "<<serial_Info.vendorIdentifier();
+              vendorId = serial_Info.vendorIdentifier();
+              qDebug()<<"Product Id: "<<serial_Info.productIdentifier();
+              productId = serial_Info.productIdentifier();
+              arduino_available = true;
+      }
+      if(arduino_available){
+          arduino_init();
+
+      }
+
 }
+void MainWindow::arduino_init()
+{
+    serial->setPortName(portname);
+        serial->setBaudRate(QSerialPort::Baud9600);
+        serial->setDataBits(QSerialPort::Data8);
+        serial->setParity(QSerialPort::NoParity);
+        serial->setStopBits(QSerialPort::OneStop);
+        serial->setFlowControl(QSerialPort::NoFlowControl);
+        serial->open(QIODevice::ReadWrite);
+        connect(serial,SIGNAL(readyRead()),this,SLOT(update()));
+}
+void MainWindow::update()
+{ qDebug()<<"tfdgdfgfdfg";
+    QString text= serial->readAll();
+    qDebug()<<"ttttttt"<<text.toInt();
+     ui->lcdNumber->display(text.toInt());
+     int k=M.getQuantite_UPDATE_S();
+     qDebug()<<"k"<<k;
+     int all=k+text.toInt();
+     M.modifier_qt(all);
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -193,8 +233,8 @@ void MainWindow::on_supprimer_mp_clicked()
 
    M.supprimer(var.toInt());
  ui->tab_test->setModel(M.afficher());
- QString noti="";
- M.notif_supp(noti);
+ QString noti="supprimer";
+ M.notif_ajout(noti);
 }
 
 void MainWindow::on_ajouter_mp_clicked()
@@ -207,7 +247,7 @@ void MainWindow::on_ajouter_mp_clicked()
      MatiereP M(ID_MP,NOM_MP,Quantite,Prix,ID_F);
      M.ajouter();
      ui->tab_test->setModel(M.afficher());
-     QString noti="";
+     QString noti="ajout";
 
                   M.notif_ajout(noti);
 }
@@ -222,8 +262,8 @@ int ID_MP=ui->idM->text().toInt();
    MatiereP M(ID_MP,NOM_MP,Quantite,Prix,ID_F);
     M.modifier(ID_MP,NOM_MP,Quantite,Prix,ID_F,ID_MP);
     ui->tab_test->setModel(M.afficher());
-     QString noti="";
-     M.notif_modif(noti);
+     QString noti="modifier";
+      M.notif_ajout(noti);
 }
 void MainWindow::on_chercherM_2_clicked()
 {
@@ -264,4 +304,54 @@ void MainWindow::on_envoiMP_clicked()
 void MainWindow::on_fileMP_clicked()
 {
     M.file();
+}
+
+void MainWindow::on_arduino_clicked()
+{
+     ui->stackedWidget->setCurrentIndex(4);
+}
+
+
+
+void MainWindow::on_return_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+
+
+void MainWindow::on_yajour_clicked()
+{
+    if(serial->isWritable()){
+           serial->write("2");
+           qDebug()<<"yajour";
+    qDebug()<< "data from arduino" << serial->readAll();}
+}
+
+
+
+void MainWindow::on_simen_clicked()
+{
+
+qDebug() << "arduino : " << serial->isWritable() << endl;
+
+    if(serial->isWritable()){
+           serial->write("1");
+           qDebug()<<"simen";
+ }
+
+
+    }
+
+
+
+
+
+void MainWindow::on_plus_S_clicked()
+{
+    int gets=ui->prix->selectedText().toInt();
+    qDebug()<<"gets"<<gets;
+     //int k=M.getQuantite_UPDATE_S();
+     //int all=k+gets;
+     //M.modifier_qt(all);
 }

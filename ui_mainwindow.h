@@ -17,6 +17,7 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -28,7 +29,7 @@
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-#include "qcustomplot.h"
+#include <qcustomplot.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -101,7 +102,25 @@ public:
     QRadioButton *TriNM;
     QRadioButton *TriQM;
     QRadioButton *TriPM;
+    QPushButton *arduino;
     QCustomPlot *customPlot;
+    QLabel *Matieres_Premierss;
+    QWidget *Arduino;
+    QGroupBox *groupBox_2;
+    QGroupBox *image_arduino;
+    QGroupBox *groupBox_4;
+    QVBoxLayout *verticalLayout_7;
+    QPushButton *return_2;
+    QGroupBox *groupBox_6;
+    QGroupBox *groupBox_5;
+    QGridLayout *gridLayout;
+    QPushButton *yajour;
+    QPushButton *plus_S;
+    QPushButton *simen;
+    QPushButton *moin_S;
+    QPushButton *Plus_Y;
+    QPushButton *moins_Y;
+    QLCDNumber *lcdNumber;
     QWidget *chantiers;
     QGroupBox *main_chantier;
     QHBoxLayout *horizontalLayout_2;
@@ -216,7 +235,7 @@ public:
         image_login->setObjectName(QStringLiteral("image_login"));
         image_login->setGeometry(QRect(550, 10, 627, 651));
         image_login->setStyleSheet(QLatin1String("#image_login{\n"
-"background-image:url(\"C:/Users/youfo/Documents/Kraya/Qt/Interface_Finale/logo.png\");\n"
+"background-image:url(\"C:/Users/moham/OneDrive/Bureau/2A/projet web/interface_finale/logo.png\");\n"
 "background-position: center no-repeat;\n"
 "background-size: 50%;\n"
 "border: none;\n"
@@ -441,11 +460,7 @@ public:
         Abutton_box->setObjectName(QStringLiteral("Abutton_box"));
         effacer_mp = new QPushButton(ajout_box);
         effacer_mp->setObjectName(QStringLiteral("effacer_mp"));
-        effacer_mp->setStyleSheet(QLatin1String("border: 2px solid grey;\n"
-"padding: 5px;\n"
-"color: teal;\n"
-"border-radius:10px;\n"
-"color: #0d9488;\n"
+        effacer_mp->setStyleSheet(QLatin1String("color: yellow;\n"
 "font-size: 16px;\n"
 "font-weight: bold;\n"
 ""));
@@ -644,9 +659,9 @@ public:
         RetourM->setGeometry(QRect(0, 0, 131, 41));
         RetourM->setStyleSheet(QLatin1String("border: 2px solid grey;\n"
 "padding: 5px;\n"
-"color: teal;\n"
+"color: red;\n"
 "border-radius: 10px;\n"
-"color: #0d9488;\n"
+"color: red;\n"
 "font-size: 16px;\n"
 "font-weight: bold;"));
         groupBox = new QGroupBox(Matiere_Premiere);
@@ -694,10 +709,148 @@ public:
 
         verticalLayout_6->addWidget(TriPM);
 
+        arduino = new QPushButton(groupBox);
+        arduino->setObjectName(QStringLiteral("arduino"));
+        arduino->setStyleSheet(QLatin1String("border: 2px solid grey;\n"
+"padding: 5px;\n"
+"color: teal;\n"
+"border-radius: 10px;\n"
+"color: #0d9488;\n"
+"font-size: 16px;\n"
+"font-weight: bold;"));
+
+        verticalLayout_6->addWidget(arduino);
+
         customPlot = new QCustomPlot(Matiere_Premiere);
         customPlot->setObjectName(QStringLiteral("customPlot"));
         customPlot->setGeometry(QRect(0, 310, 911, 381));
+        Matieres_Premierss = new QLabel(Matiere_Premiere);
+        Matieres_Premierss->setObjectName(QStringLiteral("Matieres_Premierss"));
+        Matieres_Premierss->setGeometry(QRect(520, 0, 181, 31));
+        Matieres_Premierss->setStyleSheet(QLatin1String("border: 2px solid grey;\n"
+"padding: 5px;\n"
+"color: teal;\n"
+"border-radius: 10px;\n"
+"color: #0d9488;\n"
+"font-size: 16px;\n"
+"font-weight: bold;\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+""));
         stackedWidget->addWidget(Matiere_Premiere);
+        Arduino = new QWidget();
+        Arduino->setObjectName(QStringLiteral("Arduino"));
+        groupBox_2 = new QGroupBox(Arduino);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        groupBox_2->setGeometry(QRect(10, 10, 1121, 671));
+        groupBox_2->setStyleSheet(QLatin1String("border: transparent;\n"
+"padding: 5px;\n"
+"color: teal;\n"
+""));
+        image_arduino = new QGroupBox(groupBox_2);
+        image_arduino->setObjectName(QStringLiteral("image_arduino"));
+        image_arduino->setGeometry(QRect(500, 10, 611, 651));
+        image_arduino->setStyleSheet(QLatin1String("#image_arduino{\n"
+"background-image:url(\"C:/Users/moham/OneDrive/Bureau/2A/projet web/interface_finale/logo.png\");\n"
+"background-position: center no-repeat;\n"
+"background-size: 50%;\n"
+"border: none;\n"
+"border: transparent;\n"
+"padding: 5px;\n"
+"color: teal;\n"
+"}\n"
+"\n"
+""));
+        groupBox_4 = new QGroupBox(groupBox_2);
+        groupBox_4->setObjectName(QStringLiteral("groupBox_4"));
+        groupBox_4->setGeometry(QRect(10, 10, 191, 162));
+        groupBox_4->setStyleSheet(QLatin1String("border: transparent;\n"
+"padding: 5px;\n"
+"color: teal;\n"
+""));
+        verticalLayout_7 = new QVBoxLayout(groupBox_4);
+        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        return_2 = new QPushButton(groupBox_4);
+        return_2->setObjectName(QStringLiteral("return_2"));
+        return_2->setStyleSheet(QLatin1String("border: 2px solid grey;\n"
+"padding: 5px;\n"
+"color: teal;\n"
+"border-radius: 10px;\n"
+"color: #0d9488;\n"
+"font-size: 16px;\n"
+"font-weight: bold;"));
+
+        verticalLayout_7->addWidget(return_2);
+
+        groupBox_6 = new QGroupBox(groupBox_4);
+        groupBox_6->setObjectName(QStringLiteral("groupBox_6"));
+        groupBox_6->setStyleSheet(QLatin1String("border: transparent;\n"
+"padding: 5px;\n"
+"color: teal;\n"
+""));
+
+        verticalLayout_7->addWidget(groupBox_6);
+
+        groupBox_5 = new QGroupBox(groupBox_2);
+        groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
+        groupBox_5->setGeometry(QRect(60, 430, 401, 201));
+        groupBox_5->setStyleSheet(QLatin1String("border: transparent;\n"
+"padding: 5px;\n"
+"color: teal;\n"
+""));
+        gridLayout = new QGridLayout(groupBox_5);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        yajour = new QPushButton(groupBox_5);
+        yajour->setObjectName(QStringLiteral("yajour"));
+        yajour->setStyleSheet(QLatin1String("border: 2px solid grey;\n"
+"padding: 5px;\n"
+"color: teal;\n"
+"border-radius: 10px;\n"
+"color: #0d9488;\n"
+"font-size: 16px;\n"
+"font-weight: bold;"));
+
+        gridLayout->addWidget(yajour, 1, 0, 1, 1);
+
+        plus_S = new QPushButton(groupBox_5);
+        plus_S->setObjectName(QStringLiteral("plus_S"));
+        plus_S->setStyleSheet(QStringLiteral("font: 11pt \"MS Shell Dlg 2\";"));
+
+        gridLayout->addWidget(plus_S, 0, 1, 1, 1);
+
+        simen = new QPushButton(groupBox_5);
+        simen->setObjectName(QStringLiteral("simen"));
+        simen->setStyleSheet(QLatin1String("border: 2px solid grey;\n"
+"padding: 5px;\n"
+"color: teal;\n"
+"border-radius: 10px;\n"
+"color: #0d9488;\n"
+"font-size: 16px;\n"
+"font-weight: bold;"));
+
+        gridLayout->addWidget(simen, 0, 0, 1, 1);
+
+        moin_S = new QPushButton(groupBox_5);
+        moin_S->setObjectName(QStringLiteral("moin_S"));
+        moin_S->setStyleSheet(QStringLiteral("font: 11pt \"MS Shell Dlg 2\";"));
+
+        gridLayout->addWidget(moin_S, 0, 2, 1, 1);
+
+        Plus_Y = new QPushButton(groupBox_5);
+        Plus_Y->setObjectName(QStringLiteral("Plus_Y"));
+        Plus_Y->setStyleSheet(QStringLiteral("font: 11pt \"MS Shell Dlg 2\";"));
+
+        gridLayout->addWidget(Plus_Y, 1, 1, 1, 1);
+
+        moins_Y = new QPushButton(groupBox_5);
+        moins_Y->setObjectName(QStringLiteral("moins_Y"));
+        moins_Y->setStyleSheet(QStringLiteral("font: 12pt \"MS Shell Dlg 2\";"));
+
+        gridLayout->addWidget(moins_Y, 1, 2, 1, 1);
+
+        lcdNumber = new QLCDNumber(groupBox_2);
+        lcdNumber->setObjectName(QStringLiteral("lcdNumber"));
+        lcdNumber->setGeometry(QRect(170, 260, 241, 61));
+        stackedWidget->addWidget(Arduino);
         chantiers = new QWidget();
         chantiers->setObjectName(QStringLiteral("chantiers"));
         main_chantier = new QGroupBox(chantiers);
@@ -969,6 +1122,20 @@ public:
         TriNM->setText(QApplication::translate("MainWindow", "Tri par Nom ", Q_NULLPTR));
         TriQM->setText(QApplication::translate("MainWindow", "Tri par Quantite", Q_NULLPTR));
         TriPM->setText(QApplication::translate("MainWindow", "Tri par Prix", Q_NULLPTR));
+        arduino->setText(QApplication::translate("MainWindow", "Arduino", Q_NULLPTR));
+        Matieres_Premierss->setText(QApplication::translate("MainWindow", "Matieres Premiers", Q_NULLPTR));
+        groupBox_2->setTitle(QString());
+        image_arduino->setTitle(QString());
+        groupBox_4->setTitle(QString());
+        return_2->setText(QApplication::translate("MainWindow", "Return", Q_NULLPTR));
+        groupBox_6->setTitle(QString());
+        groupBox_5->setTitle(QString());
+        yajour->setText(QApplication::translate("MainWindow", "yajour", Q_NULLPTR));
+        plus_S->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
+        simen->setText(QApplication::translate("MainWindow", "simen", Q_NULLPTR));
+        moin_S->setText(QApplication::translate("MainWindow", "-", Q_NULLPTR));
+        Plus_Y->setText(QApplication::translate("MainWindow", "+", Q_NULLPTR));
+        moins_Y->setText(QApplication::translate("MainWindow", "-", Q_NULLPTR));
         main_chantier->setTitle(QString());
         Crud_box_2->setTitle(QString());
         chercher_chantiers->setPlaceholderText(QApplication::translate("MainWindow", "chercher...", Q_NULLPTR));

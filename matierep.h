@@ -27,11 +27,13 @@ class MatiereP
     void setQuantite(int);
     void setPrix(int);
     void setID_F(int);
-
+int getQuantite_UPDATE_S();
+int getQuantite_UPDATE_Y();
 bool ajouter();
 QSqlQueryModel* afficher();
 bool supprimer(int);
 bool modifier(int ID_MP,QString NOM_MP,int Quantite,int Prix,int ID_F,int Id_modif);
+bool modifier_qt(int Quantite);
 QSqlQueryModel* chercher(QString);
 QSqlQueryModel* tri_NOM_MP();
 QSqlQueryModel* tri_Quantite();

@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[24];
-    char stringdata0[491];
+    QByteArrayData data[30];
+    char stringdata0[590];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -54,7 +54,13 @@ QT_MOC_LITERAL(19, 412, 7), // "checked"
 QT_MOC_LITERAL(20, 420, 16), // "on_TriQM_clicked"
 QT_MOC_LITERAL(21, 437, 16), // "on_TriPM_clicked"
 QT_MOC_LITERAL(22, 454, 18), // "on_envoiMP_clicked"
-QT_MOC_LITERAL(23, 473, 17) // "on_fileMP_clicked"
+QT_MOC_LITERAL(23, 473, 17), // "on_fileMP_clicked"
+QT_MOC_LITERAL(24, 491, 18), // "on_arduino_clicked"
+QT_MOC_LITERAL(25, 510, 19), // "on_return_2_clicked"
+QT_MOC_LITERAL(26, 530, 17), // "on_yajour_clicked"
+QT_MOC_LITERAL(27, 548, 6), // "update"
+QT_MOC_LITERAL(28, 555, 16), // "on_simen_clicked"
+QT_MOC_LITERAL(29, 572, 17) // "on_plus_S_clicked"
 
     },
     "MainWindow\0on_login_button_clicked\0\0"
@@ -69,7 +75,9 @@ QT_MOC_LITERAL(23, 473, 17) // "on_fileMP_clicked"
     "on_update_mp_clicked\0on_chercherM_2_clicked\0"
     "on_TriNM_clicked\0checked\0on_TriQM_clicked\0"
     "on_TriPM_clicked\0on_envoiMP_clicked\0"
-    "on_fileMP_clicked"
+    "on_fileMP_clicked\0on_arduino_clicked\0"
+    "on_return_2_clicked\0on_yajour_clicked\0"
+    "update\0on_simen_clicked\0on_plus_S_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -79,7 +87,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      21,   14, // methods
+      27,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -87,27 +95,33 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  119,    2, 0x08 /* Private */,
-       3,    0,  120,    2, 0x08 /* Private */,
-       4,    0,  121,    2, 0x08 /* Private */,
-       5,    0,  122,    2, 0x08 /* Private */,
-       6,    0,  123,    2, 0x08 /* Private */,
-       7,    0,  124,    2, 0x08 /* Private */,
-       8,    0,  125,    2, 0x08 /* Private */,
-       9,    0,  126,    2, 0x08 /* Private */,
-      10,    0,  127,    2, 0x08 /* Private */,
-      11,    0,  128,    2, 0x08 /* Private */,
-      12,    0,  129,    2, 0x08 /* Private */,
-      13,    0,  130,    2, 0x08 /* Private */,
-      14,    0,  131,    2, 0x08 /* Private */,
-      15,    0,  132,    2, 0x08 /* Private */,
-      16,    0,  133,    2, 0x08 /* Private */,
-      17,    0,  134,    2, 0x08 /* Private */,
-      18,    1,  135,    2, 0x08 /* Private */,
-      20,    1,  138,    2, 0x08 /* Private */,
-      21,    1,  141,    2, 0x08 /* Private */,
-      22,    0,  144,    2, 0x08 /* Private */,
-      23,    0,  145,    2, 0x08 /* Private */,
+       1,    0,  149,    2, 0x08 /* Private */,
+       3,    0,  150,    2, 0x08 /* Private */,
+       4,    0,  151,    2, 0x08 /* Private */,
+       5,    0,  152,    2, 0x08 /* Private */,
+       6,    0,  153,    2, 0x08 /* Private */,
+       7,    0,  154,    2, 0x08 /* Private */,
+       8,    0,  155,    2, 0x08 /* Private */,
+       9,    0,  156,    2, 0x08 /* Private */,
+      10,    0,  157,    2, 0x08 /* Private */,
+      11,    0,  158,    2, 0x08 /* Private */,
+      12,    0,  159,    2, 0x08 /* Private */,
+      13,    0,  160,    2, 0x08 /* Private */,
+      14,    0,  161,    2, 0x08 /* Private */,
+      15,    0,  162,    2, 0x08 /* Private */,
+      16,    0,  163,    2, 0x08 /* Private */,
+      17,    0,  164,    2, 0x08 /* Private */,
+      18,    1,  165,    2, 0x08 /* Private */,
+      20,    1,  168,    2, 0x08 /* Private */,
+      21,    1,  171,    2, 0x08 /* Private */,
+      22,    0,  174,    2, 0x08 /* Private */,
+      23,    0,  175,    2, 0x08 /* Private */,
+      24,    0,  176,    2, 0x08 /* Private */,
+      25,    0,  177,    2, 0x08 /* Private */,
+      26,    0,  178,    2, 0x08 /* Private */,
+      27,    0,  179,    2, 0x08 /* Private */,
+      28,    0,  180,    2, 0x08 /* Private */,
+      29,    0,  181,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -129,6 +143,12 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::Bool,   19,
     QMetaType::Void, QMetaType::Bool,   19,
     QMetaType::Void, QMetaType::Bool,   19,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -162,6 +182,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 18: _t->on_TriPM_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 19: _t->on_envoiMP_clicked(); break;
         case 20: _t->on_fileMP_clicked(); break;
+        case 21: _t->on_arduino_clicked(); break;
+        case 22: _t->on_return_2_clicked(); break;
+        case 23: _t->on_yajour_clicked(); break;
+        case 24: _t->update(); break;
+        case 25: _t->on_simen_clicked(); break;
+        case 26: _t->on_plus_S_clicked(); break;
         default: ;
         }
     }
@@ -192,13 +218,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 21)
+        if (_id < 27)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 27;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 21)
+        if (_id < 27)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 21;
+        _id -= 27;
     }
     return _id;
 }
